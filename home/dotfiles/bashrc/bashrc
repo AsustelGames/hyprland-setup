@@ -1,0 +1,36 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+#PS1='[\u@\h \W]\$ '
+#PS1='\[\e[0;97m\](\@)->\[\e[0;35m\][\u]\[\e[0;32m\](\W)\[\e[0;33m\]$\[\e[0;97m\] '
+PS1='\[\e[0;97m\](\@)->\[\e[0;32m\](\W)\[\e[0;97m\]\n > '
+
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
+
+alias nx-re-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop'
+alias nx-ls-gens='sudo nixos-rebuild list-generations'
+alias nx-rm-gens='sudo nix-collect-garbage -d'
+
+alias hc-re='hyprctl reload'
+
+alias se='sudoedit'
+alias si='sudo -i'
+alias st='sudo touch'
+alias smk='mkdir'
+
+alias nv='nvim'
+
+alias c='clear'
+alias ca='clear &&'
+
+alias cm='cmatrix'
+alias pk='pkill'

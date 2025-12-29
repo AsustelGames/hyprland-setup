@@ -1,0 +1,61 @@
+// -*- mode: jsonc -*-
+
+{
+    "position": "top",
+    "height": 34,
+    "spacing": 5,
+
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "tray"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "clock",
+        "battery"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}"
+    },
+    "tray": {
+
+    },
+    "clock": {
+        "timezone": "Europe/Zurich",
+        "format": "  {:%I:%M %p, %a, %d %b} ",
+        "tooltip-format": " {:%a %d.%m.%Y, %H:%M} ",
+	"on-click": "hyprctl dispatch exec '[float]' 'kitty --hold tty-clock -s -c -t -d 0.5 -u' &"
+    },
+    "battery": {
+        "format": " {icon} {capacity}% ",
+        "format-full": "{ icon} {capacity}% ",
+        "format-charging": " 󱐋 {capacity}% ",
+        "format-plugged": " 󱐋 {capacity}% ",
+
+        "format-icons": ["󱟩", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "network": {
+        "format-wifi": " 󰖩 wifi ",
+        "format-ethernet": " 󰈀 ethernet ",
+        "format-disconnected": " 󰖪 no internet ",
+
+        "on-click": "hyprctl dispatch exec '[float]' kitty nmtui &"
+    },
+    "pulseaudio": {
+        "format": " {icon} {volume}% ",
+        "format-bluetooth": " 󰂰 {volume}% ",
+        "format-bluetooth-muted": " 󰂰 muted ",
+        "format-muted": "  muted ",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "hyprctl dispatch exec '[float]' kitty wiremix"
+    }
+}

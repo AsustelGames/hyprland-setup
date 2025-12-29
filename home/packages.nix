@@ -1,0 +1,53 @@
+{ pkgs, ... }:
+
+{  
+  home.packages = with pkgs; [
+    # Desktop
+    nerd-fonts.martian-mono
+    # ly # configuration.nix
+    # hyprland # configuration.nix
+    rofi
+    waybar
+    hyprshot
+    hyprpaper
+    hyprpicker
+    hypridle
+    
+    # Programs
+    nwg-look
+    brave
+    # steam # configuration.nix else won't work
+    bottles
+    prismlauncher
+    discord
+    kitty
+    
+    # Cli Programs
+    neovim
+    bluetui
+    wiremix
+    btop
+    yazi
+    mpv
+    lazygit
+    
+    # Cli Utilities
+    cmake
+    ninja
+    fastfetch
+    cmatrix
+    tldr
+    fzf
+    man
+    p7zip # It took me 30 mins to find out why it was throwing the error at line 27, 7zip -> p7zip 
+    dysk
+    cloc
+    git
+    cliphist
+    wl-clipboard
+    bat
+    udiskie
+    tmux
+    tty-clock
+  ];
+}
