@@ -2,7 +2,7 @@
   imports = [
   ./audio.nix
   ./boot.nix
-  ./experimentalFeatures.nix
+  ./flakes.nix
   ./input.nix
   ./ly.nix
   ./users.nix

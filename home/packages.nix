@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     # Desktop
     nerd-fonts.martian-mono
-    # ly # configuration.nix
-    # hyprland # configuration.nix
+    # ly # in configuration.nix
+    # hyprland # in configuration.nix
     rofi
     waybar
     hyprshot
@@ -16,7 +16,9 @@
     # Programs
     nwg-look
     brave
-    # steam # configuration.nix else won't work
+    obs-studio
+    ferdium
+    # steam # in configuration.nix else won't work
     bottles
     prismlauncher
     discord
@@ -50,4 +52,6 @@
     tmux
     tty-clock
   ];
+
+  programs.home-manager.enable = true;
 }

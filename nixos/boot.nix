@@ -3,5 +3,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
   
   nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 3d";
+  nix.gc.options = "--delete-older-than 2d";
 }
