@@ -16,3 +16,8 @@ x install ferdium
 x video editor
 symlinks
 video editor
+
+nvim add line numbers
+replace discord with ferdium
+git ignore hardware-configuration.nix
+add how to use to readme

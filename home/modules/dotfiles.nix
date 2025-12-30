@@ -1,11 +1,16 @@
 {
   home.file.".bashrc".source = ../dotfiles/bashrc/bashrc;
-  
-  xdg.configFile = { 
+
+  xdg.configFile = {
     "fastfetch".source = ../dotfiles/fastfetch;
     "hypr".source = ../dotfiles/hyprland;
     "kitty".source = ../dotfiles/kitty;
+#    "nvim".source = ../dotfiles/nvim;
+    "obs-studio".source = ../dotfiles/obs;
     "rofi".source = ../dotfiles/rofi;
     "waybar".source = ../dotfiles/waybar;
+#    "yazi".source = ../dotfiles/yazi;
+
   };
 }
+

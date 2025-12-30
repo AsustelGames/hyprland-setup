@@ -1,0 +1,513 @@
+16:34:20.624: Platform: Wayland
+16:34:20.624: CPU Name: 13th Gen Intel(R) Core(TM) i9-13905H
+16:34:20.624: CPU Speed: 639.179MHz
+16:34:20.625: Physical Cores: 14, Logical Cores: 20
+16:34:20.625: Physical Memory: 31816MB Total, 27138MB Free
+16:34:20.625: Kernel Version: Linux 6.12.63
+16:34:20.625: Distribution: NixOS "26.05"
+16:34:20.625: Desktop Environment: Hyprland (Hyprland)
+16:34:20.625: Session Type: wayland
+16:34:20.626: Current Date/Time: 2025-12-30, 04:34:20 PM
+16:34:20.626: Browser Hardware Acceleration: true
+16:34:20.626: Qt Version: 6.10.1 (runtime), 6.10.1 (compiled)
+16:34:20.626: Portable mode: false
+16:34:20.661: OBS 32.0.1 (linux)
+16:34:20.661: ---------------------------------
+16:34:20.662: ---------------------------------
+16:34:20.662: audio settings reset:
+16:34:20.662: 	samples per sec: 48000
+16:34:20.662: 	speakers:        2
+16:34:20.662: 	max buffering:   960 milliseconds
+16:34:20.662: 	buffering type:  dynamically increasing
+16:34:20.664: ---------------------------------
+16:34:20.664: Initializing OpenGL...
+16:34:20.664: Using EGL/Wayland
+16:34:20.708: Initialized EGL 1.5
+16:34:20.721: Loading up OpenGL on adapter Intel Mesa Intel(R) Iris(R) Xe Graphics (RPL-P)
+16:34:20.721: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.3.2, shading language 4.60
+16:34:20.822: ---------------------------------
+16:34:20.822: video settings reset:
+16:34:20.822: 	base resolution:   1920x1080
+16:34:20.822: 	output resolution: 1280x720
+16:34:20.822: 	downscale filter:  Bicubic
+16:34:20.822: 	fps:               30/1
+16:34:20.822: 	format:            NV12
+16:34:20.822: 	YUV mode:          Rec. 709/Partial
+16:34:20.822: NV12 texture support enabled
+16:34:20.822: P010 texture support not available
+16:34:20.827: Audio monitoring device:
+16:34:20.827: 	name: Default
+16:34:20.827: 	id: default
+16:34:20.829: ---------------------------------
+16:34:20.831: Failed to load 'en-US' text for module: 'decklink-captions.so'
+16:34:20.832: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+16:34:20.833: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+16:34:20.833: Failed to initialize module 'decklink.so'
+16:34:20.954: [pipewire] Available capture sources:
+16:34:20.954: [pipewire]     - Monitor source
+16:34:20.954: [pipewire]     - Window source
+16:34:20.963: v4l2loopback not installed, virtual camera not registered
+16:34:20.965: [obs-browser]: Version 2.26.2
+16:34:20.965: [obs-browser]: CEF Version 127.0.6533.120 (runtime), 127.0.0-6533-fix-stutter-and-osr-extra-info.3042+g176b09c+chromium-127.0.6533.120 (compiled)
+16:34:20.972: VAAPI: Failed to initialize display in vaapi_device_h264_supported
+16:34:23.065: VAAPI: API version 1.22
+16:34:23.108: FFmpeg VAAPI H264 encoding supported
+16:34:23.108: VAAPI: Failed to initialize display in vaapi_device_av1_supported
+16:34:23.312: FFmpeg VAAPI AV1 encoding supported
+16:34:23.312: VAAPI: Failed to initialize display in vaapi_device_hevc_supported
+16:34:23.495: FFmpeg VAAPI HEVC encoding supported
+16:34:23.516: [NVENC] Test process failed: nvenc_lib
+16:34:23.516: NVENC not supported
+16:34:23.516: Failed to initialize module 'obs-nvenc.so'
+16:34:23.921: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.6.3 | RPC Version: 1)
+16:34:23.921: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.10.1 | Qt version (run-time): 6.10.1
+16:34:23.921: [obs-websocket] [obs_module_load] Linked ASIO Version: 103600
+16:34:23.921: [obs-websocket] [Config::Load] Existing configuration not found, using defaults.
+16:34:23.921: [obs-websocket] [Config::Load] (FirstLoad) Generating new server password.
+16:34:23.925: [obs-websocket] [obs_module_load] Module loaded.
+16:34:23.931: [vlc-video]: VLC 3.0.23 Vetinari found, VLC video source enabled
+16:34:23.931: ---------------------------------
+16:34:23.931:   Loaded Modules:
+16:34:23.931:     vlc-video.so
+16:34:23.931:     text-freetype2.so
+16:34:23.931:     rtmp-services.so
+16:34:23.931:     obs-x264.so
+16:34:23.931:     obs-websocket.so
+16:34:23.931:     obs-webrtc.so
+16:34:23.931:     obs-vst.so
+16:34:23.931:     obs-transitions.so
+16:34:23.931:     obs-qsv11.so
+16:34:23.931:     obs-outputs.so
+16:34:23.931:     obs-libfdk.so
+16:34:23.931:     obs-filters.so
+16:34:23.931:     obs-ffmpeg.so
+16:34:23.931:     obs-browser.so
+16:34:23.931:     linux-v4l2.so
+16:34:23.931:     linux-pulseaudio.so
+16:34:23.931:     linux-pipewire.so
+16:34:23.931:     linux-jack.so
+16:34:23.931:     linux-capture.so
+16:34:23.931:     linux-alsa.so
+16:34:23.931:     image-source.so
+16:34:23.931:     frontend-tools.so
+16:34:23.931:     decklink-output-ui.so
+16:34:23.931:     decklink-captions.so
+16:34:23.931: ---------------------------------
+16:34:23.931: ---------------------------------
+16:34:23.931: Available Encoders:
+16:34:23.931:   Video Encoders:
+16:34:23.931: 	- ffmpeg_svt_av1 (SVT-AV1)
+16:34:23.931: 	- ffmpeg_aom_av1 (AOM AV1)
+16:34:23.931: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+16:34:23.931: 	- av1_ffmpeg_vaapi_tex (FFmpeg VAAPI AV1)
+16:34:23.931: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+16:34:23.931: 	- obs_x264 (x264)
+16:34:23.931:   Audio Encoders:
+16:34:23.931: 	- ffmpeg_aac (FFmpeg AAC)
+16:34:23.931: 	- ffmpeg_opus (FFmpeg Opus)
+16:34:23.931: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+16:34:23.931: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+16:34:23.931: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+16:34:23.931: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+16:34:23.931: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+16:34:23.931: 	- libfdk_aac (libfdk AAC)
+16:34:23.931: ==== Startup complete ===============================================
+16:34:23.935: No scene file found, creating default scene
+16:34:23.973: Failed to register with host portal QDBusError("org.freedesktop.portal.Error.Failed", "Could not register app ID: Connection already associated with an application ID")
+16:34:23.974: All scene data cleared
+16:34:23.974: ------------------------------------------------
+16:34:23.991: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.9) 15.0.0'
+16:34:23.991: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+16:34:23.991: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor' (default)
+16:34:23.992: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.9) 15.0.0'
+16:34:23.992: pulse-input: Audio format: s32le, 48000 Hz, 4 channels
+16:34:23.992: pulse-input: Started recording from 'alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source' (default)
+16:34:23.994: Switched to scene 'Scene'
+16:34:23.994: Created scene collection 'Untitled' (clean, Untitled.json)
+16:34:23.994: ------------------------------------------------
+16:34:24.012: Device for 'Audio Output Capture' source is also used for audio monitoring:
+16:34:24.012: Deduplication logic is being applied to all monitored sources.
+16:34:24.012: 
+16:34:24.492: [rtmp-services plugin] Successfully updated file 'services.json' (version 281)
+16:34:24.492: [rtmp-services plugin] Successfully updated package (version 281)
+16:34:24.673: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+16:34:24.673: 
+16:34:47.924: 
+16:34:47.924: ==== Auto-config wizard testing commencing ======
+
+16:34:47.927: ---------------------------------
+16:34:47.927: video settings reset:
+16:34:47.927: 	base resolution:   1920x1080
+16:34:47.927: 	output resolution: 1920x1080
+16:34:47.927: 	downscale filter:  Bicubic
+16:34:47.927: 	fps:               60/1
+16:34:47.927: 	format:            NV12
+16:34:47.927: 	YUV mode:          Rec. 709/Partial
+16:34:47.928: NV12 texture support enabled
+16:34:47.928: P010 texture support not available
+16:34:47.936: Output 'null': Tried to use obs_output_set_media on an encoded output
+16:34:47.936: ---------------------------------
+16:34:47.936: [x264 encoder: 'test_x264'] preset: veryfast
+16:34:47.936: [x264 encoder: 'test_x264'] profile: high
+16:34:47.946: [x264 encoder: 'test_x264'] settings:
+16:34:47.946: 	rate_control: CRF
+16:34:47.946: 	bitrate:      0
+16:34:47.946: 	buffer size:  0
+16:34:47.946: 	crf:          20
+16:34:47.946: 	fps_num:      60
+16:34:47.946: 	fps_den:      1
+16:34:47.946: 	width:        1920
+16:34:47.946: 	height:       1080
+16:34:47.946: 	keyint:       250
+16:34:47.946: 
+16:34:47.959: ---------------------------------
+16:34:47.959: [FFmpeg aac encoder: 'test_aac'] bitrate: 32, channels: 2, channel_layout: stereo, track: 1
+16:34:47.959: 
+16:34:52.960: Output 'null': stopping
+16:34:52.960: Output 'null': Total frames output: 255
+16:34:52.960: Output 'null': Total drawn frames: 300
+16:34:53.037: ---------------------------------
+16:34:53.037: video settings reset:
+16:34:53.037: 	base resolution:   1920x1080
+16:34:53.037: 	output resolution: 1280x720
+16:34:53.037: 	downscale filter:  Bicubic
+16:34:53.037: 	fps:               60/1
+16:34:53.037: 	format:            NV12
+16:34:53.037: 	YUV mode:          Rec. 709/Partial
+16:34:53.037: NV12 texture support enabled
+16:34:53.038: P010 texture support not available
+16:34:53.040: Output 'null': Tried to use obs_output_set_media on an encoded output
+16:34:53.040: ---------------------------------
+16:34:53.040: [x264 encoder: 'test_x264'] preset: veryfast
+16:34:53.040: [x264 encoder: 'test_x264'] profile: high
+16:34:53.040: [x264 encoder: 'test_x264'] settings:
+16:34:53.040: 	rate_control: CRF
+16:34:53.040: 	bitrate:      0
+16:34:53.040: 	buffer size:  0
+16:34:53.040: 	crf:          20
+16:34:53.040: 	fps_num:      60
+16:34:53.040: 	fps_den:      1
+16:34:53.040: 	width:        1280
+16:34:53.040: 	height:       720
+16:34:53.040: 	keyint:       250
+16:34:53.040: 
+16:34:53.043: ---------------------------------
+16:34:53.044: [FFmpeg aac encoder: 'test_aac'] bitrate: 32, channels: 2, channel_layout: stereo, track: 1
+16:34:53.044: 
+16:34:58.044: Output 'null': stopping
+16:34:58.044: Output 'null': Total frames output: 263
+16:34:58.044: Output 'null': Total drawn frames: 300
+16:34:58.090: ---------------------------------
+16:34:58.090: video settings reset:
+16:34:58.090: 	base resolution:   1920x1080
+16:34:58.090: 	output resolution: 852x480
+16:34:58.090: 	downscale filter:  Bicubic
+16:34:58.090: 	fps:               60/1
+16:34:58.090: 	format:            NV12
+16:34:58.090: 	YUV mode:          Rec. 709/Partial
+16:34:58.090: NV12 texture support enabled
+16:34:58.090: P010 texture support not available
+16:34:58.094: Output 'null': Tried to use obs_output_set_media on an encoded output
+16:34:58.094: ---------------------------------
+16:34:58.094: [x264 encoder: 'test_x264'] preset: veryfast
+16:34:58.094: [x264 encoder: 'test_x264'] profile: high
+16:34:58.094: [x264 encoder: 'test_x264'] settings:
+16:34:58.094: 	rate_control: CRF
+16:34:58.094: 	bitrate:      0
+16:34:58.094: 	buffer size:  0
+16:34:58.094: 	crf:          20
+16:34:58.094: 	fps_num:      60
+16:34:58.094: 	fps_den:      1
+16:34:58.094: 	width:        852
+16:34:58.094: 	height:       480
+16:34:58.094: 	keyint:       250
+16:34:58.094: 
+16:34:58.099: ---------------------------------
+16:34:58.099: [FFmpeg aac encoder: 'test_aac'] bitrate: 32, channels: 2, channel_layout: stereo, track: 1
+16:34:58.099: 
+16:35:03.100: Output 'null': stopping
+16:35:03.100: Output 'null': Total frames output: 270
+16:35:03.100: Output 'null': Total drawn frames: 300
+16:35:03.116: Device for 'Audio Output Capture' source is also used for audio monitoring:
+16:35:03.116: Deduplication logic is being applied to all monitored sources.
+16:35:03.116: 
+16:35:03.128: ---------------------------------
+16:35:03.128: video settings reset:
+16:35:03.128: 	base resolution:   1920x1080
+16:35:03.128: 	output resolution: 1280x720
+16:35:03.128: 	downscale filter:  Bicubic
+16:35:03.128: 	fps:               30/1
+16:35:03.128: 	format:            NV12
+16:35:03.128: 	YUV mode:          Rec. 709/Partial
+16:35:03.128: NV12 texture support enabled
+16:35:03.128: P010 texture support not available
+16:35:03.158: Device for 'Audio Output Capture' source is also used for audio monitoring:
+16:35:03.158: Deduplication logic is being applied to all monitored sources.
+16:35:03.158: 
+16:35:10.038: ---------------------------------
+16:35:10.038: video settings reset:
+16:35:10.038: 	base resolution:   1920x1080
+16:35:10.038: 	output resolution: 1920x1080
+16:35:10.038: 	downscale filter:  Bicubic
+16:35:10.038: 	fps:               60/1
+16:35:10.038: 	format:            NV12
+16:35:10.038: 	YUV mode:          Rec. 709/Partial
+16:35:10.039: NV12 texture support enabled
+16:35:10.039: P010 texture support not available
+16:35:10.051: 
+16:35:10.051: ==== Auto-config wizard testing stopping ========
+
+16:35:48.362: PipeWire initialized
+16:35:48.379: User added source 'Display' (pipewire-screen-capture-source) to scene 'Scene'
+16:35:48.410: [pipewire] Screencast session created
+16:35:54.781: [pipewire] Asking for monitor and window
+16:35:54.809: [pipewire] source selected, setting up screencast
+16:35:54.817: [pipewire] Server version: 1.4.9
+16:35:54.817: [pipewire] Library version: 1.4.9
+16:35:54.817: [pipewire] Header version: 1.4.9
+16:35:54.817: [pipewire] Created stream 0x563a3fd11f30
+16:35:54.817: [pipewire] Stream 0x563a3fd11f30 state: "connecting" (error: none)
+16:35:54.818: [pipewire] Playing stream 0x563a3fd11f30
+16:35:54.818: [pipewire] Stream 0x563a3fd11f30 state: "paused" (error: none)
+16:35:54.821: [pipewire] Negotiated format:
+16:35:54.821: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.821: [pipewire]     Modifier: 0x0
+16:35:54.821: [pipewire]     Size: 2560x1600
+16:35:54.821: [pipewire]     Framerate: 0/1
+16:35:54.824: [pipewire] Negotiated format:
+16:35:54.824: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.824: [pipewire]     Modifier: 0x100000000000008
+16:35:54.824: [pipewire]     Size: 2560x1600
+16:35:54.824: [pipewire]     Framerate: 0/1
+16:35:54.832: [pipewire] Stream 0x563a3fd11f30 state: "streaming" (error: none)
+16:35:54.859: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+16:35:54.859: [pipewire] Renegotiating stream
+16:35:54.859: [pipewire] Stream 0x563a3fd11f30 state: "paused" (error: none)
+16:35:54.859: [pipewire] Negotiated format:
+16:35:54.859: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.859: [pipewire]     Modifier: 0x100000000000008
+16:35:54.859: [pipewire]     Size: 2560x1600
+16:35:54.859: [pipewire]     Framerate: 0/1
+16:35:54.864: [pipewire] Negotiated format:
+16:35:54.864: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.864: [pipewire]     Modifier: 0x100000000000006
+16:35:54.864: [pipewire]     Size: 2560x1600
+16:35:54.864: [pipewire]     Framerate: 0/1
+16:35:54.864: [pipewire] Negotiated format:
+16:35:54.864: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.864: [pipewire]     Modifier: 0x100000000000006
+16:35:54.864: [pipewire]     Size: 2560x1600
+16:35:54.864: [pipewire]     Framerate: 0/1
+16:35:54.867: [pipewire] Negotiated format:
+16:35:54.867: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.867: [pipewire]     Modifier: 0x100000000000006
+16:35:54.867: [pipewire]     Size: 2560x1600
+16:35:54.867: [pipewire]     Framerate: 0/1
+16:35:54.876: [pipewire] Stream 0x563a3fd11f30 state: "streaming" (error: none)
+16:35:54.890: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+16:35:54.890: [pipewire] Renegotiating stream
+16:35:54.891: [pipewire] Stream 0x563a3fd11f30 state: "paused" (error: none)
+16:35:54.891: [pipewire] Negotiated format:
+16:35:54.891: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.891: [pipewire]     Modifier: 0x100000000000006
+16:35:54.891: [pipewire]     Size: 2560x1600
+16:35:54.891: [pipewire]     Framerate: 0/1
+16:35:54.896: [pipewire] Negotiated format:
+16:35:54.896: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+16:35:54.896: [pipewire]     Modifier: 0x100000000000002
+16:35:54.896: [pipewire]     Size: 2560x1600
+16:35:54.896: [pipewire]     Framerate: 0/1
+16:35:54.911: [pipewire] Stream 0x563a3fd11f30 state: "streaming" (error: none)
+16:36:14.766: ---------------------------------
+16:36:14.766: video settings reset:
+16:36:14.766: 	base resolution:   3072x1920
+16:36:14.766: 	output resolution: 1840x1152
+16:36:14.766: 	downscale filter:  Bicubic
+16:36:14.766: 	fps:               60/1
+16:36:14.766: 	format:            NV12
+16:36:14.766: 	YUV mode:          Rec. 709/Partial
+16:36:14.766: NV12 texture support enabled
+16:36:14.766: P010 texture support not available
+16:36:14.781: Settings changed (outputs, video)
+16:36:14.781: ------------------------------------------------
+16:36:14.796: Device for 'Audio Output Capture' source is also used for audio monitoring:
+16:36:14.796: Deduplication logic is being applied to all monitored sources.
+16:36:14.796: 
+16:37:40.437: ---------------------------------
+16:37:40.437: [x264 encoder: 'simple_video_recording'] preset: veryfast
+16:37:40.437: [x264 encoder: 'simple_video_recording'] profile: high
+16:37:40.437: [x264 encoder: 'simple_video_recording'] settings:
+16:37:40.437: 	rate_control: CRF
+16:37:40.437: 	bitrate:      0
+16:37:40.437: 	buffer size:  0
+16:37:40.437: 	crf:          23
+16:37:40.437: 	fps_num:      60
+16:37:40.437: 	fps_den:      1
+16:37:40.437: 	width:        1840
+16:37:40.437: 	height:       1152
+16:37:40.437: 	keyint:       250
+16:37:40.437: 
+16:37:40.445: libfdk_aac encoder created
+16:37:40.445: libfdk_aac bitrate: 192, channels: 2
+16:37:40.569: ==== Recording Start ===============================================
+16:37:40.569: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/asustel/2025-12-30 16-37-40.mp4'...
+16:37:57.090: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+16:37:57.090: [mp4 muxer: 'simple_file_output'] Number of fragments: 5
+16:37:57.090: [mp4 muxer: 'simple_file_output'] Full moov size: 15 KiB
+16:37:57.090: [mp4 muxer: 'simple_file_output'] Final mdat size: 2661 KiB
+16:37:57.090: Output 'simple_file_output': stopping
+16:37:57.090: Output 'simple_file_output': Total frames output: 955
+16:37:57.090: Output 'simple_file_output': Total drawn frames: 991
+16:37:57.090: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+16:37:57.091: [mp4 output: 'simple_file_output'] File output complete. Finalization took 0 ms.
+16:37:57.091: ==== Recording Stop ================================================
+16:37:57.106: libfdk_aac encoder destroyed
+16:47:20.834: ---------------------------------
+16:47:20.834: [x264 encoder: 'simple_video_recording'] preset: veryfast
+16:47:20.834: [x264 encoder: 'simple_video_recording'] profile: high
+16:47:20.834: [x264 encoder: 'simple_video_recording'] settings:
+16:47:20.834: 	rate_control: CRF
+16:47:20.834: 	bitrate:      0
+16:47:20.834: 	buffer size:  0
+16:47:20.834: 	crf:          23
+16:47:20.834: 	fps_num:      60
+16:47:20.834: 	fps_den:      1
+16:47:20.834: 	width:        1840
+16:47:20.834: 	height:       1152
+16:47:20.834: 	keyint:       250
+16:47:20.834: 
+16:47:20.839: libfdk_aac encoder created
+16:47:20.839: libfdk_aac bitrate: 192, channels: 2
+16:47:20.841: ==== Recording Start ===============================================
+16:47:20.841: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/asustel/2025-12-30 16-47-20.mp4'...
+16:47:22.785: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+16:47:22.786: [mp4 muxer: 'simple_file_output'] Number of fragments: 1
+16:47:22.786: [mp4 muxer: 'simple_file_output'] Full moov size: 2 KiB
+16:47:22.786: [mp4 muxer: 'simple_file_output'] Final mdat size: 193 KiB
+16:47:22.786: Output 'simple_file_output': stopping
+16:47:22.786: Output 'simple_file_output': Total frames output: 72
+16:47:22.786: Output 'simple_file_output': Total drawn frames: 117
+16:47:22.786: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+16:47:22.786: [mp4 output: 'simple_file_output'] File output complete. Finalization took 0 ms.
+16:47:22.787: ==== Recording Stop ================================================
+16:47:22.811: libfdk_aac encoder destroyed
+16:47:24.156: ---------------------------------
+16:47:24.156: [x264 encoder: 'simple_video_recording'] preset: veryfast
+16:47:24.156: [x264 encoder: 'simple_video_recording'] profile: high
+16:47:24.156: [x264 encoder: 'simple_video_recording'] settings:
+16:47:24.156: 	rate_control: CRF
+16:47:24.156: 	bitrate:      0
+16:47:24.156: 	buffer size:  0
+16:47:24.156: 	crf:          23
+16:47:24.156: 	fps_num:      60
+16:47:24.156: 	fps_den:      1
+16:47:24.156: 	width:        1840
+16:47:24.156: 	height:       1152
+16:47:24.156: 	keyint:       250
+16:47:24.156: 
+16:47:24.164: libfdk_aac encoder created
+16:47:24.166: libfdk_aac bitrate: 192, channels: 2
+16:47:24.170: ==== Recording Start ===============================================
+16:47:24.170: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/asustel/2025-12-30 16-47-24.mp4'...
+16:47:25.751: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+16:47:25.751: [mp4 muxer: 'simple_file_output'] Number of fragments: 1
+16:47:25.751: [mp4 muxer: 'simple_file_output'] Full moov size: 2 KiB
+16:47:25.751: [mp4 muxer: 'simple_file_output'] Final mdat size: 172 KiB
+16:47:25.751: Output 'simple_file_output': stopping
+16:47:25.751: Output 'simple_file_output': Total frames output: 50
+16:47:25.751: Output 'simple_file_output': Total drawn frames: 95
+16:47:25.752: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+16:47:25.752: [mp4 output: 'simple_file_output'] File output complete. Finalization took 0 ms.
+16:47:25.752: ==== Recording Stop ================================================
+16:47:25.776: libfdk_aac encoder destroyed
+17:35:29.965: ---------------------------------
+17:35:29.965: video settings reset:
+17:35:29.965: 	base resolution:   1920x1080
+17:35:29.965: 	output resolution: 1920x1080
+17:35:29.965: 	downscale filter:  Lanczos
+17:35:29.965: 	fps:               60/1
+17:35:29.965: 	format:            NV12
+17:35:29.965: 	YUV mode:          Rec. 709/Partial
+17:35:29.965: NV12 texture support enabled
+17:35:29.965: P010 texture support not available
+17:35:29.969: Settings changed (outputs, video, appearance)
+17:35:29.969: ------------------------------------------------
+17:35:32.389: Settings changed (appearance)
+17:35:32.389: ------------------------------------------------
+17:35:36.629: Settings changed (appearance)
+17:35:36.629: ------------------------------------------------
+17:35:39.063: Settings changed (appearance)
+17:35:39.063: ------------------------------------------------
+17:36:38.973: Recording stopped because of bad output path
+17:36:54.877: Settings changed (outputs)
+17:36:54.877: ------------------------------------------------
+17:37:02.954: ---------------------------------
+17:37:02.954: [x264 encoder: 'simple_video_recording'] preset: veryfast
+17:37:02.954: [x264 encoder: 'simple_video_recording'] profile: high
+17:37:02.954: [x264 encoder: 'simple_video_recording'] settings:
+17:37:02.954: 	rate_control: CRF
+17:37:02.954: 	bitrate:      0
+17:37:02.954: 	buffer size:  0
+17:37:02.954: 	crf:          23
+17:37:02.954: 	fps_num:      60
+17:37:02.954: 	fps_den:      1
+17:37:02.954: 	width:        1920
+17:37:02.954: 	height:       1080
+17:37:02.954: 	keyint:       250
+17:37:02.954: 
+17:37:02.961: libfdk_aac encoder created
+17:37:02.961: libfdk_aac bitrate: 192, channels: 2
+17:37:02.964: ==== Recording Start ===============================================
+17:37:02.964: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/asustel/2025-12-30 17-37-02.mp4'...
+17:37:46.588: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+17:37:46.591: [mp4 muxer: 'simple_file_output'] Number of fragments: 12
+17:37:46.592: [mp4 muxer: 'simple_file_output'] Full moov size: 38 KiB
+17:37:46.592: [mp4 muxer: 'simple_file_output'] Final mdat size: 9567 KiB
+17:37:46.592: Output 'simple_file_output': stopping
+17:37:46.592: Output 'simple_file_output': Total frames output: 2573
+17:37:46.592: Output 'simple_file_output': Total drawn frames: 2618
+17:37:46.592: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+17:37:46.593: ==== Recording Stop ================================================
+17:37:46.594: [mp4 output: 'simple_file_output'] File output complete. Finalization took 5 ms.
+17:37:46.616: libfdk_aac encoder destroyed
+17:39:19.890: Settings changed (outputs)
+17:39:19.890: ------------------------------------------------
+17:40:32.783: Settings changed (outputs)
+17:40:32.783: ------------------------------------------------
+17:40:38.032: signal_handler_connect: signal 'file_changed' not found
+17:40:38.032: ==== Recording Start ===============================================
+17:41:10.307: Output 'simple_ffmpeg_output': stopping
+17:41:10.307: Output 'simple_ffmpeg_output': Total frames output: 1936
+17:41:10.307: Output 'simple_ffmpeg_output': Total drawn frames: 1938
+17:41:10.307: ==== Recording Stop ================================================
+17:44:06.595: Settings changed (outputs)
+17:44:06.595: ------------------------------------------------
+17:44:49.605: ---------------------------------
+17:44:49.605: [x264 encoder: 'simple_video_recording'] preset: veryfast
+17:44:49.605: [x264 encoder: 'simple_video_recording'] profile: high
+17:44:49.605: [x264 encoder: 'simple_video_recording'] settings:
+17:44:49.605: 	rate_control: CRF
+17:44:49.605: 	bitrate:      0
+17:44:49.605: 	buffer size:  0
+17:44:49.605: 	crf:          16
+17:44:49.605: 	fps_num:      60
+17:44:49.605: 	fps_den:      1
+17:44:49.605: 	width:        1920
+17:44:49.605: 	height:       1080
+17:44:49.605: 	keyint:       250
+17:44:49.605: 
+17:44:49.620: libfdk_aac encoder created
+17:44:49.620: libfdk_aac bitrate: 192, channels: 2
+17:44:49.622: ==== Recording Start ===============================================
+17:44:49.622: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/asustel/2025-12-30 17-44-49.mp4'...
+17:45:06.739: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+17:45:06.740: [mp4 muxer: 'simple_file_output'] Number of fragments: 5
+17:45:06.740: [mp4 muxer: 'simple_file_output'] Full moov size: 15 KiB
+17:45:06.740: [mp4 muxer: 'simple_file_output'] Final mdat size: 7929 KiB
+17:45:06.740: Output 'simple_file_output': stopping
+17:45:06.740: Output 'simple_file_output': Total frames output: 982
+17:45:06.740: Output 'simple_file_output': Total drawn frames: 1027
+17:45:06.741: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+17:45:06.741: [mp4 output: 'simple_file_output'] File output complete. Finalization took 2 ms.
+17:45:06.744: ==== Recording Stop ================================================
+17:45:06.763: libfdk_aac encoder destroyed

@@ -15,8 +15,10 @@
     
     # Programs
     nwg-look
+    firefox
     brave
     obs-studio
+    audacity
     ferdium
     # steam # in configuration.nix else won't work
     bottles
