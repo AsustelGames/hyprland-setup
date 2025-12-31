@@ -12,7 +12,7 @@ wrap = "yes"
 
 [opener]
 edit = [
-  { run = "nvim %s", block = true },
-  { run = "mpv %s", block = true },
+  { run = "nvim", block = true },
+  { run = "mpv", block = true },
 ]
 
