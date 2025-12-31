@@ -1,0 +1,9 @@
+[icon]
+prepend_cords = [
+  { if = "dir", text = "" },
+  { if = "hidden & dir", text = "󱞞"},
+  { if = "hidden", text = "󰘓" },
+  { if = "link", text = "" },
+  { if = "orphan", text = "" },
+  { if = "exec", text = "󰲌" },
+]

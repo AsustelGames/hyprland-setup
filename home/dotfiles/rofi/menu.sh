@@ -68,20 +68,22 @@ elif [ "$flag" = "-a" ]; then
     " Steam"
     " Prism Launcher"
     "󰡔 Bottles"
-    " Discord"
+    "󱗞 Ferdium"
     " OBS Studio"
+    " Audacity"
     " Brave"
   )
 
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Search: " $programTheme)
 
   case "$choice" in
-    1) $coolerWarning && $runOnGPUCommand steam & ;;
-    2) $coolerWarning && $runOnGPUCommand prismlauncher & ;;
-    3) $coolerWarning && $runOnGPUCommand bottles & ;;
-    4) exec discord & ;;
-    5) exec obs & ;;
-    6) exec brave & ;;
+    1) $runOnGPUCommand steam & ;;
+    2) $runOnGPUCommand prismlauncher & ;;
+    3) $runOnGPUCommand bottles & ;;
+    4) exec ferdium & ;;
+    5) exec $runOnGPUCommand obs & ;;
+    6) exec audacity & ;;
+    7) exec brave & ;;
     #<) exec  & ;;
   esac
 else
