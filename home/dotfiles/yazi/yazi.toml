@@ -12,7 +12,7 @@ wrap = "yes"
 
 [opener]
 edit = [
-  { run = 'sh -c ''[ -w "$1" ] && exec nvim "$@" || exec sudoedit -- "$@"'' sh "$@"', block = true }
+  { run = "$EDITOR %s", block = true }
   { "mpv %s", block = true }
 ]
 
