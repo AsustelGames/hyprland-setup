@@ -13,6 +13,8 @@ wrap = "yes"
 [opener]
 edit = [
   { run = "$EDITOR %s", block = true },
+]
+open = [
   { run = "mpv $s", block = true },
 ]
 
