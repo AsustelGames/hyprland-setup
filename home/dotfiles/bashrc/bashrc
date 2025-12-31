@@ -18,8 +18,8 @@ export SUDO_EDITOR=nvim
 
 alias a='alias'
 
-alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop && reload hyprctl'
-alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop && reload hyprctl' 
+alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop && hyprctl reload'
+alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop && hyprctl reload' 
 alias nxls-gens='sudo nixos-rebuild list-generations'
 alias nxrm-gens='sudo nix-collect-garbage -d'
 

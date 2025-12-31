@@ -48,6 +48,7 @@
     bat
     udiskie
     tty-clock
+    gcc
   ];
 
   programs.home-manager.enable = true;
