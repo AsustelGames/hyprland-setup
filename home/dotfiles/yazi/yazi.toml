@@ -12,9 +12,9 @@ wrap = "yes"
 
 [opener]
 edit = [
-  { run = "$EDITOR {}", block = true },
+  { run = 'nvim "$@"', block = true },
 ]
 open = [
-  { run = "mpv $s", block = true },
+  { run = 'mpv "$@"', block = true },
 ]
 
