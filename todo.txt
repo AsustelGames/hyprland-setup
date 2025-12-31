@@ -13,12 +13,11 @@ x install obs
 configure nvim
 x Remove ly.nix cod
 x install ferdium
-x video editor
 symlinks
 video editor
 
 nvim add line numbers
-replace discord with ferdium
+x replace discord with ferdium
 git ignore hardware-configuration.nix
 add how to use to readme
 add bluetooth to waybar
