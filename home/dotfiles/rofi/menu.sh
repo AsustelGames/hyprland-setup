@@ -81,7 +81,7 @@ elif [ "$flag" = "-a" ]; then
     1) $runOnGPUCommand prismlauncher & ;;
     2) $runOnGPUCommand bottles & ;;
     3) exec ferdium & ;;
-    4) exec $runOnGPUCommand obs & ;;
+    4) exec obs & ;;
     5) exec audacity & ;;
     6) exec brave & ;;
     #) exec  & ;;
