@@ -12,6 +12,7 @@
     hypridle
     
     # Programs
+    vscode
     nwg-look
     brave
     obs-studio

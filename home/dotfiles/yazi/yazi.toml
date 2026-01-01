@@ -12,7 +12,7 @@ wrap = "yes"
 
 [opener]
 edit = [
-  { run = 'nvim "$@"', block = true },
+  { run = 'sudoedit "$@"', block = true },
 ]
 open = [
   { run = 'mpv "$@"', block = true },
