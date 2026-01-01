@@ -12,7 +12,7 @@ wrap = "yes"
 
 [opener]
 edit = [
-  { run = 'sudoedit "$@"', block = true },
+  { run = 'code --wait "$@"', block = true },
 ]
 open = [
   { run = 'mpv "$@"', block = true },

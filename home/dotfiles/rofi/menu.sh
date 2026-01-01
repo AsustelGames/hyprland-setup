@@ -65,6 +65,7 @@ elif [ "$flag" = "-c" ]; then
   cliphist list | rofi -dmenu -p "Search: " $clipboardTheme -display-columns 2 | cliphist decode | wl-copy
 elif [ "$flag" = "-a" ]; then
    options=(
+    " VSCode"
     " Steam"
     " Prism Launcher"
     "󰡔 Bottles"
@@ -77,13 +78,14 @@ elif [ "$flag" = "-a" ]; then
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Search: " $programTheme)
 
   case "$choice" in
-    0) $runOnGPUCommand steam & ;;
-    1) $runOnGPUCommand prismlauncher & ;;
-    2) $runOnGPUCommand bottles & ;;
-    3) exec ferdium & ;;
-    4) exec obs & ;;
-    5) exec audacity & ;;
-    6) exec brave & ;;
+    0) exec code ;;
+    1) $runOnGPUCommand steam & ;;
+    2) $runOnGPUCommand prismlauncher & ;;
+    3) $runOnGPUCommand bottles & ;;
+    4) exec ferdium & ;;
+    5) exec obs & ;;
+    6) exec audacity & ;;
+    7) exec brave & ;;
     #) exec  & ;;
   esac
 else
