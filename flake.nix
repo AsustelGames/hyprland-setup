@@ -8,10 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, catppuccin, ... } @ inputs:
   let
     system = "x86_64-linux";
   in {
@@ -26,9 +27,13 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+              catppuccin.homeModules.catppuccin
+            ];
             home-manager.backupFileExtension = "bak";
             home-manager.users.asustel = import ./home/home.nix;
           }
+          catppuccin.nixosModules.catppuccin
          ];
        };
        
@@ -42,9 +47,13 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+              catppuccin.homeModules.catppuccin
+            ];
             home-manager.backupFileExtension = "bak";
             home-manager.users.asustel = import ./home/home.nix;
           }
+          catppuccin.nixosModules.catppuccin
          ];    
        };
           

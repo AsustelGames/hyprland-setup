@@ -1,14 +1,24 @@
 { pkgs, ... }:
 
 {
+  catppuccin = {
+    flavor = "macchiato";
+    brave.enable = true;
+    btop.enable = true;
+  };
+
+
   gtk = {
     enable = true;
     
     theme = {
-      name = "Omni";
-      package = pkgs.omni-gtk-theme;
+      name = "Catppuccin-Macchiato-Standard";
+      package = pkgs.catppuccin;
     };
     
+    
+    #catppuccin.flavor = "macchiato";
+
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };

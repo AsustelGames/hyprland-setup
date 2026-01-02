@@ -50,6 +50,9 @@
     udiskie
     tty-clock
     gcc
+    
+    # misc
+    alsa-lib
   ];
 
   programs.home-manager.enable = true;
