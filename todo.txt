@@ -1,12 +1,3 @@
-disable hyprland popup and auto update
-x make hyprland config use defaultTerminal var
-x change fastfetch logo
-x create aliases
-use hypridle
-x garbage collection
-fix keyboard in bootloader
-add icons in terminal e.g. icons in ls
-
 sudo nixos-rebuild switch --flake /etc/nixos#laptop
 
 x install obs
@@ -16,8 +7,11 @@ x install ferdium
 symlinks
 video editor
 
-nvim add line numbers
-x replace discord with ferdium
-git ignore hardware-configuration.nix
-add how to use to readme
+disable hyprland popup and auto update
+fix keyboard in bootloader
+use hypridle
+add how to use section to readme
 add bluetooth to waybar
+auto create home folders like downloads
+add obs to dotfiles
+find a video editor
