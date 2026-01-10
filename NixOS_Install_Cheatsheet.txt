@@ -28,7 +28,9 @@ nixos-install
 
 # Installation from github repo
 git clone https://github.com/AsustelGames/hyprland-setup /mnt/etc/nixos
-sudo nixos-generate-config --root /mnt --dir /etc/nixos/hosts/laptop
+nixos-generate-config --root /mnt --dir /mnt/etc/nixos/hosts/laptop
+
+rm /mnt/etc/nixos/hosts/laptop/hardware-configuration.nix
 
 nixos-install --root /mnt --flake /mnt/etc/nixos#laptop
 
