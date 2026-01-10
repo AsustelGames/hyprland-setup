@@ -15,3 +15,7 @@ add bluetooth to waybar
 auto create home folders like downloads
 add obs to dotfiles
 find a video editor
+make it so when you click wifi icon in waybar it runs nmtui as sudo
+make it so when you click on the clock in waybar it changes to alt format and shows seconds too instead of opening tty-clock and remove tty-clock
+set email in git.nix
+fix menu.sh by auto detecting gpu
