@@ -30,7 +30,7 @@ nixos-install
 git clone https://github.com/AsustelGames/hyprland-setup /mnt/etc/nixos
 nixos-generate-config --root /mnt --dir /mnt/etc/nixos/hosts/laptop
 
-nixos-install --root /mnt --flake /mnt/etc/nixos#laptop
+nixos-install --root /mnt --flake /mnt/etc/nixos#laptop --impure
 
 
 nixos-enter --root /mnt -c 'passwd asustel'
