@@ -30,7 +30,8 @@
     "clock": {
         "timezone": "Europe/Zurich",
         "format": "  {:%I:%M %p, %a, %d %b} ",
-        "tooltip-format": " {:%a %H:%M %d.%m.%Y, } ",
+        "format-alt": " {:%I:%M:%ss %p, %a, %d %b}",
+        "tooltip-format": " {:%a, %H:%M, %d.%m.%Y } ",
 	"on-click": "hyprctl dispatch exec '[float]' 'kitty --hold tty-clock -s -c -t -d 0.5 -u' &"
     },
     "battery": {

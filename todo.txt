@@ -14,11 +14,9 @@ add how to use section to readme
 add bluetooth to waybar
 auto create home folders like downloads
 add obs to dotfiles
-find a video editor
-make it so when you click wifi icon in waybar it runs nmtui as sudo
+find a video editing program
 make it so when you click on the clock in waybar it changes to alt format and shows seconds too instead of opening tty-clock and remove tty-clock
 set email and username in git.nix
-fix menu.sh by auto detecting gpu
+fix menu.sh by making it auto detect gpus
 find a tui replacement for nvim and vscode
 optimize steam
-set x11 app and cusor scale
