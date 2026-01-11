@@ -30,7 +30,7 @@
     "clock": {
         "timezone": "Europe/Zurich",
         "format": "  {:%I:%M %p, %a, %d %b} ",
-        "tooltip-format": " {:%a %d.%m.%Y, %H:%M} ",
+        "tooltip-format": " {:%a %H:%M %d.%m.%Y, } ",
 	"on-click": "hyprctl dispatch exec '[float]' 'kitty --hold tty-clock -s -c -t -d 0.5 -u' &"
     },
     "battery": {
@@ -46,7 +46,7 @@
         "format-ethernet": " 󰈀 ethernet ",
         "format-disconnected": " 󰖪 no internet ",
 
-        "on-click": "hyprctl dispatch exec '[float]' kitty nmtui &"
+        "on-click": "hyprctl dispatch exec '[float]' kitty sudo nmtui &"
     },
     "pulseaudio": {
         "format": " {icon} {volume}% ",

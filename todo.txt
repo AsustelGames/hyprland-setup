@@ -21,3 +21,4 @@ set email and username in git.nix
 fix menu.sh by auto detecting gpu
 find a tui replacement for nvim and vscode
 optimize steam
+set x11 app and cusor scale

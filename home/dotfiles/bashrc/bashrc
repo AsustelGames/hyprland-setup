@@ -18,11 +18,16 @@ export SUDO_EDITOR="code --wait"
 
 alias a='alias'
 
-alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop && hyprctl reload'
-alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop && hyprctl reload' 
+alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
+alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure && hyprctl reload'
+
+alias nxup-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure --update-input nixpkgs'
+alias nxup-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure --update-input nixpkgs'
+
 alias nxls-gens='sudo nixos-rebuild list-generations'
 alias nxrm-gens='sudo nix-collect-garbage -d'
 
+alias s='sudo'
 alias si='sudo -i'
 alias se='sudoedit'
 alias st='sudo touch'

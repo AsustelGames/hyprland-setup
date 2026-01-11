@@ -9,9 +9,18 @@
   color: white;
 }
 
-#workspaces button.active, #tray:hover {
+#workspaces button.active {
   color: white;
   background-color: #AD5295;
+  border-radius: 5px;
+  transition-property: background-color;
+  transition-duration: .1s;
+  padding: 0px 10px;
+}
+
+#tray:hover {
+  color: white;
+  background-color: #724596;
   border-radius: 5px;
   transition-property: background-color;
   transition-duration: .1s;
