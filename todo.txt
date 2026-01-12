@@ -1,21 +1,14 @@
-sudo nixos-rebuild switch --flake /etc/nixos#laptop
 
-x install obs
 configure nvim
-x Remove ly.nix cod
-x install ferdium
 symlinks
 video editor
 
 disable hyprland popup and auto update
 fix keyboard in bootloader
-use hypridle
 add how to use section to readme
-add bluetooth to waybar
 auto create home folders like downloads
 add obs to dotfiles
 find a video editing program
-make it so when you click on the clock in waybar it changes to alt format and shows seconds too instead of opening tty-clock and remove tty-clock
 set email and username in git.nix
 fix menu.sh by making it auto detect gpus
 find a tui replacement for nvim and vscode

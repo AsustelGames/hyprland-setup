@@ -9,7 +9,6 @@
     hyprshot
     hyprpaper
     hyprpicker
-    hypridle
     
     # Programs
     vscode
@@ -21,7 +20,6 @@
     # steam # in configuration.nix or else won't work
     bottles
     prismlauncher
-    discord
     kitty
     
     # Cli Programs
@@ -48,11 +46,7 @@
     wl-clipboard
     bat
     udiskie
-    tty-clock
     gcc
-    
-    # misc
-    alsa-lib
   ];
 
   programs.home-manager.enable = true;

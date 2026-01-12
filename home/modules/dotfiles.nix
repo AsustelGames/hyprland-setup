@@ -9,7 +9,6 @@
     "rofi".source = ../dotfiles/rofi;
     "waybar".source = ../dotfiles/waybar;
     "yazi".source = ../dotfiles/yazi;
-
   };
 }
 

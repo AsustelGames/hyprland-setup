@@ -13,6 +13,7 @@
         "tray"
     ],
     "modules-right": [
+        "bluetooth",
         "pulseaudio",
         "network",
         "clock",
@@ -27,27 +28,11 @@
     "tray": {
 
     },
-    "clock": {
-        "timezone": "Europe/Zurich",
-        "format": "  {:%I:%M %p, %a, %d %b} ",
-        "format-alt": " {:%I:%M:%ss %p, %a, %d %b}",
-        "tooltip-format": " {:%a, %H:%M, %d.%m.%Y } ",
-	"on-click": "hyprctl dispatch exec '[float]' 'kitty --hold tty-clock -s -c -t -d 0.5 -u' &"
-    },
-    "battery": {
-        "format": " {icon} {capacity}% ",
-        "format-full": "{ icon} {capacity}% ",
-        "format-charging": " 󱐋 {capacity}% ",
-        "format-plugged": " 󱐋 {capacity}% ",
-
-        "format-icons": ["󱟩", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-    "network": {
-        "format-wifi": " 󰖩 wifi ",
-        "format-ethernet": " 󰈀 ethernet ",
-        "format-disconnected": " 󰖪 no internet ",
-
-        "on-click": "hyprctl dispatch exec '[float]' kitty sudo nmtui &"
+    "bluetooth": {
+        "format": "  {status} ",
+        "format-connected": " 󰂲 connected ",
+        "format-connected-battery": " connected {battery}%",
+        "on-click": "hyprctl dispatch exec '[float]' kitty bluetui"
     },
     "pulseaudio": {
         "format": " {icon} {volume}% ",
@@ -58,5 +43,27 @@
             "default": ["", "", ""]
         },
         "on-click": "hyprctl dispatch exec '[float]' kitty wiremix"
+    },
+    "network": {
+        "format-wifi": " 󰖩 wifi ",
+        "format-ethernet": " 󰈀 ethernet ",
+        "format-disconnected": " 󰖪 no internet ",
+
+        "on-click": "hyprctl dispatch exec '[float]' kitty sudo nmtui &"
+    },
+    "clock": {
+        "interval": 1,
+        "timezone": "Europe/Zurich",
+        "format": "  {:%I:%M %p, %a, %d %b} ",
+        "format-alt": "  {:%I:%M:%S %p, %a, %d %b} ",
+        "tooltip-format": " {:%a, %H:%M, %d.%m.%Y }"
+    },
+    "battery": {
+        "format": " {icon} {capacity}% ",
+        "format-full": "{ icon} {capacity}% ",
+        "format-charging": " 󱐋 {capacity}% ",
+        "format-plugged": " 󱐋 {capacity}% ",
+
+        "format-icons": ["󱟩", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     }
 }

@@ -5,7 +5,7 @@
     
 }
 
-#workspaces button, #tray, #pulseaudio, #network, #clock, #battery {
+#workspaces button, #tray, #bluetooth, #pulseaudio, #network, #clock, #battery {
   color: white;
 }
 
@@ -31,7 +31,7 @@
   color: black;
 }
 
-#pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
+#bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
   color: white;
   background-color: #3E3996;
   border-radius: 5px;
