@@ -8,11 +8,6 @@
   
   home.username = "asustel";
   home.homeDirectory = "/home/asustel";
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    
-  };
   
 
   home.file = {
@@ -33,7 +28,6 @@
     "kitty".source = dotfiles/kitty;
     "fastfetch".source = dotfiles/fastfetch;
     "hypr".source = dotfiles/hyprland;
-    "nvim".source = dotfiles/nvim;
     "rofi".source = dotfiles/rofi;
     "waybar".source = dotfiles/waybar;
   };
