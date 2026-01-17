@@ -5,7 +5,7 @@ powerTheme="-theme $HOME/.config/rofi/themes/power.rasi"
 clipboardTheme="-theme $HOME/.config/rofi/themes/clipboard.rasi"
 
 selfPath="$HOME/.config/rofi/menu.sh"
-screenshotPath="$HOME/screenshots"
+screenshotPath="$HOME/Photos/Screenshots"
 
 runOnGPUCommand="nvidia-offload"
 terminal="kitty"

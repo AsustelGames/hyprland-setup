@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # Desktop
     nerd-fonts.martian-mono
+    catppuccin
     rofi
     waybar
     hyprshot
@@ -12,18 +13,17 @@
     
     # Programs
     vscode
-    nwg-look
     brave
     obs-studio
     audacity
-    ferdium
+    discord
     # steam # in configuration.nix or else won't work
     bottles
     prismlauncher
     kitty
     
     # Cli Programs
-    neovim
+    micro
     bluetui
     wiremix
     btop

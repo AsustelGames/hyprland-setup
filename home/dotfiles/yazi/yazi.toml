@@ -1,5 +1,4 @@
 [mgr]
-show_hidden = true
 sort_by = "size"
 ratio = [0, 4, 4]
 sort_dir_first = true
