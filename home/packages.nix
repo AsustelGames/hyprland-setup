@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # Desktop
     nerd-fonts.martian-mono
-    catppuccin
+    tokyonight-gtk-theme
     rofi
     waybar
     hyprshot

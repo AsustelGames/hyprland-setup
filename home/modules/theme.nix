@@ -1,17 +1,17 @@
 { pkgs, lib, ... }:
 
 {
-  programs.btop.enable = true;
-  programs.brave.enable = true;
-  programs.lazygit.enable = true;
-  programs.micro.enable = true;
-  programs.vscode.enable = true;
-  programs.bat.enable = true;
+#  programs.btop.enable = true;
+#  programs.brave.enable = true;
+#  programs.lazygit.enable = true;
+#  programs.micro.enable = true;
+#  programs.vscode.enable = true;
+#  programs.bat.enable = true;
 
-  catppuccin = {
-    enable = true;
-    flavor = "macchiato";
-  };
+#  catppuccin = {
+#    enable = true;
+#    flavor = "macchiato";
+#  };
 
 
 
@@ -23,8 +23,8 @@
 
 
     theme = {
-      name = "catppuccin-macchiato";
-      package = pkgs.catppuccin-gtk;
+      name = "tokyonight";
+      package = pkgs.tokyonight-gtk-theme;
     };
     
     #gtk3.extraConfig = {
