@@ -69,7 +69,7 @@ elif [ "$flag" = "-a" ]; then
     " Steam"
     " Prism Launcher"
     "󰡔 Bottles"
-    "󱗞 Ferdium"
+    " Discord"
     " OBS Studio"
     " Audacity"
     " Brave"

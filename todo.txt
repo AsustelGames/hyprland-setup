@@ -6,10 +6,9 @@ video editor
 disable hyprland popup and auto update
 fix keyboard in bootloader
 add how to use section to readme
-auto create home folders like downloads
 add obs to dotfiles
 find a video editing program
 set email and username in git.nix
 fix menu.sh by making it auto detect gpus
-find a tui replacement for nvim and vscode
 optimize steam
+update install steps
