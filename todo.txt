@@ -1,8 +1,3 @@
-
-configure nvim
-symlinks
-video editor
-
 disable hyprland popup and auto update
 fix keyboard in bootloader
 add how to use section to readme
@@ -12,3 +7,9 @@ set email and username in git.nix
 fix menu.sh by making it auto detect gpus
 optimize steam
 update install steps
+
+theme ideas
+
+galaxy (default)
+blaze
+modern
