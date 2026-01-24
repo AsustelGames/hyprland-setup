@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     # Desktop
     nerd-fonts.martian-mono
-    tokyonight-gtk-theme
     rofi
     waybar
     hyprshot
@@ -34,6 +33,8 @@
     # Cli Utilities
     cmake
     ninja
+    meson
+    gcc
     fastfetch
     cmatrix
     tldr
@@ -41,12 +42,14 @@
     p7zip # It took me 30 mins to find out why it was throwing the error at line 27, 7zip -> p7zip 
     dysk
     cloc
+    gh
     git
     cliphist
     wl-clipboard
+    brightnessctl
+    stow
     bat
     udiskie
-    gcc
   ];
 
   programs.home-manager.enable = true;

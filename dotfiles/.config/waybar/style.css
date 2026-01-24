@@ -1,0 +1,48 @@
+* {
+  font-family: "MartianMono Nerd Font Mono";
+  font-weight: normal;
+  font-size: 13px;
+    
+}
+
+#workspaces button, #tray, #bluetooth, #pulseaudio, #network, #clock, #battery {
+  color: white;
+}
+
+#workspaces button.active {
+  color: white;
+  background-color: #AD5295;
+  border-radius: 5px;
+  transition-property: background-color;
+  transition-duration: .1s;
+  padding: 0px 10px;
+}
+
+#tray:hover {
+  color: white;
+  background-color: #724596;
+  border-radius: 5px;
+  transition-property: background-color;
+  transition-duration: .1s;
+  padding: 0px 10px;
+}
+
+#workspaces button:hover {
+  color: black;
+}
+
+#bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
+  color: white;
+  background-color: #3E3996;
+  border-radius: 5px;
+  transition-property: background-color;
+  transition-duration: .1s;
+}
+
+window#waybar {
+  background-color: rgba(33, 35, 55, 0.8);
+  border-bottom: 3px solid rgba(100, 114, 125, 1.0);
+  border-image: linear-gradient(to right, #AD5295, #3E3996) 45;
+}
+
+

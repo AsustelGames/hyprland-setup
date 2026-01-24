@@ -16,10 +16,12 @@ export EDITOR="micro"
 export VISUAL="micro"
 export SUDO_EDITOR="micro"
 
+
 alias vsc='code'
 alias mic='micro'
 
 alias a='alias'
+alias cs='echo ""'
 
 alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
 alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure && hyprctl reload'
