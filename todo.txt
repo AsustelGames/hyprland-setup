@@ -1,6 +1,4 @@
-disable hyprland popup and auto update
 - fix keyboard in bootloader
-replace lazygit with gh
 add obs to dotfiles
 find a video editing program
 fix menu.sh by making it auto detect gpus
@@ -14,9 +12,6 @@ app menu selector
 quick menu like gnome
 add vpn to waybar
 dynamic app launcher make it eaiser to add pinned apps
-welcome screen
-animated bg
-make an arch version
 make the power menu show the uptime
 make screen darker when less than 25% on a laptop
 
@@ -25,3 +20,4 @@ stow -t ~ -d /etc/nixos -D dotfiles
 
 hyprctl hyprpaper wallpaper 'eDP-1, ~/.config/hypr/wallpapers/bg.jpg, [fit]'
 brightnessctl -d intel_backlight s 100
+

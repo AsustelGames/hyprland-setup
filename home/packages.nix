@@ -34,6 +34,7 @@
     cmake
     ninja
     meson
+    gnumake
     gcc
     fastfetch
     cmatrix
