@@ -3,25 +3,18 @@ disable hyprland popup and auto update
 replace lazygit with gh
 add obs to dotfiles
 find a video editing program
-- set email and username in git.nix + for sudo
 fix menu.sh by making it auto detect gpus
 optimize steam
 update install steps on github and create an how to use section
 configure obs studio
-finish cs alias in bashrc
-test cmake
 notifications
 theme switcher using stow
-fastfetch switcher
-custom fastfetch
 BG switcher
-try walker
 app menu selector
 quick menu like gnome
 add vpn to waybar
 dynamic app launcher make it eaiser to add pinned apps
 welcome screen
-replace file browser maybe
 animated bg
 make an arch version
 make the power menu show the uptime

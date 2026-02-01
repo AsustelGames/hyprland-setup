@@ -17,11 +17,7 @@ export VISUAL="micro"
 export SUDO_EDITOR="micro"
 
 
-alias vsc='code'
-alias mic='micro'
-
 alias a='alias'
-alias cs='echo ""'
 
 alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
 alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure && hyprctl reload'
@@ -35,11 +31,5 @@ alias nxrm-gens='sudo nix-collect-garbage -d'
 alias s='sudo'
 alias si='sudo -i'
 alias se='sudoedit'
-alias st='sudo touch'
-alias sm='sudo mkdir'
 
 alias c='clear'
-alias ca='clear &&'
-
-alias cm='cmatrix'
-alias pk='pkill'

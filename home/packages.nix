@@ -48,7 +48,6 @@
     wl-clipboard
     brightnessctl
     stow
-    bat
     udiskie
   ];
 

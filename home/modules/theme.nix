@@ -22,10 +22,10 @@
     
 
 
-    theme = {
-      name = "tokyonight";
-      package = pkgs.tokyonight-gtk-theme;
-    };
+    #theme = {
+    #  name = "tokyonight";
+    #  package = pkgs.tokyonight-gtk-theme;
+    #};
     
     #gtk3.extraConfig = {
     #  gtk-application-prefer-dark-theme = true;
