@@ -9,7 +9,6 @@ notifications
 theme switcher using stow
 BG switcher
 app menu selector
-quick menu like gnome
 add vpn to waybar
 dynamic app launcher make it eaiser to add pinned apps
 make the power menu show the uptime
