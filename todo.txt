@@ -12,6 +12,7 @@ app menu selector
 dynamic app launcher make it eaiser to add pinned apps
 make the power menu show the uptime
 make screen darker when less than 25% on a laptop
+laptop power saver theme
 
 stow -t ~ -d /etc/nixos dotfiles
 stow -t ~ -d /etc/nixos -D dotfiles
