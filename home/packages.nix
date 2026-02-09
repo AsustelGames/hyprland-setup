@@ -50,6 +50,7 @@
     brightnessctl
     stow
     udiskie
+    libresprite
   ];
 
   programs.home-manager.enable = true;
