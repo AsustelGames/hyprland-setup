@@ -1,0 +1,14 @@
+{
+    "workbench.navigationControl.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "window.commandCenter": false,
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "Martian Mono, monospace",
+    "editor.tabSize": 3,
+    "editor.renderWhitespace": "trailing",
+    "editor.trimAutoWhitespace": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": true
+}

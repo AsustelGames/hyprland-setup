@@ -43,14 +43,14 @@
     p7zip # It took me 30 mins to find out why it was throwing the error at line 27, 7zip -> p7zip 
     dysk
     cloc
-    gh
     git
     cliphist
     wl-clipboard
     brightnessctl
     stow
     udiskie
-    libresprite
+    davinci-resolve
+    aseprite
   ];
 
   programs.home-manager.enable = true;
