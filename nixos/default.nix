@@ -6,7 +6,7 @@
   ./input.nix
   ./ly.nix
   ./users.nix
-  ./hyprland.nix
+  ./wm.nix
   ./wireless.nix
   ];
 }

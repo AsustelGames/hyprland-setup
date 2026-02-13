@@ -36,3 +36,5 @@ nixos-install --root /mnt --flake /mnt/etc/nixos#laptop --impure
 nixos-enter --root /mnt -c 'passwd asustel'
 
 reboot
+
+stow -t ~ -d /etc/nixos dotfiles
