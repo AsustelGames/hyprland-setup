@@ -28,7 +28,7 @@
 }
 
 #workspaces button:hover {
-  color: black;
+  color: white;
 }
 
 #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {

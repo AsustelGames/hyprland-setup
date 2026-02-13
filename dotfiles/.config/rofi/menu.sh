@@ -7,41 +7,30 @@ clipboardTheme="-theme $HOME/.config/rofi/themes/clipboard.rasi"
 selfPath="$HOME/.config/rofi/menu.sh"
 screenshotPath="$HOME/Photos/Screenshots"
 
-runOnGPUCommand="nvidia-offload"
 terminal="kitty"
-coolerWarning="$terminal --hold echo Turn on the cooler"
-
 
 flag=$1
 
-if [ -z "$flag"  ]; then
+
+if [ -z "$flag"  ]; then # Screenshot Menu
   options=(
-    " Audio"
-    "󰖩 Internet"
-    "󰂯 Bluetooth"
-    " Apps"
-    "󱃷 All Apps"
-    " Clipboard"
-    " Screenshot"
-    " Colorpicker"
-    "⏻ Power"
+    " Screenshot Window"
+    " Screenshot Area"
+    "󰍹 Screenshot Monitor"
+    "󰌁 ColorPicker"
   )
 
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Search: " $programTheme)
 
   case "$choice" in
-    0) exec hyprctl dispatch exec '[float]' kitty wiremix & ;;
-    1) exec hyprctl dispatch exec '[float]' kitty nmtui & ;;
-    2) exec hyprctl dispatch exec '[float]' kitty bluetui & ;;
-    3) . $selfPath -a & ;;
-    4) . $selfPath -A & ;;
-    5) . $selfPath -c & ;;
-    6) exec hyprshot -m region -o $screenshotPath & ;;
-    7) exec hyprpicker -a | wl-copy & ;;
-    8) . $selfPath -p & ;;
+    0) exec hyprshot -m window -o $ScreenshotPath & ;;
+    1) exec hyprshot -m region -o $ScreenshotPath & ;;
+    2) exec hyprshot -m output -o $ScreenshotPath & ;;
+    3) exec hyprpicker -a | wl-copy & ;;
     #"") exec  & ;;
   esac
-elif [ "$flag" = "-p" ]; then
+
+elif [ "$flag" = "-p" ]; then # Power Menu
   options=(
     "󰐥 Shutdown"
     " Reboot"
@@ -61,33 +50,16 @@ elif [ "$flag" = "-p" ]; then
       2) hyprctl dispatch exit ;;
     esac
   fi
-elif [ "$flag" = "-c" ]; then
+
+elif [ "$flag" = "-c" ]; then # Clipboard Menu
   cliphist list | rofi -dmenu -p "Search: " $clipboardTheme -display-columns 2 | cliphist decode | wl-copy
-elif [ "$flag" = "-a" ]; then
-   options=(
-    " VSCode"
-    " Steam"
-    " Prism Launcher"
-    "󰡔 Bottles"
-    " Discord"
-    " OBS Studio"
-    " Audacity"
-    " Brave"
-  )
 
-  choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Search: " $programTheme)
+elif [ "$flag" = "-w" ]; then # Clipboard Menu
+  cliphist wipe && cliphist list | rofi -dmenu -p "> Wiped: " $clipboardTheme -display-columns 2 | cliphist decode | wl-copy
 
-  case "$choice" in
-    0) exec code ;;
-    1) $runOnGPUCommand steam & ;;
-    2) $runOnGPUCommand prismlauncher & ;;
-    3) $runOnGPUCommand bottles & ;;
-    4) exec ferdium & ;;
-    5) exec obs & ;;
-    6) exec audacity & ;;
-    7) exec brave & ;;
-    #) exec  & ;;
-  esac
-else
+elif [ "$flag" = "-a" ]; then # App Menu
   rofi -show drun -display-drun "Search: " $programTheme
+
+else # Error
+  rofi -show drun -display-drun "> Error $flag: " $programTheme
 fi
