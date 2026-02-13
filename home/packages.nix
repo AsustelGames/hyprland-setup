@@ -2,7 +2,7 @@
 
 {  
   home.packages = with pkgs; [
-    # Desktop
+    # == Desktop ==
     nerd-fonts.martian-mono
     rofi
     waybar
@@ -10,7 +10,7 @@
     hyprpaper
     hyprpicker
     
-    # Programs
+    # == Programs ==
     vscode
     brave
     obs-studio
@@ -21,7 +21,7 @@
     prismlauncher
     kitty
     
-    # Cli Programs
+    # == Cli Programs ==
     micro
     bluetui
     wiremix
@@ -30,12 +30,8 @@
     mpv
     lazygit
     
-    # Cli Utilities
-    cmake
-    ninja
-    meson
-    gnumake
-    gcc
+    # == Cli Utilities ==
+    jq
     fastfetch
     cmatrix
     tldr
@@ -51,6 +47,15 @@
     udiskie
     davinci-resolve
     aseprite
+    
+    # == In shell.nix ==
+    # cmake
+    # ninja
+    # meson
+    # gnumake
+    # gcc
+    # pkg-config
+    # sdl3
   ];
 
   programs.home-manager.enable = true;

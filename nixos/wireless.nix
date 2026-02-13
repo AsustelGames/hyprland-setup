@@ -1,6 +1,11 @@
 {
-  networking.hostName = "asustel-nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "asustel-nixos";
+    networkmanager.enable = true;
+  };
   
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 }
