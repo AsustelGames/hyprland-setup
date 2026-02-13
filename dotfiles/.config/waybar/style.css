@@ -29,6 +29,11 @@
 
 #workspaces button:hover {
   color: white;
+  background-color: #AD5295;
+  border-radius: 5px;
+  transition-property: background-color;
+  transition-duration: .1s;
+  padding: 0px 10px;
 }
 
 #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   	
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,40 +12,37 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
+    
+    commonHomeManagerConfig = {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.backupFileExtension = "bak";
+      home-manager.users.asustel = import ./home/home.nix;
+    };
   in {
   	nixosConfigurations = {
-       laptop = nixpkgs.lib.nixosSystem {
+       laptop = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          system = system;
          
          modules = [
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
-            home-manager.users.asustel = import ./home/home.nix;
-          }
+          commonHomeManagerConfig
          ];
        };
        
-       desktop = nixpkgs.lib.nixosSystem {
+       desktop = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
-         
          system = system;
+         
          modules = [
           ./hosts/desktop/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "old";
-            home-manager.users.asustel = import ./home/home.nix;
-          }
+          commonHomeManagerConfig
          ];    
        };
           

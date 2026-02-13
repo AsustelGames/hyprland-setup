@@ -45,9 +45,9 @@
         "on-click": "hyprctl dispatch exec '[float]' kitty wiremix"
     },
     "network": {
-        "format-wifi": " 󰖩 wifi ",
-        "format-ethernet": " 󰈀 ethernet ",
-        "format-disconnected": " 󰖪 no internet ",
+        "format-wifi": " 󰖩 on ",
+        "format-ethernet": " 󰈀 on ",
+        "format-disconnected": " 󰖪 off  ",
 
         "on-click": "hyprctl dispatch exec '[float]' kitty sudo nmtui &"
     },
