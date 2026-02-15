@@ -23,9 +23,9 @@ if [ -z "$flag"  ]; then # Screenshot Menu
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Search: " $programTheme)
 
   case "$choice" in
-    0) exec hyprshot -m window -o $ScreenshotPath & ;;
-    1) exec hyprshot -m region -o $ScreenshotPath & ;;
-    2) exec hyprshot -m output -o $ScreenshotPath & ;;
+    0) exec hyprshot -m window -o $screenshotPath & ;;
+    1) exec hyprshot -m region -o $screenshotPath & ;;
+    2) exec hyprshot -m output -o $screenshotPath & ;;
     3) exec hyprpicker -a | wl-copy & ;;
     #"") exec  & ;;
   esac
