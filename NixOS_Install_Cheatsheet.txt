@@ -37,4 +37,6 @@ nixos-enter --root /mnt -c 'passwd asustel'
 
 reboot
 
+
+sudo chown -R "$USER:$(id -gn $USER)" /etc/nixos/dotfiles
 stow -t ~ -d /etc/nixos dotfiles

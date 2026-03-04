@@ -8,6 +8,7 @@
 
 #workspaces button, #tray, #bluetooth, #pulseaudio, #network, #clock, #battery {
   color: white;
+  margin: 0 4px;
 }
 
 #workspaces button.active {
@@ -45,9 +46,11 @@
 }
 
 window#waybar {
-  background-color: rgba(33, 35, 55, 0.8);
-  border-bottom: 3px solid rgba(100, 114, 125, 1.0);
-  border-image: linear-gradient(to right, #AD5295, #3E3996) 45;
+  background-color: @bg;
+  margin: 10px 20px;
+  border-radius: 5px;
+  background: rgba(30, 30, 6, 0.9);
+  padding: 6px;
 }
 
 

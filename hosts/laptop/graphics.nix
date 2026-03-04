@@ -7,7 +7,7 @@
     modesetting.enable = true;
     open = false;
     powerManagement.enable = true;
-    nvidiaSettings = true;
+    nvidiaSettings = false;
   };
 }
 

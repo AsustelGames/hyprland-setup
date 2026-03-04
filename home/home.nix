@@ -17,6 +17,7 @@
     "Projects/._".text = "";
     "Videos/OBS/._".text = "";
   };
+  
 
   home.stateVersion = "25.11";
 }

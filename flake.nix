@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
   };
 
@@ -24,6 +29,7 @@
     };
   in {
   	nixosConfigurations = {
+  	   # Laptop Config
        laptop = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          system = system;
@@ -32,9 +38,11 @@
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           commonHomeManagerConfig
+          inputs.dms.nixosModules.dank-material-shell
          ];
        };
-       
+
+       # Desktop Config
        desktop = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          system = system;

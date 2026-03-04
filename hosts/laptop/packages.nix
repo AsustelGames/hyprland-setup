@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     ly
     hyprland
-    awesome
+    dms-shell
     steam
   ];
   
@@ -17,4 +17,5 @@
   };
   
   services.udisks2.enable = true;
+  programs.dank-material-shell.enable = true;
 }

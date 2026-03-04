@@ -9,6 +9,7 @@
     hyprshot
     hyprpaper
     hyprpicker
+    swaynotificationcenter
     
     # == Programs ==
     vscode
@@ -45,15 +46,15 @@
     brightnessctl
     stow
     udiskie
-    davinci-resolve
     aseprite
+    kicad-unstable-small
     
     # == In shell.nix ==
     # cmake
     # ninja
     # meson
     # gnumake
-    # gcc
+    gcc
     # pkg-config
     # sdl3
   ];
