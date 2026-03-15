@@ -27,7 +27,7 @@ alias nxup='sudo nix flake update --flake /etc/nixos --impure'
 alias nxls-gens='sudo nixos-rebuild list-generations'
 alias nxrm-gens='sudo nix-collect-garbage -d'
 
-alias ns='nix-shell /etc/nixos/shell.nix'
+alias nxsh='nix-shell /etc/nixos/shell.nix'
 alias clc='cloc --by-file-by-lang'
 
 alias s='sudo'

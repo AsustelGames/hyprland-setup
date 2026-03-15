@@ -18,6 +18,7 @@ menu() {
     currentTheme="-theme $programTheme"
   fi
   options=(
+    "󰃠 Brightness"
     " Screenshot + Colorpicker"
     " Apps"
     " Clipboard"
@@ -27,13 +28,50 @@ menu() {
   )
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Menu: " $currentTheme)
   case "$choice" in
-    0) screenshotMenu ;;
-    1) appMenu ;;
-    2) clipboardMenu ;;
-    3) clipboardWipe ;;
-    4) themeMenu ;;
-    5) powerMenu ;;
+    0) brightnessMenu ;;
+    1) screenshotMenu ;;
+    2) appMenu ;;
+    3) clipboardMenu ;;
+    4) clipboardWipe ;;
+    5) themeMenu ;;
+    6) powerMenu ;;
   esac
+}
+
+
+brightnessMenu() {
+  device=$1
+  
+  if [ -e "$clipboardTheme" ]; then
+    currentTheme="-theme $clipboardTheme"
+  fi
+  
+  if [ "$device" == "" ]; then
+    device=$(brightnessctl -l | awk -F"'" '/Device/ {print $2}' | rofi -dmenu -p "Devices with brightness: " $currentTheme)
+  fi
+  
+  if [ "$device" == "" ]; then
+    exit
+  fi
+
+  brightnessPercent=$(brightnessctl -d $device -m | cut -d, -f4)
+  
+  options=(
+    " +10% Brightness (current ${brightnessPercent})"
+    " -10% Brightness (minimum 10%)"
+  )
+  choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Change brightness of ${device}: " $currentTheme)
+
+  if [ "$choice" == "" ]; then
+    exit
+  fi
+
+  case "$choice" in
+    0) brightnessctl -d $device s +10% ;;
+    1) if [ "${brightnessPercent%\%}" -gt 10 ]; then brightnessctl -d $device s 10%-; fi ;;
+  esac
+
+  brightnessMenu $device
 }
 
 
@@ -173,6 +211,7 @@ powerMenu() {
 
 case "$flag" in
   "" ) menu ;;
+  -b ) brightnessMenu ;;
   -s ) screenshotMenu ;;
   -a ) appMenu ;;
   -c ) clipboardMenu ;;

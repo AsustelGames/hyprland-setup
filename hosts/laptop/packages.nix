@@ -15,7 +15,9 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-  
+
+  services.openssh = {
+    enable = true;
+  };
   services.udisks2.enable = true;
-  programs.dank-material-shell.enable = true;
 }
