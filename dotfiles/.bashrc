@@ -8,8 +8,6 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-#PS1='[\u@\h \W]\$ '
-#PS1='\[\e[0;97m\](\@)->\[\e[0;35m\][\u]\[\e[0;32m\](\W)\[\e[0;33m\]$\[\e[0;97m\] '
 PS1='\[\e[0;97m\](\@)->\[\e[0;32m\](\w)\[\e[0;97m\]\n > '
 
 export EDITOR="micro"
