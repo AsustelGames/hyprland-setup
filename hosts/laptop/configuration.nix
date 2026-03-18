@@ -5,8 +5,6 @@
     [
       ../../nixos/default.nix
       ./hardware-configuration.nix
-      ./packages.nix
-      ./graphics.nix
     ];
   
   i18n.defaultLocale = "en_US.UTF-8";

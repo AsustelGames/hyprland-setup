@@ -21,15 +21,23 @@
     bottles
     prismlauncher
     kitty
+    aseprite
+    kicad-unstable-small
+    nwg-look
     
     # == Cli Programs ==
     micro
+    nvim
     bluetui
     wiremix
     btop
     yazi
     mpv
     lazygit
+    zsh
+    oh-my-zsh
+    eza
+    starship
     
     # == Cli Utilities ==
     jq
@@ -46,8 +54,6 @@
     brightnessctl
     stow
     udiskie
-    aseprite
-    kicad-unstable-small
     
     # == In shell.nix ==
     # cmake

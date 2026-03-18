@@ -1,10 +1,8 @@
 {
   imports = [
   ./audio.nix
-  ./boot.nix
-  ./flakes.nix
-  ./input.nix
-  ./ly.nix
+  ./misc.nix
+  ./greeter.nix
   ./users.nix
   ./wm.nix
   ./wireless.nix

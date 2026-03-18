@@ -9,12 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... } @ inputs:
@@ -38,7 +32,6 @@
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           commonHomeManagerConfig
-          inputs.dms.nixosModules.dank-material-shell
          ];
        };
 

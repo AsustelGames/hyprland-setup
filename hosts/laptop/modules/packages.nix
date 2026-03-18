@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     ly
     hyprland
-    dms-shell
     steam
   ];
   
