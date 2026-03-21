@@ -2,14 +2,19 @@
 
 {  
   home.packages = with pkgs; [
-    # == Desktop ==
-    nerd-fonts.martian-mono
+    # == Core ==
     rofi
     waybar
     hyprshot
     hyprpaper
     hyprpicker
     swaynotificationcenter
+    
+    # == Looks ==
+    nerd-fonts.martian-mono
+    nerd-fonts.profont 
+    bibata-cursors
+    graphite-gtk-theme
     
     # == Programs ==
     vscode
@@ -27,7 +32,7 @@
     
     # == Cli Programs ==
     micro
-    nvim
+    neovim
     bluetui
     wiremix
     btop
@@ -36,11 +41,10 @@
     lazygit
     zsh
     oh-my-zsh
-    eza
-    starship
     
     # == Cli Utilities ==
     jq
+	 psmisc
     fastfetch
     cmatrix
     tldr
@@ -54,6 +58,8 @@
     brightnessctl
     stow
     udiskie
+    eza
+	 pywal
     
     # == In shell.nix ==
     # cmake
@@ -63,6 +69,11 @@
     gcc
     # pkg-config
     # sdl3
+
+    # == Compatibility Fonts
+    corefonts
+    vista-fonts
+    noto-fonts
   ];
 
   programs.home-manager.enable = true;

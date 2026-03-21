@@ -1,0 +1,19 @@
+{
+  "modules": [
+    "break",
+    "os",
+    "host",
+    "kernel",
+    "packages",
+    "de",
+    "wm",
+    {
+      "type": "gpu",
+      "hideType": "integrated",
+      "format": "{name}"
+    },
+    "cpu",
+    "memory",
+    "break"
+  ]
+}
