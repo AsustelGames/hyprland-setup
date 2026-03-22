@@ -1,0 +1,59 @@
+@import 'colors.css';
+
+
+* {
+  font-family: "MartianMono Nerd Font Mono";
+  font-size: 15px;
+  border-radius: 0px;
+}
+
+#waybar { /* disable borders */
+/*  background: rgba(0, 0, 0, 0); */
+/*  border-top: 3px solid rgba(0, 0, 0, 0); */
+/*  border-bottom: 3px solid rgba(0, 0, 0, 0); */
+/*  border-left: 3px solid rgba(0, 0, 0, 0); */
+/*  border-right: 3px solid rgba(0, 0, 0, 0); */
+}
+
+
+/* Right modules */
+#custom-power-profiles, #bluetooth, #pulseaudio, #network {
+  color: @foreground;
+  padding: 0px 9px;
+}
+
+#custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
+  color: @background;
+  background: linear-gradient(125deg, @primary, @secondary);
+}
+
+#clock, #battery {
+  color: @foreground;
+  padding: 0px 15px;
+}
+
+#custom-start, #clock {
+  font-weight: bold;
+  background: linear-gradient(125deg, @primary, @secondary);
+}
+
+
+/* Left modules */
+#custom-start, #workspaces button, #tray {
+  color: @foreground;
+  padding: 0px 12px;
+}
+
+#custom-start:hover, #workspaces button:hover, #workspaces button.active, #tray:hover {
+  color: @background;
+  background: linear-gradient(125deg, @primary, @secondary);
+}
+
+#workspaces button.active {
+  font-weight: bold;
+  color: @foreground;
+}
+
+#custom-start {
+  padding: 0px 20px;
+}

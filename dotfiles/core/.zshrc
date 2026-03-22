@@ -22,9 +22,14 @@ PROMPT='(%B%F{magenta}%D{%I:%M %p}%f%b)->%F{green}(%U%B%~%u%b)
  %f> '
 
 alias ls='eza --icons=always --color=always'
+alias lsr='eza --icons=always --color=always -R'
+alias lst='eza --icons=always --color=always -T'
 alias lsa='eza --icons=always --color=always -a'
 
 alias a='alias'
+
+alias s='sudo'
+
 
 # Editing
 export EDITOR="nvim"
@@ -55,7 +60,10 @@ alias smd='sudo mkdir'
 alias t='touch'
 alias st='sudo touch'
 
-
+# Fun stuff
+alias cm='cmatrix'
+alias ca='cava'
+alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.config/fastfetch/logo.txt'
 
 # NixOS
 alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'

@@ -41,6 +41,7 @@
     lazygit
     zsh
     oh-my-zsh
+	 cava
     
     # == Cli Utilities ==
     jq
@@ -59,7 +60,6 @@
     stow
     udiskie
     eza
-	 pywal
     
     # == In shell.nix ==
     # cmake

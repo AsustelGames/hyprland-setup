@@ -7,6 +7,7 @@
     ly
     hyprland
     steam
+    power-profiles-daemon
   ];
   
   programs.steam = {
@@ -19,4 +20,5 @@
     enable = true;
   };
   services.udisks2.enable = true;
+  services.power-profiles-daemon.enable = true;
 }

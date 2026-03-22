@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 flag=$1
 flag2=$2
@@ -7,6 +7,7 @@ mkdir -p /tmp/kitty-sockets
 socketPath="/tmp/kitty-sockets/$(uuidgen).sock"
 
 pid=$(fuser "$socketPath" 2>/dev/null | awk '{print $NF}')
+
 
 if [ "$flag" != "-r" ]; then
   kitty --listen-on="unix:$socketPath" "${@:1}" & 

@@ -20,6 +20,7 @@ menu() {
   fi
   options=(
     "󰃠 Brightness"
+	 " Power Profiles"
     " Screenshot + Colorpicker"
     " Screenshot to clipboard + Colorpicker"
     " Apps"
@@ -31,13 +32,14 @@ menu() {
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Menu: " $currentTheme)
   case "$choice" in
     0) brightnessMenu ;;
-    1) screenshotMenu ;;
-    2) screenshotMenu --alt ;;
-    3) appMenu ;;
-    4) clipboardMenu ;;
-    5) clipboardWipe ;;
-    6) themeMenu ;;
-    7) powerMenu ;;
+	 1) powerProfilesMenu ;;
+    2) screenshotMenu ;;
+    3) screenshotMenu --alt ;;
+    4) appMenu ;;
+    5) clipboardMenu ;;
+    6) clipboardWipe ;;
+    7) themeMenu ;;
+    8) powerMenu ;;
   esac
 }
 
@@ -90,6 +92,7 @@ screenshotMenu() {
     " Screenshot Area"
     " Screenshot Window"
     "󰍹 Screenshot Monitor"
+	 "󰌁 Colorpicker"
   )
 
   choice=$(printf "%b\n" "${options[@]}" | rofi -dmenu -format i -p "Screenshot${extraTitle}: " $currentTheme)
@@ -112,8 +115,8 @@ appMenu() {
 
 
 clipboardMenu() {
-  if [ -e "$programTheme" ]; then
-    currentTheme="-theme $programTheme"
+  if [ -e "$clipboardTheme" ]; then
+    currentTheme="-theme $clipboardTheme"
   fi
 
   if [ "$1" = "--alt" ]; then
@@ -214,6 +217,23 @@ powerMenu() {
 }
 
 
+powerProfilesMenu() {
+  if [ -e "$programTheme" ]; then
+    currentTheme="-theme $programTheme"
+  fi
+  
+  if [ "$1" = "" ]; then
+    profile=$(powerprofilesctl list | awk -F: '/:$/&&!/CpuDriver|PlatformDriver|Degraded/{sub(/^[ \t]*\*?[ \t]*/, "", $1); print $1}' | rofi -dmenu -p "Set power profile: " $currentTheme)
+  fi
+  
+  if [ "$profile" == "" ]; then
+    exit
+  fi
+
+  powerprofilesctl set $profile
+}
+
+
 
 case "$flag" in
   "" ) menu ;;
@@ -225,5 +245,6 @@ case "$flag" in
   -w ) clipboardMenu --alt ;;
   -t ) themeMenu ;;
   -p ) powerMenu ;;
+  -P ) powerProfilesMenu ;;
   *  ) menu ;;
 esac
