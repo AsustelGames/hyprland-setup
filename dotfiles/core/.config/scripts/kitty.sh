@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 
 flag=$1
 flag2=$2
@@ -24,6 +25,6 @@ else
     pid=$(fuser "$sock" 2>/dev/null | awk '{print $NF}')
     
 	 echo $pid
-    kill -SIGUSR1 "$pid"
+    kill -SIGUSR1 "$pid" # Don't worry the error it returns is harmless
   done
 fi

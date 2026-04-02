@@ -1,0 +1,59 @@
+# vim:ft=kitty
+
+
+font_family      family="{{ .root.font.family_mono }}"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+
+# Background color
+background                      {{ .root.colors.main.background }}
+cursor_text_color               {{ .root.colors.main.background }}
+inactive_tab_background         {{ .root.colors.main.background }}
+
+# Foreground color
+selection_foreground            {{ .root.colors.main.foreground }}
+foreground                      {{ .root.colors.main.foreground }}
+inactive_tab_foreground         {{ .root.colors.main.foreground }}
+
+# Primary color
+selection_background            {{ .root.colors.main.primary }}
+cursor                          {{ .root.colors.main.primary }}
+url_color                       {{ .root.colors.main.primary }}
+active_tab_background           {{ .root.colors.main.primary }}
+
+tab_bar_background              none
+tab_bar_margin_color            none
+
+
+# Black
+color0                          {{ .root.colors.extra.color0 }}
+color8                          {{ .root.colors.extra.color8 }}
+
+# Red
+color1                          {{ .root.colors.extra.color1 }}
+color9                          {{ .root.colors.extra.color9 }}
+
+# Green
+color2                          {{ .root.colors.extra.color2 }}
+color10                         {{ .root.colors.extra.color10 }}
+
+# Yellow
+color3                          {{ .root.colors.extra.color3 }}
+color11                         {{ .root.colors.extra.color11 }}
+
+# Blue
+color4                          {{ .root.colors.extra.color4 }}
+color12                         {{ .root.colors.extra.color12 }}
+
+# Pink
+color5                          {{ .root.colors.extra.color5 }}
+color13                         {{ .root.colors.extra.color13 }}
+
+# Cyan
+color6                          {{ .root.colors.extra.color6 }}
+color14                         {{ .root.colors.extra.color14 }}
+
+# White 
+color7                          {{ .root.colors.extra.color7 }}
+color15                         {{ .root.colors.extra.color15 }}

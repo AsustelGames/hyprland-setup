@@ -7,7 +7,9 @@
     ly
     hyprland
     steam
-    power-profiles-daemon
+
+	 linuxPackages.cpupower
+	 lact
   ];
   
   programs.steam = {
@@ -16,9 +18,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  services.openssh = {
-    enable = true;
-  };
   services.udisks2.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.lact.enable = true;
 }

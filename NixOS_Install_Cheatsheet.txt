@@ -39,4 +39,5 @@ reboot
 
 
 sudo chown -R "$USER:$(id -gn $USER)" /etc/nixos/dotfiles
+chmod u+x ~/.config/scripts/hex-to-rgb.sh
 stow -t ~ -d /etc/nixos dotfiles

@@ -5,14 +5,19 @@
     # == Core ==
     rofi
     waybar
+	 ags
+	 eww
     hyprshot
+	 swww
     hyprpaper
     hyprpicker
+	 hyprlock
+	 hypridle
     swaynotificationcenter
+	 libnotify
     
     # == Looks ==
     nerd-fonts.martian-mono
-    nerd-fonts.profont 
     bibata-cursors
     graphite-gtk-theme
     
@@ -29,6 +34,9 @@
     aseprite
     kicad-unstable-small
     nwg-look
+	 mangohud
+	 goverlay
+	 glmark2
     
     # == Cli Programs ==
     micro
@@ -60,6 +68,9 @@
     stow
     udiskie
     eza
+	 stress-ng
+	 lm_sensors
+	 gomplate
     
     # == In shell.nix ==
     # cmake

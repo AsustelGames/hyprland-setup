@@ -5,14 +5,25 @@ nvim for nix and sh tab=2 for everything else tab=3
 gaming theme (minimal theme)
 zsh + cp progress bar
 kitty more config
-hyprland monitors solution
 dotfile core
 custom wifi menu
 readme
 cleaner waybar hide wifi, volume, bluetooth + time
-infromatik test + schnupperlehre informaitker
 terraria in cpp
 vertical power menu
 try ags
 add rofi theme swiching
-
+set hyprpaper wallpaper for all monitors
+fix legacy waybar
+satty
+improve menu.sh
+hypridle
+hyprlock
+time and date on waybar on same space 1 on top 1 on bottom
+new theme system
+use cpupower command
+btop theme
+auto set blur based on performance mode
+nxre-<ls hosts>
+fix shebang on all scripts
+swaync panel add wifi etc

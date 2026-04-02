@@ -23,23 +23,40 @@ vim.g.maplocalleader = "\\"
 
 vim.opt.number = true -- Line numbers
 vim.opt.tabstop = 3
-vim.opt.wrap = false -- Wordwrap
 vim.opt.cuc = true -- Cursor vertical highlight
 vim.opt.stl = "%r %m %F "
 
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
 
+local groups = {
+  "Normal",
+  "NormalNC",
+  "SignColumn",
+  "EndOfBuffer",
+  "LineNr",
+  "CursorLineNr",
+  "StatusLine",
+  "StatusLineNC",
+  "VertSplit",
+  "WinSeparator",
+  "Folded",
+  "FoldColumn",
+}
+
+for _, group in ipairs(groups) do
+  vim.api.nvim_set_hl(0, group, { fg = "NONE", bg = "NONE" })
+end
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
-    { import = "lualine" },
+    { import = "plugins.lualine" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  -- install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

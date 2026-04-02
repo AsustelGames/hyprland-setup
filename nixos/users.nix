@@ -3,9 +3,9 @@
 {
   users.users.asustel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "i2c" ];
     packages = with pkgs; [
       tree
     ];
-  };  
+  };
 }
