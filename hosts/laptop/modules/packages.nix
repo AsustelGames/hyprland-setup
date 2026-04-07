@@ -8,8 +8,12 @@
     hyprland
     steam
 
-	 linuxPackages.cpupower
-	 lact
+    linuxPackages.cpupower
+    lact
+
+    qemu
+    virt-manager
+    virt-viewer
   ];
   
   programs.steam = {

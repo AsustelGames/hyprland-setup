@@ -6,5 +6,6 @@
   ./users.nix
   ./wm.nix
   ./wireless.nix
+  ./virtual-machine.nix
   ];
 }

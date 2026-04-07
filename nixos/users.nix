@@ -3,7 +3,7 @@
 {
   users.users.asustel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "i2c" ];
+    extraGroups = [ "wheel" "libvirtd" "kvm" ];
     packages = with pkgs; [
       tree
     ];

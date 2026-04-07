@@ -5,16 +5,22 @@
     # == Core ==
     rofi
     waybar
-	 ags
-	 eww
+    ags
+    eww
     hyprshot
-	 swww
+    swww
     hyprpaper
     hyprpicker
-	 hyprlock
-	 hypridle
+    hyprlock
+    hypridle
     swaynotificationcenter
-	 libnotify
+    libnotify
+
+    # == Virtual Machine
+    #qemu
+    #kvmtool
+    #virt-manager
+    #virtiofsd
     
     # == Looks ==
     nerd-fonts.martian-mono
@@ -34,12 +40,11 @@
     aseprite
     kicad-unstable-small
     nwg-look
-	 mangohud
-	 goverlay
-	 glmark2
+    mangohud
+    goverlay
+    glmark2
     
     # == Cli Programs ==
-    micro
     neovim
     bluetui
     wiremix
@@ -49,16 +54,17 @@
     lazygit
     zsh
     oh-my-zsh
-	 cava
+    cava
+    clang-tools
     
     # == Cli Utilities ==
     jq
-	 psmisc
+    psmisc
     fastfetch
     cmatrix
     tldr
     man
-    p7zip # It took me 30 mins to find out why it was throwing the error at line 27, 7zip -> p7zip 
+    p7zip
     dysk
     cloc
     git
@@ -68,9 +74,9 @@
     stow
     udiskie
     eza
-	 stress-ng
-	 lm_sensors
-	 gomplate
+    stress-ng
+    lm_sensors
+    gomplate
     
     # == In shell.nix ==
     # cmake
