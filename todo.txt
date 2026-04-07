@@ -2,28 +2,56 @@ mark current theme in theme menu + add a flag to init a theme when installing ni
 vpn, gpu, cpu usage, etc
 swaync config
 nvim for nix and sh tab=2 for everything else tab=3
-gaming theme (minimal theme)
-zsh + cp progress bar
 kitty more config
-dotfile core
 custom wifi menu
 readme
 cleaner waybar hide wifi, volume, bluetooth + time
 terraria in cpp
 vertical power menu
-try ags
-add rofi theme swiching
-set hyprpaper wallpaper for all monitors
 fix legacy waybar
 satty
-improve menu.sh
 hypridle
 hyprlock
 time and date on waybar on same space 1 on top 1 on bottom
-new theme system
 use cpupower command
 btop theme
-auto set blur based on performance mode
 nxre-<ls hosts>
-fix shebang on all scripts
 swaync panel add wifi etc
+horizontal confirmation menu rofi + android like app drawer
+set power saver when hyprlock active
+enable hibernation
+nixos hyprland monitors
+fix waybar bluetooth icons
+fix waybar apps after theme change
+cli yt vid downloader
+
+fix terminal colors
+find /etc/nixos/dotfiles/themes/main -mindepth 1 -maxdepth 1 -type d | head -n 1
+core
+init theme
+remove theme
+gomplate support
+builtin hex to rgb for theme switching
+theme notfily
+hyprlock
+hypridle
+theme with no border hyprland
+notification after theme switch
+show current theme under search
+
+-- nvim --
+custom ascii logo
+use terminal colors
+tabs as spaces
+nvim tabs
+disable refresh after theme switch
+syntax + error highlighting
+different tab size for different programming languages
+disable mouse
+better word wrap
+statusline hide insert that is not on the bar
+auto save
+highlight current line
+auto add 2nd )/]/}
+don't trim whitespace
+-> start: a:INSERT b:/etc/nixos/todo.txt c:SAVED //end: 1346/2400 (56%)
