@@ -8,13 +8,14 @@
     ags
     eww
     hyprshot
-    swww
+    awww
     hyprpaper
     hyprpicker
     hyprlock
     hypridle
     swaynotificationcenter
     libnotify
+    ydotool
 
     # == Virtual Machine
     #qemu
@@ -34,7 +35,8 @@
     audacity
     discord
     # steam # in configuration.nix or else won't work
-    bottles
+    #bottles
+    wine
     prismlauncher
     kitty
     aseprite
@@ -77,6 +79,7 @@
     stress-ng
     lm_sensors
     gomplate
+    python3
     
     # == In shell.nix ==
     # cmake

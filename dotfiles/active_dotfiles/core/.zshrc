@@ -32,6 +32,7 @@ bindkey '^I' autosuggest-accept # Tab
 PROMPT='(%B%F{magenta}%D{%I:%M %p}%f%b)->%F{green}(%U%B%~%u%b)
  %f> '
 
+alias lsn='\ls'
 alias ls='eza --icons=always --color=always'
 alias lsr='eza --icons=always --color=always -R'
 alias lst='eza --icons=always --color=always -T'
@@ -69,7 +70,7 @@ alias p='mpv'
 
 
 # Creating & Removing
-alias r='rm'
+alias srm='sudo rm'
 alias rr='rm -r'
 alias srr='sudo rm -r'
 

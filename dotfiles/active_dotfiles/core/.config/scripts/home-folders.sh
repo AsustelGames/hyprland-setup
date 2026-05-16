@@ -2,7 +2,6 @@
 
 
 mkdir -p ~/Downloads
-mkdir -p ~/Documents
-mkdir -p ~/Pictures/Sreenshots
-mkdir -p ~/Projects
+mkdir -p ~/Documents/Projects
+mkdir -p ~/Pictures/Screenshots
 mkdir -p ~/Videos/OBS

@@ -8,7 +8,7 @@
 window {
    background-color: none;
    location: center;
-   width: 20%;
+   width: 30%;
 }
 
 mainbox {
@@ -17,15 +17,14 @@ mainbox {
    children: [ message, listview ];
 }
 
-
 listview {
    background-color: #221B567d;
    border-color: #EF7DAE;
    padding: 3px;
-   lines: 5;
+   lines: 1;
+   columns: 3;
    border: 3px;
-   dynamic: true;
-   columns: 1;
+   horizontal-align: 0.5;
 }
 
 element {
@@ -51,11 +50,7 @@ element-text {
 textbox-current-entry, message {
    background-color: #221B567d;
    border-color: #A586DB;
-   padding: 5px 15px;
+   padding: 20px 15px;
    horizontal-align: 0.5;
    border: 3px;
-}
-
-message {
-   padding: 10px;
 }

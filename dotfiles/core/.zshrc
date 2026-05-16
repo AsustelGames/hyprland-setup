@@ -70,11 +70,12 @@ alias p='mpv'
 
 # Creating & Removing
 alias r='rm'
+alias sr='sudo rm'
 alias rr='rm -r'
 alias srr='sudo rm -r'
 
 alias mkd='mkdir'
-alias skmd='sudo mkdir'
+alias smkd='sudo mkdir'
 
 alias t='touch'
 alias st='sudo touch'
@@ -84,6 +85,7 @@ alias st='sudo touch'
 alias cm='cmatrix'
 alias ca='cava'
 alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.config/fastfetch/logo.txt'
+
 
 # NixOS
 alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'

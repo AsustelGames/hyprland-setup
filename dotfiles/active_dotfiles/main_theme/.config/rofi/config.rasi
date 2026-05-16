@@ -1,10 +1,13 @@
 configuration {
     
     modi: "drun,run";
-    prompt: "Launch: ";
-    show-icons: true;
     font: "MartianMono Nerd Font 12";
-    drun-display-format: "{icon} {name}";
+    drun-display-format: "{name}";
     location: 0;
+
+    kb-row-up: "Alt+k,Up";
+    kb-row-down: "Alt+j,Down";
+    kb-row-left: "Alt+h";
+    kb-row-right: "Alt+l";
 }
 

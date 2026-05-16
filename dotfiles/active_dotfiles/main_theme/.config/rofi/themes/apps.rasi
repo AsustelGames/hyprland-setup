@@ -1,0 +1,81 @@
+* {
+   background-color: transparent;
+   text-color: #E1FAFA;
+   padding: 0px;
+   border-radius: 15px;
+}
+
+window {
+   background-color: none;
+   location: center;
+   width: 30%;
+}
+
+mainbox {
+   spacing: 15px;
+
+   children: [ inputbar, listview, message ];
+}
+
+textbox-prompt-colon {
+   background-image: linear-gradient(45deg,#EF7DAE,#A586DB);
+   text-color: #E1FAFA;
+   padding: 5px 20px;
+   expand: false;
+   str: "";
+}
+
+inputbar {
+   background-image: url("~/.config/rofi/bg.png", none);
+   padding: 10px;
+   border-color: #EF7DAE;
+   border: 3px;
+
+   children: [ "textbox-prompt-colon", "entry" ];
+}
+
+entry {
+   placeholder-color: #E1FAFA;
+   padding: 0px 10px;
+   vertical-align: 0.5;
+   placeholder: "Search...";
+   border-radius: 0px;
+}
+
+listview {
+   background-color: #221B567d;
+   border-color: #A586DB;
+   padding: 3px;
+   lines: 8;
+   columns: 1;
+   fixed-columns: true;
+   border: 3px;
+}
+
+element {
+   padding: 7px;
+}
+
+element selected {
+   background-image: linear-gradient(45deg, #EF7DAE, #A586DB);
+   border-radius: 12px;
+}
+
+element-icon {
+   padding: 5px;
+   size: 30px;
+}
+
+element-text {
+   padding: 5px;
+   vertical-align: 0.5;
+   font: "MartianMono Nerd Font 12";
+}
+
+textbox-current-entry, message, error-message {
+   background-color: #221B567d;
+   border-color: #A586DB;
+   padding: 10px 15px;
+   horizontal-align: 0.5;
+   border: 3px;
+}

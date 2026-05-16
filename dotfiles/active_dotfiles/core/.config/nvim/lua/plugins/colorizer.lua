@@ -1,6 +1,7 @@
 return {
   {
    "norcalli/nvim-colorizer.lua",
+
     config = function()
       require("colorizer").setup(
         { "*" },
@@ -13,8 +14,7 @@ return {
           hsl_fn   = true,     -- highlight hsl() and hsla()
           css      = true,     -- enable all CSS features
           css_fn   = true,     -- enable CSS functions like rgb()
-        }
-      )
+        })
     end,
   },
 }

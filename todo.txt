@@ -1,57 +1,74 @@
-mark current theme in theme menu + add a flag to init a theme when installing nixos
-vpn, gpu, cpu usage, etc
-swaync config
-nvim for nix and sh tab=2 for everything else tab=3
-kitty more config
-custom wifi menu
-readme
-cleaner waybar hide wifi, volume, bluetooth + time
-terraria in cpp
-vertical power menu
-fix legacy waybar
-satty
-hypridle
-hyprlock
-time and date on waybar on same space 1 on top 1 on bottom
-use cpupower command
-btop theme
-nxre-<ls hosts>
-swaync panel add wifi etc
-horizontal confirmation menu rofi + android like app drawer
-set power saver when hyprlock active
-enable hibernation
-nixos hyprland monitors
-fix waybar bluetooth icons
-fix waybar apps after theme change
-cli yt vid downloader
 
-fix terminal colors
 find /etc/nixos/dotfiles/themes/main -mindepth 1 -maxdepth 1 -type d | head -n 1
-core
-init theme
-remove theme
-gomplate support
-builtin hex to rgb for theme switching
-theme notfily
-hyprlock
-hypridle
-theme with no border hyprland
 notification after theme switch
-show current theme under search
+hide laptop stuff like brightness and powerprofiles
 
--- nvim --
-custom ascii logo
+-- ranger --
+icons
+when going to the bottom go to the top
+pinned dirs in config
+yazi keybinds
+check dependancies
+50/50 current dir and next dir
+sort by newest
+
+-- nixos
+make the power button not turn the system off immediatly
+add support for hibernation
+enable hibernation
+use cpupower command
+custom modules
+set users in configuration.nix
+
+-- hyprland
+fix permissions for hyprpicker, obs and hyprlock
+migrate to hyprland configs to lua
+improve animations
+configure hyprlock and hypridle
+nixos hyprland monitors
+
+-- statusbar
+eww hide battery if no battery exists
+vpn, gpu, cpu usage, etc
+fix waybar apps after theme change e.g. bluetooth window
+fix waybar bluetooth icons
+
+-- menu/themes system
+make a devices menu with mounted devices
+gomplate support
+gtk theme
+auto set waybar theme and layout when setting a theme
+builtin hex to rgb for theme switching
+fix terminal colors
+show current theme under search
+add the possiblity to chnage waybar layout and separate menu for position
+new theme idea frameless
+fix legacy waybar
+btop theme
+custom wifi menu
+add gomplate colors.yaml to set a script for waybar when clicking on icons
+
+-- terminal
+export paths like NIXOS in zsh config NIXOS_PATH = /etc/nixos
+zsh path auto complete
+kitty add binds to move tabs and don't auto create tabs
+kitty more config
+
+-- nvim
 use terminal colors
-tabs as spaces
-nvim tabs
-disable refresh after theme switch
-syntax + error highlighting
-different tab size for different programming languages
 disable mouse
-better word wrap
-statusline hide insert that is not on the bar
 auto save
-highlight current line
-auto add 2nd )/]/}
-don't trim whitespace
--> start: a:INSERT b:/etc/nixos/todo.txt c:SAVED //end: 1346/2400 (56%)
+make yazi open correct editor
+customize colors: barbar, nvim itself, lualine
+show errors on lualine + show them when hovered over them
+keybinds for :e, on/off autocomplete, on/off nvim tree
+disable autocomplete in .conf
+better Lazy.nvim menu (rounded borders)
+keybinds to show or hide full file path
+
+-- filemanager
+yazi color scheme
+
+-- misc
+satty
+readme

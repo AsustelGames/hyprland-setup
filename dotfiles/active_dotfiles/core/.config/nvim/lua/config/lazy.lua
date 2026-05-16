@@ -26,8 +26,14 @@ require("lazy").setup({
     { import = "plugins.lualine" },
     { import = "plugins.barbar" },
     { import = "plugins.colorizer" },
-    -- { import = "plugins.autocomplete"}
-    --{ import = "plugins.lsp" },
+    { import = "plugins.autocomplete"},
+    { import = "plugins.scrollofffraction" },
+    { import = "plugins.endscroll" },
+    { import = "plugins.autopairs" },
+    { import = "plugins.alpha" },
+    { import = "plugins.indentblankline" },
+    { import = "plugins.tree" }, 
+    { import = "plugins.comment"}, 
   },
   change_detection = {
     enabled = true,

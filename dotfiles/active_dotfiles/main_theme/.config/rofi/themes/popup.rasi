@@ -1,0 +1,15 @@
+* {
+   background-color: transparent;
+   text-color: #E1FAFA;
+   padding: 0px;
+   border-radius: 15px;
+}
+
+window {
+   background-color: #221B567d;
+   border-color: #EF7DAE;
+   padding: 10px;
+   location: center;
+   width: 25%;
+   border: 3px;
+}

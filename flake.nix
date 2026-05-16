@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  	
+  
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,8 +22,8 @@
       home-manager.users.asustel = import ./home/home.nix;
     };
   in {
-  	nixosConfigurations = {
-  	   # Laptop Config
+    nixosConfigurations = {
+       # Laptop Config
        laptop = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          system = system;
