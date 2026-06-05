@@ -29,5 +29,5 @@
   services.udisks2.enable = true;
   services.power-profiles-daemon.enable = true;
   services.lact.enable = true;
-  services.tailscale.enable = true; 
+  services.tailscale.enable = true;
 }

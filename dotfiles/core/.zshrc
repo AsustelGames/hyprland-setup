@@ -1,4 +1,4 @@
-zstyle :compinstall filename '/home/asustel/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
@@ -84,6 +84,7 @@ alias st='sudo touch'
 # Fun stuff
 alias cm='cmatrix'
 alias ca='cava'
+alias pi='pipes-rs'
 alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.config/fastfetch/logo.txt'
 
 

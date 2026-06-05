@@ -5,6 +5,10 @@
   font-family: "MartianMono Nerd Font Mono";
   font-size: 15px;
   border-radius: 15px;
+
+  box-shadow: none;
+  outline: none;
+  border: none;
 }
 
 #waybar { /* disable borders */
@@ -17,7 +21,7 @@
 
 
 /* Right modules */
-#custom-power-profiles, #bluetooth, #pulseaudio, #network {
+#custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
   color: @foreground;
   padding: 0px 9px;
 }
@@ -42,11 +46,16 @@
 #custom-start, #workspaces button, #tray {
   color: @foreground;
   padding: 0px 12px;
+
+
 }
 
-#custom-start:hover, #workspaces button:hover, #workspaces button.active, #tray:hover {
+#custom-start:hover, #workspaces button:hover, #workspaces button.active, #workspaces button.active:hover, #tray:hover {
   color: @background;
   background: linear-gradient(125deg, @primary, @secondary);
+
+  transition: none;
+  animation: none;
 }
 
 #workspaces button.active {

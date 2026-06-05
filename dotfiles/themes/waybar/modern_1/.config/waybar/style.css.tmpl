@@ -2,58 +2,65 @@
 {{- $secondary_rgba := printf "rgba(%s, 0.7)" (hex2rgb .root.colors.main.secondary | strings.TrimSpace) -}}
 
 * {
-  font-family: {{ .root.font.family_mono }};
-  font-size: {{ .root.font.size }}px;
-  border-radius: {{ .root.misc.border_rounding }}px;
+   font-family: {{ .root.font.family_mono }};
+   font-size: {{ .root.font.size }}px;
+   border-radius: {{ .root.misc.border_rounding }}px;
+
+   box-shadow: none;
+   outline: none;
+   border: none;
 }
 
 #waybar {
-  background: {{ $background_rgba }};
-  border-top: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-  border-bottom: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-  border-left: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-  border-right: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   background: {{ $background_rgba }};
+   border-top: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-bottom: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-left: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-right: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
 }
 
 
 /* Right modules */
 #custom-power-profiles, #bluetooth, #pulseaudio, #network {
-  color: {{ .root.colors.main.foreground }};
-  padding: 0px 9px;
+   color: {{ .root.colors.main.foreground }};
+   padding: 0px 9px;
 }
 
 #custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
-  color: {{ .root.colors.main.background }};
-  background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
+   color: {{ .root.colors.main.background }};
+   background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
 }
 
 #clock, #battery {
-  color: {{ .root.colors.main.foreground }};
-  padding: 0px 15px;
+   color: {{ .root.colors.main.foreground }};
+   padding: 0px 15px;
 }
 
 #custom-start, #clock {
-  font-weight: bold;
-  background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
+   font-weight: bold;
+   background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
 }
 
 
 /* Left modules */
 #custom-start, #workspaces button, #tray {
-  color: {{ .root.colors.main.foreground }};
-  padding: 0px 12px;
+   color: {{ .root.colors.main.foreground }};
+   padding: 0px 12px;
 }
 
-#custom-start:hover, #workspaces button:hover, #workspaces button.active, #tray:hover {
-  color: {{ .root.colors.main.background }};
-  background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
+#custom-start:hover, #workspaces button:hover, #workspaces button.active, #workspaces button.active:hover, #tray:hover {
+   color: {{ .root.colors.main.background }};
+   background: linear-gradient(125deg, {{ .root.colors.main.primary }}, {{ .root.colors.main.secondary }});
+  
+   transition: none;
+   animation: none;
 }
 
 #workspaces button.active {
-  font-weight: bold;
-  color: {{ .root.colors.main.foreground }};
+   font-weight: bold;
+   color: {{ .root.colors.main.foreground }};
 }
 
 #custom-start {
-  padding: 0px 20px;
+   padding: 0px 20px;
 }

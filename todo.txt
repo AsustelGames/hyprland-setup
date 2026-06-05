@@ -1,39 +1,32 @@
-
 find /etc/nixos/dotfiles/themes/main -mindepth 1 -maxdepth 1 -type d | head -n 1
 notification after theme switch
 hide laptop stuff like brightness and powerprofiles
 
--- ranger --
-icons
-when going to the bottom go to the top
-pinned dirs in config
-yazi keybinds
-check dependancies
-50/50 current dir and next dir
-sort by newest
 
 -- nixos
 make the power button not turn the system off immediatly
 add support for hibernation
-enable hibernation
 use cpupower command
-custom modules
+custom nix modules
 set users in configuration.nix
+add a nxre-auto command
+dotfiles config through nixos
 
 -- hyprland
 fix permissions for hyprpicker, obs and hyprlock
-migrate to hyprland configs to lua
+migrate all hyprland configs to lua
 improve animations
 configure hyprlock and hypridle
-nixos hyprland monitors
+hyprland monitors through nixos
+make super+shift+w open alternative web browser
 
 -- statusbar
 eww hide battery if no battery exists
-vpn, gpu, cpu usage, etc
-fix waybar apps after theme change e.g. bluetooth window
+show vpn, gpu, cpu usage, etc
 fix waybar bluetooth icons
+fix white thing when hovering over an workspace
 
--- menu/themes system
+-- menu/theme system
 make a devices menu with mounted devices
 gomplate support
 gtk theme
@@ -47,28 +40,64 @@ fix legacy waybar
 btop theme
 custom wifi menu
 add gomplate colors.yaml to set a script for waybar when clicking on icons
+remove autocreated config folder before setting a theme e.g. when hyprland is installed it creates a config folder that is not controlled by stow which blocks the theme from being set
+in theme.yaml add a separate colors for ui + add option to automaticly make different gui color from existing colors
+when activating init ask if you want to restore existing dotfiles
+add a file that explains how the theme system works
+set correct tab size for css check a few files
 
 -- terminal
-export paths like NIXOS in zsh config NIXOS_PATH = /etc/nixos
-zsh path auto complete
-kitty add binds to move tabs and don't auto create tabs
-kitty more config
+add explanation to sockets in zsh
 
 -- nvim
 use terminal colors
-disable mouse
-auto save
 make yazi open correct editor
 customize colors: barbar, nvim itself, lualine
-show errors on lualine + show them when hovered over them
-keybinds for :e, on/off autocomplete, on/off nvim tree
+show errors on lualine
+on/off autocomplete
 disable autocomplete in .conf
 better Lazy.nvim menu (rounded borders)
 keybinds to show or hide full file path
+change color of auto suggestion from green to something else
+add a help menu
+reorganize startpage and config.lua
+test theme switching
+toggle for wrap
 
 -- filemanager
 yazi color scheme
+make alt+h,l switch between tabs + alt+j,k to open and close tabs
 
 -- misc
+configure vscode
 satty
 readme
+configure zen
+fix installation + improve cheatsheet
+configure cava, mangohud, obs-studio, vscode and add them to core
+make a text file with all keybindings
+add vscode plugins to packages.nix
+
+
+
+
+waybar sound cava thing idea 
+when music is playing: 8x bars ->  ▁▂▃▄▅▆▇█  ▁▂▃▄/35%/▅▆▇█
+when no music is playing:  35%, 󰝛 off
+
+    "modules-center": [
+        "custom/cava"
+    ],
+
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/scripts/waybar/cava.sh"
+    },
+
+  /* Right modules */
+#custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
+  color: @foreground;
+  padding: 0px 9px;
+}
+
+

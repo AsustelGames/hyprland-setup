@@ -4,9 +4,11 @@
   services.xserver.videoDrivers = [ "nvidia"];
 
   hardware.nvidia = {
+    modesetting.enable = true;
     open = false;
+    nvidiaSettings = false;
+    branch = "legacy_580";
 
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 }
 

@@ -29,7 +29,7 @@
     graphite-gtk-theme
     
     # == Programs ==
-    vscode
+    vscodium
     brave
     obs-studio
     audacity
@@ -39,8 +39,8 @@
     wine
     prismlauncher
     kitty
-    aseprite
-    kicad-unstable-small
+    #aseprite
+    #kicad-unstable-small
     nwg-look
     mangohud
     goverlay
@@ -55,7 +55,7 @@
     mpv
     lazygit
     zsh
-    oh-my-zsh
+    fzf # Zsh plugin "fzf tab" requires it
     cava
     clang-tools
     
@@ -64,6 +64,7 @@
     psmisc
     fastfetch
     cmatrix
+    pipes-rs
     tldr
     man
     p7zip
@@ -79,7 +80,7 @@
     stress-ng
     lm_sensors
     gomplate
-    python3
+    #python3
     
     # == In shell.nix ==
     # cmake

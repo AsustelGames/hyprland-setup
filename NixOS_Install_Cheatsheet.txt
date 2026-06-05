@@ -14,10 +14,14 @@ Name  Partition type       Make filesystem command           Mount command
 Boot: EFI System          | mkfs.fat -F 32 -n boot /dev/... | mount --mkdir -o umask=077 /dev/disk/by-label/boot /mnt/boot
 Root: Linux root (x86-64) | mkfs.ext4 -L nixos /dev/...     | mount /dev/disk/by-label/nixos /mnt
 Home: Linux home          | mkfs.ext4 -L home /dev/...      | mount --mkdir /dev/disk/by-label/home /mnt/home
-Swap: Linux swap          | mkswap -L swap /dev/...         | swapon /dev/...  
+Swap: Linux swap          | mkswap -L swap /dev/...         | swapon /dev/...
 
 
-# Normal installation
+1. From scratch installation
+2. From repo installation
+
+
+# 1. Installation from scratch 
 nixos-generate-config --root /mnt
 
 nano /mnt/etc/nixos/configuration.nix
@@ -26,11 +30,19 @@ nano /mnt/etc/nixos/configuration.nix
 nixos-install
 
 
-# Installation from github repo
+# 2. Installation from git repo 
 git clone https://github.com/AsustelGames/hyprland-setup /mnt/etc/nixos
-nixos-generate-config --root /mnt --dir /mnt/etc/nixos/hosts/laptop
 
-nixos-install --root /mnt --flake /mnt/etc/nixos#laptop --impure
+# Replace <host> with an actual host from /etc/nixos/hosts
+nixos-generate-config --root /mnt --dir /mnt/etc/nixos/hosts/<host>
+
+# Stop nixos from complaining about git changes
+cd /mnt/etc/nixos
+git add -N .
+cd
+ 
+# Replace <host> with an actual host from /etc/nixos/hosts
+nixos-install --root /mnt --flake /mnt/etc/nixos#<host> --impure
 
 
 nixos-enter --root /mnt -c 'passwd asustel'
@@ -38,6 +50,9 @@ nixos-enter --root /mnt -c 'passwd asustel'
 reboot
 
 
+# Set permissions for dotfiles & menu.sh so you could apply & use them
 sudo chown -R "$USER:$(id -gn $USER)" /etc/nixos/dotfiles
-chmod u+x ~/.config/scripts/hex-to-rgb.sh
-stow -t ~ -d /etc/nixos dotfiles
+chmod u+x ~/.config/scripts/menu.sh
+
+# Initialize dotfiles
+bash ~/.config/scripts/menu.sh -i

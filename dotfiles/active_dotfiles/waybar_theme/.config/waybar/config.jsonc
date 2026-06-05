@@ -15,6 +15,7 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
+        "custom/cava"
     ],
     "modules-right": [
         "custom/power-profiles",
@@ -36,6 +37,10 @@
         "warp-on-scroll": false,
         "format": "{name}"
     },
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/scripts/waybar/cava.sh"
+    },
     "custom/power-profiles": {
         "exec": "bash ~/.config/scripts/power-profiles.sh",
         "interval": 1,
@@ -47,9 +52,10 @@
     },
     "bluetooth": {
         "format": " {status}",
+        "format-no-controller": "",
         "format-connected": "󰂲 connected",
         "format-connected-battery": " connected {battery}%",
-        "on-click": "hyprctl dispatch exec '[float]' kitty bluetui"
+        "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh bluetui"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -59,14 +65,14 @@
         "format-icons": {
             "default": ["", "", ""]
         },
-        "on-click": "hyprctl dispatch exec '[float]' kitty wiremix"
+        "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh wiremix"
     },
     "network": {
         "format-wifi": "󰖩 on",
         "format-ethernet": "󰈀 on",
         "format-disconnected": "󰖪 off",
 
-        "on-click": "hyprctl dispatch exec '[float]' kitty sudo nmtui &"
+        "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh sudo nmtui &"
     },
     "tray": {
     },

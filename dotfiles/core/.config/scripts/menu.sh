@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 themesPath="$HOME/.config/rofi/themes"
 programTheme="${themesPath}/programs.rasi"
 powerTheme="${themesPath}/power.rasi"
@@ -54,7 +55,7 @@ menu() {
     " Wipe Clipboard"
     "󰈈 Manage Themes & Dotfiles"
     "⏻ Power Options"
-	 " Help"
+    " Help"
   )
   choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "dmenu" "Menu: " "" "")
 
@@ -163,20 +164,20 @@ themeMenu() {
   options=(
     "󰈈 Set Theme"
     "󰗉 Set Waybar Theme"
-	 " Select Core"
-	 " Initialize Theme & Core"
-	 " Remove All Active Cores/Themes & Dotfiles"
-	 " Help"
+    " Select Core"
+    " Initialize Theme & Core"
+    " Remove All Active Cores/Themes & Dotfiles"
+    " Help"
   )
   themeType=$(printf "%b\n" "${options[@]}" | openMenu "i" "dmenu" "Themes & Dotfiles: " "" "")
 
   case "$themeType" in
     0) themeType="main" ;;
     1) themeType="waybar" ;;
-	 2) themeType="core" ;;
-	 3) themeType="init" ;;
-	 4) themeType="remove" ;;
-	 5) themeType="help" ;;
+    2) themeType="core" ;;
+    3) themeType="init" ;;
+    4) themeType="remove" ;;
+    5) themeType="help" ;;
   esac
   
   
@@ -187,7 +188,7 @@ themeMenu() {
   if [ "$themeType" != "" ]; then
     choice=$(ls "${dotfilesPath}/themes/${themeType}" | openMenu "" "dmenu" "Themes: " "" "")
     
-	 if [ -z "$choice" ]; then
+    if [ -z "$choice" ]; then
       exit
     fi
   fi
