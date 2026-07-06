@@ -83,13 +83,13 @@
     #python3
     
     # == In shell.nix ==
-    # cmake
-    # ninja
-    # meson
-    # gnumake
+    cmake
+    ninja
+    meson
+    gnumake
     gcc
-    # pkg-config
-    # sdl3
+    pkg-config
+    sdl3
 
     # == Compatibility Fonts
     corefonts

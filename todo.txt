@@ -27,7 +27,6 @@ fix waybar bluetooth icons
 fix white thing when hovering over an workspace
 
 -- menu/theme system
-make a devices menu with mounted devices
 gomplate support
 gtk theme
 auto set waybar theme and layout when setting a theme
@@ -45,6 +44,7 @@ in theme.yaml add a separate colors for ui + add option to automaticly make diff
 when activating init ask if you want to restore existing dotfiles
 add a file that explains how the theme system works
 set correct tab size for css check a few files
+add an option to use a seperate colors for nvim
 
 -- terminal
 add explanation to sockets in zsh
@@ -63,6 +63,10 @@ add a help menu
 reorganize startpage and config.lua
 test theme switching
 toggle for wrap
+don't auto add cpp headers when using autocomplete
+custom menu to show all keybinds toggled by a keybind
+replace [*] with something else in luabar inactive split window
+make inactive #ifdefs easier to read
 
 -- filemanager
 yazi color scheme

@@ -118,3 +118,6 @@ alias nxup='sudo nix flake update --flake /etc/nixos --impure'
 alias hlre='hyprctl reload'
 alias hlmo='hyprctl monitors'
 alias hlla='hyprctl layers'
+
+# Custom
+alias menu='bash $HOME/.config/scripts/menu.sh'

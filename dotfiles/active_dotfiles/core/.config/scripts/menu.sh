@@ -10,6 +10,7 @@ currentTheme=""
 
 screenshotPath="$HOME/Pictures/Screenshots"
 dotfilesPath="/etc/nixos/dotfiles"
+activeDotfilesPath="${dotfilesPath}/active_dotfiles"
 wallpaperPath="$HOME/.config/bg.jpg"
 
 kittyScriptPath="$HOME/.config/scripts/kitty.sh"
@@ -199,8 +200,75 @@ dotfiles-reload() {
 }
 
 
+existing-dotfile-folders-fix() {
+  dotfileTrashPath="$HOME/.config/dotfile-trash"
+  activeTrashSubdir="$(date "+%H-%M-%S_%d-%m-%Y")"
+  mkdir -p "${dotfileTrashPath}/${activeTrashSubdir}"
+
+  isActiveTrashSubdirUseless=1
+
+
+  dirsToCheck=(
+    "hypr"
+    "kitty"
+    "waybar"
+    "rofi"
+    "yazi"
+    "fastfetch"
+    "nvim"
+    #"MangoHud"
+    #"cava"
+    #"mpv"
+    #"VSCodium"
+    #"btop"
+    #"lazygit"
+    #"obs-studio"
+  )
+
+  for dir in "${dirsToCheck[@]}"; do
+    if [ -d "$HOME/.config/$dir" ]; then
+      isActiveTrashSubdirUseless=0
+      mv "$HOME/.config/${dir}" "${dotfileTrashPath}/${activeTrashSubdir}/${dir}"
+    fi
+  done
+
+
+  if [ "${isActiveTrashSubdirUseless}" = "1" ]; then
+    rmdir "${dotfileTrashPath}/${activeTrashSubdir}"
+  fi
+}
+
+
 dotfiles() {
   # dotfiles "stow/unstow/rm/cp" "activeDotfilesPath" "subdir in activeDotfilesPath e.g. core, main_theme or waybar_theme" "path to copy from e.g. actual theme dir path not active dotfiles path"
+  func_instruction="$1"
+  func_activeDotfilesPath="$2"
+  func_activeDotfilesSubdirPath="$3"
+  func_dotfilesDirToCopyPath="$4"
+
+  case "$1" in
+    "") echo "dotfiles(): Error ran a function without an instruction" ;;
+    stow)
+      echo "stow"
+      stow -t $HOME -d "${func_activeDotfilesPath}" "${func_activeDotfilesSubdirPath}"
+      ;;
+    unstow)
+      echo "unstow"
+      stow -t $HOME -d "${func_activeDotfilesPath}" -D "${func_activeDotfilesSubdirPath}"
+      ;;
+    rm)
+      echo "rm"
+      rm -r "${func_activeDotfilesPath}/${func_activeDotfilesSubdirPath}"
+      ;;
+    cp)
+      echo "cp"
+      cp -r "${func_dotfilesDirToCopyPath}" "${func_activeDotfilesPath}/${func_activeDotfilesSubdirPath}"
+      ;;
+    *)
+      echo "dotfiles(): Error unknown instruction"
+      ;;
+  esac
+
   echo "todo"
 }
 
@@ -232,7 +300,7 @@ themeMenu() {
  -> Reveals more advanced options.
   '
   options=(
-    "󰈈 Apply Theme"
+    "󰈈 Apply/Change Theme"
     " Initialize Dotfiles"
     "󰜉 Reload Active Dotfiles"
     "󰑓 Restore Active Dotfiles"
@@ -244,10 +312,10 @@ themeMenu() {
 
   case "${choice}" in
     "") exit ;;
-    0) # Apply Theme
+    0) # Apply/Change Theme
       options=(
-        "󱞩 Apply Main Theme"
-        "󰗉 Apply waybar Theme"
+        "󱞩 Apply/Change Main Theme"
+        "󰗉 Apply/Change waybar Theme"
       )
 
       choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "" "" "" "")
@@ -268,15 +336,23 @@ themeMenu() {
 
       choice=$(ls "${dotfilesPath}/themes/${choice}" | openMenu "i" "" "" "" "" "")
       ;;
+
     1) # Initialize Dotfiles
       choice="applyTheme"
       ;;
+
     2) # Reload Active dotfiles
-      choice="applyTheme"
+      dotfiles-reload "all"
       ;;
+
     3) # Restore Active dotfiles
-      choice="applyTheme"
+      existing-dotfile-folders-fix
+      dotfiles "stow" "${activeDotfilesPath}" "main_theme" ""
+      dotfiles "stow" "${activeDotfilesPath}" "core" ""
+      dotfiles "stow" "${activeDotfilesPath}" "waybar_theme" ""
+      dotfiles-reload "all"
       ;;
+
     4) # Disable Active Dotfiles
       [ -d "${activeDotfilesPath}" ] || exit
 
@@ -288,21 +364,24 @@ themeMenu() {
         exit
       fi
 
-      stow -t $HOME -d "${activeDotfilesPath}" -D "main_theme"
-      stow -t $HOME -d "${activeDotfilesPath}" -D "core"
+      dotfiles "unstow" "${activeDotfilesPath}" "main_theme" ""
+      dotfiles "unstow" "${activeDotfilesPath}" "core" ""
+      dotfiles "unstow" "${activeDotfilesPath}" "waybar_theme" ""
+      dotfiles-reload "all"
       ;;
+
     5) # Advanced Options
       options=(
         " Remove & Re-Apply Active Dotfiles"
         " Change Core"
         " Delete Active Dotfiles"
         " Save Active dotfiles"
-        " Disable Active Dotfiles"
         " Build Active Dotfiles"
         " Help"
       )
       choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" " " "" "" "")
       ;;
+
     6) # Help
       requestedTheme "${popupTheme}"
 
@@ -438,7 +517,27 @@ powerProfilesMenu() {
 
 
 
+hexToRgb() { # Made by chatgpt
+  local hex="$1"
+
+  hex="${hex#"#"}"
+
+  if [[ ! "$hex" =~ ^[0-9A-Fa-f]{6}$ ]]; then
+    echo -e "\e[31mError: Invalid hex color. Use format #RRGGBB or RRGGBB.\e[0m"
+    return 1
+  fi
+
+  local r=$((16#${hex:0:2}))
+  local g=$((16#${hex:2:2}))
+  local b=$((16#${hex:4:2}))
+
+  echo "$r, $g, $b"
+}
+
+
+
 case "$flag" in
+  # Menus
   "") menu ;;
   -b) brightnessMenu ;;
   -s) screenshotMenu ;;
@@ -448,6 +547,13 @@ case "$flag" in
   -t) themeMenu ;;
   -p) powerMenu ;;
   -P) powerProfilesMenu ;;
+
+  # Special script functions
+  --hex-to-rgb) hexToRgb $2 ;;
+  --reload-all-dotfiles) dotfiles-reload "all" ;;
+  --initialize-dotfiles) echo "no code" ;;
+
+  # Return error if flag not valid
   * ) menu "${flag}" ;;
 esac
 
