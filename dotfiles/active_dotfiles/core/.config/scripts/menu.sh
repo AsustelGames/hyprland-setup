@@ -324,17 +324,22 @@ themeMenu() {
         "") exit ;;
         0) choice="main" ;;
         1) choice="waybar" ;;
-        2) echo "No code" ;;
-        3) echo "No code" ;;
       esac
 
-      if [ ! -d "${dotfilesPath}/themes/${choice}" ]; then
-        echo "Error: path ${dotfilesPath}/themes/${choice} does not exist"
-        openMenu "i" "" "" "Error: path ${dotfilesPath}/themes/${choice} does not exist" "" ""
-        exit
-      fi
+      themeType="${choice}"
 
-      choice=$(ls "${dotfilesPath}/themes/${choice}" | openMenu "i" "" "" "" "" "")
+      #if [ ! -d "${dotfilesPath}/themes/${choice}" ]; then
+      #  echo "Error: path ${dotfilesPath}/themes/${choice} does not exist"
+      #  openMenu "i" "" "" "Error: path ${dotfilesPath}/themes/${choice} does not exist" "" ""
+      #  exit
+      #fi
+
+      choice=$(ls "${dotfilesPath}/themes/${themeType}" | openMenu "" "" "" "" "" "")
+
+      [ "${choice}" != "" ] || exit
+
+      selectedTheme="${dotfilesPath}/themes/${themeType}/${choice}"
+      echo "${selectedTheme}"
       ;;
 
     1) # Initialize Dotfiles
@@ -356,7 +361,7 @@ themeMenu() {
     4) # Disable Active Dotfiles
       [ -d "${activeDotfilesPath}" ] || exit
 
-      confirmationOptions=(" No" " Info" "󰗠 Yes")
+      confirmationOptions=(" No" "󰗠 Yes")
       requestedTheme "${confirmationTheme}"
       confirmation=$(printf "%b\n" "${confirmationOptions[@]}" | openMenu "i" "" "" "${options[$choice]}?" "" "")
 
@@ -387,65 +392,44 @@ themeMenu() {
 
       openMenu "" "e" "${helpMessage}" "" "" "" "-markup" ;;
   esac
-  
-  if [ "${themeType}" != "" ]; then
-    choice=$(ls "${dotfilesPath}/themes/${themeType}" | openMenu "" "" "Themes: " "" "" "")
-  fi
-    
 
 
-  count=$(find ${dotfilesPath}/cores -mindepth 1 -maxdepth 1 -type d | wc -l)
+  #count=$(find ${dotfilesPath}/cores -mindepth 1 -maxdepth 1 -type d | wc -l)
 
-  if [ "${count}" -gt 1 ]; then
-    echo "More than one directory in cores"
-  fi
+  #if [ "${count}" -gt 1 ]; then
+  #  echo "More than one directory in cores"
+  #fi
 
-  echo "${themeType}"
 
-  themeChoicePath="${dotfilesPath}/themes/${themeType}/${choice}"
-  activeDotfilesPath="${dotfilesPath}/active_dotfiles"
-  mkdir -p "${dotfilesPath}/active_dotfiles" 
+  mkdir -p "${activeDotfilesPath}" 
   
   if [ "${themeType}" = "main" ]; then
     # Remove and unstow the previous theme
-    stow -t $HOME -d "${activeDotfilesPath}" -D "main_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" -D "core"
-    rm -r "${activeDotfilesPath}/main_theme"
-    rm -r "${activeDotfilesPath}/core"
+    dotfiles "unstow" "${activeDotfilesPath}" "main_theme" ""
+    dotfiles "unstow" "${activeDotfilesPath}" "core" ""
+    dotfiles "rm" "${activeDotfilesPath}" "main_theme" ""
+    dotfiles "rm" "${activeDotfilesPath}" "core" ""
 
     # Copy and stow the new theme
-    cp -r "${themeChoicePath}" ${activeDotfilesPath}/main_theme
-    cp -r "${dotfilesPath}/core" "${activeDotfilesPath}/core"
-    stow -t  $HOME -d "${activeDotfilesPath}" "main_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" "core"
+    dotfiles "cp" "${activeDotfilesPath}" "main_theme" "${selectedTheme}"
+    dotfiles "cp" "${activeDotfilesPath}" "core" "${selectedTheme}"
+    dotfiles "stow" "${activeDotfilesPath}" "core" ""
+    dotfiles "stow" "${activeDotfilesPath}" "main_theme" ""
  
     # Restart Everything
-    pkill waybar
-    awww-daemon --no-cache &
-    awww img --resize crop -t grow --transition-fps 120 "${wallpaperPath}" &
-    waybar &
-    bash "${kittyScriptPath}" -r &
-    hyprctl reload
-    swaync-client -R
+    dotfiles-reload "all"
 
     #echo "${choice}" > ${dotfilesPath}/current_theme/current_theme.info
   elif [ "${themeType}" = "waybar" ]; then
-    stow -t $HOME -d "${activeDotfilesPath}" -D "waybar_theme"
-    rm -r "${activeDotfilesPath}/waybar_theme"
+    dotfiles "unstow" "${activeDotfilesPath}" "waybar_theme" ""
+    dotfiles "rm" "${activeDotfilesPath}" "waybar_theme" ""
 
-    cp -r "${themeChoicePath}" "${activeDotfilesPath}/waybar_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" "waybar_theme"
+    dotfiles "cp" "${activeDotfilesPath}" "waybar_theme" "${selectedTheme}"
+    dotfiles "stow" "${activeDotfilesPath}" "waybar_theme" ""
 
-    pkill waybar
-    waybar &
+    dotfiles-reload "waybar"
   elif [ "${themeType}" = "core" ]; then
     echo "1"
-  elif [ "${themeType}" = "init" ]; then
-    echo "2"
-  elif [ "${themeType}" = "remove" ]; then
-    echo "3"
-  elif [ "${themeType}" = "help" ]; then
-    echo "4"
   fi
 }
 
