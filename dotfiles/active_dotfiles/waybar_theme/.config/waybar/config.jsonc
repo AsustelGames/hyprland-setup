@@ -3,7 +3,7 @@
 {
     "position": "top",
     "mode": "dock",
-    "margin-top": 6,
+    "margin-top": 10,
     "margin-left": 10,
     "margin-right": 10,
     "height": 40,
@@ -42,7 +42,7 @@
         "exec": "~/.config/scripts/waybar/cava.sh"
     },
     "custom/power-profiles": {
-        "exec": "bash ~/.config/scripts/power-profiles.sh",
+        "exec": "bash ~/.config/scripts/waybar/power-profiles.sh",
         "interval": 1,
         "format": {},
         "tooltip-format": "",

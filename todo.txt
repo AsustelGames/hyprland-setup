@@ -19,6 +19,7 @@ improve animations
 configure hyprlock and hypridle
 hyprland monitors through nixos
 make super+shift+w open alternative web browser
+activate hyprlock and hypridle
 
 -- statusbar
 eww hide battery if no battery exists
@@ -30,21 +31,20 @@ fix white thing when hovering over an workspace
 gomplate support
 gtk theme
 auto set waybar theme and layout when setting a theme
-builtin hex to rgb for theme switching
 fix terminal colors
-show current theme under search
 add the possiblity to chnage waybar layout and separate menu for position
 new theme idea frameless
 fix legacy waybar
 btop theme
 custom wifi menu
 add gomplate colors.yaml to set a script for waybar when clicking on icons
-remove autocreated config folder before setting a theme e.g. when hyprland is installed it creates a config folder that is not controlled by stow which blocks the theme from being set
 in theme.yaml add a separate colors for ui + add option to automaticly make different gui color from existing colors
 when activating init ask if you want to restore existing dotfiles
 add a file that explains how the theme system works
 set correct tab size for css check a few files
 add an option to use a seperate colors for nvim
+add more folder to existing-dotfile-folders-fix when ready
+chmod u+x /etc/nixos/dotfiles/active_dotfiles/core/.config/scripts/waybar/cava.sh
 
 -- terminal
 add explanation to sockets in zsh

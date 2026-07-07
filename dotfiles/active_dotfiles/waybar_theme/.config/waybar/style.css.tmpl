@@ -1,0 +1,66 @@
+{{- $background_rgba := printf "rgba(%s, 0.7)" (hex2rgb .root.colors.gui.main.background | strings.TrimSpace) -}}
+{{- $secondary_rgba := printf "rgba(%s, 0.7)" (hex2rgb .root.colors.gui.main.secondary | strings.TrimSpace) -}}
+
+* {
+   font-family: "{{ .root.font.waybar.family }}";
+   font-size: {{ .root.font.waybar.size }}px;
+   border-radius: {{ .root.misc.border_rounding }}px;
+
+   box-shadow: none;
+   outline: none;
+   border: none;
+}
+
+#waybar {
+   background: {{ $background_rgba }};
+   border-top: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-bottom: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-left: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-right: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+}
+
+
+/* Right modules */
+#custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
+   color: {{ .root.colors.gui.main.foreground }};
+   padding: 0px 9px;
+}
+
+#custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
+   color: {{ .root.colors.gui.main.background }};
+   background: linear-gradient(125deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+}
+
+#clock, #battery {
+   color: {{ .root.colors.gui.main.foreground }};
+   padding: 0px 15px;
+}
+
+#custom-start, #clock {
+   font-weight: bold;
+   background: linear-gradient(125deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+}
+
+
+/* Left modules */
+#custom-start, #workspaces button, #tray {
+   color: {{ .root.colors.gui.main.foreground }};
+   padding: 0px 12px;
+}
+
+#custom-start:hover, #workspaces button:hover, #workspaces button.active, #workspaces button.active:hover, #tray:hover {
+   color: {{ .root.colors.gui.main.background }};
+   background: linear-gradient(125deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+  
+   transition: none;
+   animation: none;
+}
+
+#workspaces button.active {
+   font-weight: bold;
+   color: {{ .root.colors.gui.main.foreground }};
+}
+
+#custom-start {
+   padding: 0px 20px;
+}
