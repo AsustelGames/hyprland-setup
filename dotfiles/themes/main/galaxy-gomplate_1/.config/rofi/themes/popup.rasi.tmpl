@@ -2,7 +2,7 @@
    background-color: transparent;
    text-color: {{ .root.colors.gui.main.foreground }};
    padding: 0px;
-   border-radius: {{ .root.misc.border_rounding }}px;
+   border-radius: {{ .root.decoration.border_radius }}px;
 }
 
 window {
@@ -11,5 +11,5 @@ window {
    padding: 10px;
    location: center;
    width: 25%;
-   border: {{ .root.misc.border_size }}px;
+   border: {{ .root.decoration.border_size }}px;
 }

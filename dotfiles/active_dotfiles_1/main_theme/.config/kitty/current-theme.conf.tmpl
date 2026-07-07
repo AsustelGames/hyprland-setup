@@ -1,0 +1,64 @@
+# vim:ft=kitty
+
+
+font_size {{ .root.font.terminal.size }}
+
+font_family      {{ .root.font.terminal.family }}
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+
+# Background color
+background                      {{ .root.colors.terminal.main.background }}
+cursor_text_color               {{ .root.colors.terminal.main.background }}
+inactive_tab_background         {{ .root.colors.terminal.main.background }}
+
+# Foreground color
+selection_foreground            {{ .root.colors.terminal.main.foreground }}
+foreground                      {{ .root.colors.terminal.main.foreground }}
+inactive_tab_foreground         {{ .root.colors.terminal.main.foreground }}
+
+# Primary color
+selection_background            {{ .root.colors.terminal.main.primary }}
+cursor                          {{ .root.colors.terminal.main.primary }}
+url_color                       {{ .root.colors.terminal.main.primary }}
+active_tab_background           {{ .root.colors.terminal.main.primary }}
+
+tab_bar_background              none
+tab_bar_margin_color            none
+
+active_border_color {{ .root.colors.terminal.main.primary }}
+inactive_border_color {{ .root.colors.terminal.main.background }}
+
+
+# Black
+color0                          {{ .root.colors.terminal.extra.color0 }}
+color8                          {{ .root.colors.terminal.extra.color8 }}
+
+# Red
+color1                          {{ .root.colors.terminal.extra.color1 }}
+color9                          {{ .root.colors.terminal.extra.color9 }}
+
+# Green
+color2                          {{ .root.colors.terminal.extra.color2 }}
+color10                         {{ .root.colors.terminal.extra.color10 }}
+
+# Yellow
+color3                          {{ .root.colors.terminal.extra.color3 }}
+color11                         {{ .root.colors.terminal.extra.color11 }}
+
+# Blue
+color4                          {{ .root.colors.terminal.extra.color4 }}
+color12                         {{ .root.colors.terminal.extra.color12 }}
+
+# Pink
+color5                          {{ .root.colors.terminal.extra.color5 }}
+color13                         {{ .root.colors.terminal.extra.color13 }}
+
+# Cyan
+color6                          {{ .root.colors.terminal.extra.color6 }}
+color14                         {{ .root.colors.terminal.extra.color14 }}
+
+# White 
+color7                          {{ .root.colors.terminal.extra.color7 }}
+color15                         {{ .root.colors.terminal.extra.color15 }}

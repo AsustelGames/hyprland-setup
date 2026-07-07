@@ -11,7 +11,7 @@ currentTheme=""
 screenshotPath="$HOME/Pictures/Screenshots"
 dotfilesPath="/etc/nixos/dotfiles"
 activeDotfilesPath="${dotfilesPath}/active_dotfiles"
-wallpaperPath="$HOME/.config/active-theme/bg.jpg"
+wallpaperPath="$HOME/.config/active_theme/bg.jpg"
 
 kittyScriptPath="$HOME/.config/scripts/kitty.sh"
 gomplateScriptPath="${dotfilesPath}/cores/core/.config/scripts/gomplate/gomplate.sh"
@@ -428,10 +428,12 @@ themeMenu() {
     dotfiles "cp" "${activeDotfilesPath}" "core" "${selectedCore}"
 
     # Gomplate stuff
-    ThemeYamlPath="${selectedTheme}/.config/active-theme/theme.yaml"
+    ThemeYamlPath="${selectedTheme}/.config/active_theme/theme.yaml"
     if [ -e "${ThemeYamlPath}" ]; then
       bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${ThemeYamlPath}"
     fi
+
+    existing-dotfile-folders-fix
 
     dotfiles "stow" "${activeDotfilesPath}" "main_theme" ""
     dotfiles "stow" "${activeDotfilesPath}" "core" ""
@@ -451,6 +453,11 @@ themeMenu() {
 
     echo "${selectedCoreName}" > "${activeDotfilesPath}/.core_info.txt"
     echo "${selectedThemeName}" > "${activeDotfilesPath}/.main_theme_info.txt"
+
+    mkdir -p "${activeDotfilesPath}/main_theme/.config/active_theme"]
+    cp "${activeDotfilesPath}/.core_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
+    cp "${activeDotfilesPath}/.main_theme_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
+    cp "${activeDotfilesPath}/.waybar_theme_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
 
   elif [ "${themeType}" = "waybar" ]; then
     # Remove and unstow the previous theme

@@ -1,0 +1,126 @@
+# Theme: Galaxy
+# By: AsustelGames
+
+font:
+  terminal:
+    family: "MartianMono Nerd Font"
+    size: 9.5
+  rofi:
+    family: "MartianMono Nerd Font"
+    size: 12
+    icon_size: 30
+  waybar:
+    family: "MartianMono Nerd Font Mono"
+    size: 15
+
+colors:
+  gui:
+    main:
+      background: "#5F485C"
+      foreground: "#FFEFDF"
+      primary: "#FDAE96"
+      secondary: "#EC8175"
+
+    extra:
+      # Black
+      color0: "#2E3436"
+      color8: "#555753"
+
+      # Red
+      color1: "#CC0000"
+      color9: "#EF2929"
+
+      # Green
+      color2: "#4E9A06"
+      color10: "#8AE234"
+
+      # Yello
+      color3: "#C4A000"
+      color11: "#FCE94F"
+
+      # Blue
+      color4: "#3465A4"
+      color12: "#729FCF"
+
+      # Pink
+      color5: "#75507B"
+      color13: "#AD7FA8"
+
+      # Cyan
+      color6: "#06989A"
+      color14: "#34E2E2"
+
+      # White
+      color7: "#D3D7CF"
+      color15: "#EEEEEC"
+
+  terminal:
+    main:
+      background: "#5F485C"
+      foreground: "#FFEFDF"
+      primary: "#FDAE96"
+      secondary: "#EC8175"
+
+    extra:
+      # Black
+      color0: "#2E3436"
+      color8: "#555753"
+
+      # Red
+      color1: "#CC0000"
+      color9: "#EF2929"
+
+      # Green
+      color2: "#4E9A06"
+      color10: "#8AE234"
+
+      # Yello
+      color3: "#C4A000"
+      color11: "#FCE94F"
+
+      # Blue
+      color4: "#3465A4"
+      color12: "#729FCF"
+
+      # Pink
+      color5: "#75507B"
+      color13: "#AD7FA8"
+
+      # Cyan
+      color6: "#06989A"
+      color14: "#34E2E2"
+
+      # White
+      color7: "#D3D7CF"
+      color15: "#EEEEEC"
+
+decoration:
+  border_radius: 15
+  rounding_power: 3
+  border_size: 3
+  gaps_in: 4
+  gaps_out: 10
+
+  active_opacity: 1.0
+  inactive_opacity: 0.85
+
+  dim_inactive: "true"
+  dim_strength: 0.1
+
+  shadow:
+    enabled: "true"
+    range: 5
+    render_power: 3
+
+  blur:
+    enabled: "true"
+    size: 5
+    passes: 4
+    noise: 0.06
+    vibrancy: 0.19
+    vibrancy_darkness: 1
+    brightness: 1.1
+
+    terminal:
+      active: 0.9
+      inactive: 0.8

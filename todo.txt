@@ -37,8 +37,6 @@ new theme idea frameless
 fix legacy waybar
 btop theme
 custom wifi menu
-add gomplate colors.yaml to set a script for waybar when clicking on icons
-in theme.yaml add a separate colors for ui + add option to automaticly make different gui color from existing colors
 when activating init ask if you want to restore existing dotfiles
 add a file that explains how the theme system works
 set correct tab size for css check a few files

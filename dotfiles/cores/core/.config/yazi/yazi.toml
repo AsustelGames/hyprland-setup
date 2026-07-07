@@ -7,9 +7,9 @@ show_symlink = true
 
 [opener]
 edit = [
-  { run = 'code --wait "$@"', block = true },
+   { run = 'code --wait "$@"', block = true },
 ]
 open = [
-  { run = 'mpv "$@"', block = true },
+   { run = 'mpv "$@"', block = true },
 ]
 

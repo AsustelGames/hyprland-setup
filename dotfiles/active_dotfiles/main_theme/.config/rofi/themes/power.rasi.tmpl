@@ -1,8 +1,8 @@
 * {
    background-color: transparent;
-   text-color: #E1FAFA;
+   text-color: {{ .root.colors.gui.main.foreground }};
    padding: 0px;
-   border-radius: 15px;
+   border-radius: {{ .root.decoration.border_radius }}px;
 }
 
 window {
@@ -17,13 +17,12 @@ mainbox {
    children: [ message, listview ];
 }
 
-
 listview {
-   background-color: #221B567d;
-   border-color: #EF7DAE;
+   background-color: {{ .root.colors.gui.main.background }}7d;
+   border-color: {{ .root.colors.gui.main.primary }};
    padding: 3px;
    lines: 5;
-   border: 3px;
+   border: {{ .root.decoration.border_size }}px;
    dynamic: true;
    columns: 1;
 }
@@ -33,27 +32,27 @@ element {
 }
 
 element selected {
-   background-image: linear-gradient(45deg, #EF7DAE, #A586DB);
-   border-radius: 12px;
+   background-image: linear-gradient(45deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+   border-radius: {{ sub .root.decoration.border_radius 3 }}px;
 }
 
 element-icon {
    padding: 5px;
-   size: 30px;
+   size: {{ .root.font.rofi.icon_size }}px;
 }
 
 element-text {
    padding: 5px;
    vertical-align: 0.5;
-   font: "MartianMono Nerd Font 12";
+   font: "{{ .root.font.rofi.family }} {{ .root.font.rofi.size }}";
 }
 
 textbox-current-entry, message {
-   background-color: #221B567d;
-   border-color: #A586DB;
+   background-color: {{ .root.colors.gui.main.background }}7d;
+   border-color: {{ .root.colors.gui.main.secondary }};
    padding: 5px 15px;
    horizontal-align: 0.5;
-   border: 3px;
+   border: {{ .root.decoration.border_radius }}px;
 }
 
 message {

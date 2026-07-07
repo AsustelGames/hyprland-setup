@@ -4,7 +4,7 @@
 * {
    font-family: "{{ .root.font.waybar.family }}";
    font-size: {{ .root.font.waybar.size }}px;
-   border-radius: {{ .root.misc.border_rounding }}px;
+   border-radius: {{ .root.decoration.border_radius }}px;
 
    box-shadow: none;
    outline: none;
@@ -13,10 +13,10 @@
 
 #waybar {
    background: {{ $background_rgba }};
-   border-top: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-   border-bottom: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-   border-left: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
-   border-right: {{ .root.misc.border_size }}px solid {{ $secondary_rgba }};
+   border-top: {{ .root.decoration.border_size }}px solid {{ $secondary_rgba }};
+   border-bottom: {{ .root.decoration.border_size }}px solid {{ $secondary_rgba }};
+   border-left: {{ .root.decoration.border_size }}px solid {{ $secondary_rgba }};
+   border-right: {{ .root.decoration.border_size }}px solid {{ $secondary_rgba }};
 }
 
 

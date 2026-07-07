@@ -9,45 +9,45 @@
 }
 
 #waybar {
-   background: rgba(34, 27, 86, 0.7);
-   border-top: 3px solid rgba(165, 134, 219, 0.7);
-   border-bottom: 3px solid rgba(165, 134, 219, 0.7);
-   border-left: 3px solid rgba(165, 134, 219, 0.7);
-   border-right: 3px solid rgba(165, 134, 219, 0.7);
+   background: rgba(95, 72, 92, 0.7);
+   border-top: 3px solid rgba(236, 129, 117, 0.7);
+   border-bottom: 3px solid rgba(236, 129, 117, 0.7);
+   border-left: 3px solid rgba(236, 129, 117, 0.7);
+   border-right: 3px solid rgba(236, 129, 117, 0.7);
 }
 
 
 /* Right modules */
 #custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
-   color: #E1FAFA;
+   color: #FFEFDF;
    padding: 0px 9px;
 }
 
 #custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
-   color: #221B56;
-   background: linear-gradient(125deg, #EF7DAE, #A586DB);
+   color: #5F485C;
+   background: linear-gradient(125deg, #FDAE96, #EC8175);
 }
 
 #clock, #battery {
-   color: #E1FAFA;
+   color: #FFEFDF;
    padding: 0px 15px;
 }
 
 #custom-start, #clock {
    font-weight: bold;
-   background: linear-gradient(125deg, #EF7DAE, #A586DB);
+   background: linear-gradient(125deg, #FDAE96, #EC8175);
 }
 
 
 /* Left modules */
 #custom-start, #workspaces button, #tray {
-   color: #E1FAFA;
+   color: #FFEFDF;
    padding: 0px 12px;
 }
 
 #custom-start:hover, #workspaces button:hover, #workspaces button.active, #workspaces button.active:hover, #tray:hover {
-   color: #221B56;
-   background: linear-gradient(125deg, #EF7DAE, #A586DB);
+   color: #5F485C;
+   background: linear-gradient(125deg, #FDAE96, #EC8175);
   
    transition: none;
    animation: none;
@@ -55,7 +55,7 @@
 
 #workspaces button.active {
    font-weight: bold;
-   color: #E1FAFA;
+   color: #FFEFDF;
 }
 
 #custom-start {

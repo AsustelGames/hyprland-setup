@@ -2,7 +2,7 @@
    background-color: transparent;
    text-color: {{ .root.colors.gui.main.foreground }};
    padding: 0px;
-   border-radius: {{ .root.misc.border_rounding }}px;
+   border-radius: {{ .root.decoration.border_radius }}px;
 }
 
 window {
@@ -29,7 +29,7 @@ inputbar {
    background-image: url("~/.config/rofi/bg.png", none);
    padding: 10px;
    border-color: {{ .root.colors.gui.main.primary }};
-   border: {{ .root.misc.border_size }}px;
+   border: {{ .root.decoration.border_size }}px;
 
    children: [ "textbox-prompt-colon", "entry" ];
 }
@@ -49,7 +49,7 @@ listview {
    lines: 8;
    columns: 1;
    fixed-columns: true;
-   border: {{ .root.misc.border_size }}px;
+   border: {{ .root.decoration.border_size }}px;
 }
 
 element {
@@ -58,7 +58,7 @@ element {
 
 element selected {
    background-image: linear-gradient(45deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
-   border-radius: {{ sub (conv.ToInt64 .root.misc.border_rounding) 3 }}px;
+   border-radius: {{ sub (conv.ToInt64 .root.decoration.border_radius) 3 }}px;
 }
 
 element-icon {
@@ -77,5 +77,5 @@ textbox-current-entry, message, error-message {
    border-color: {{ .root.colors.gui.main.secondary }};
    padding: 10px 15px;
    horizontal-align: 0.5;
-   border: {{ .root.misc.border_size }}px;
+   border: {{ .root.decoration.border_size }}px;
 }

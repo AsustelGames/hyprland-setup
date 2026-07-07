@@ -25,5 +25,6 @@ else
     
     #nvim --server "$sock" --remote-send ':echo "hello"<CR>'
     nvim --server "$sock" --remote-expr 'execute("luafile ~/.config/nvim/lua/colors.lua")' &
+    nvim --server "$sock" --remote-expr 'execute(":lua reloadTheme()")' &
   done
 fi
