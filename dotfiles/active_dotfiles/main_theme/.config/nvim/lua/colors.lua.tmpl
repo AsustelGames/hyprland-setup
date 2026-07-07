@@ -1,6 +1,15 @@
 function reloadTheme()
     package.loaded["colors"] = nil
-    require("lazy").reload({ plugins = { "lualine.nvim" } })
+
+    local colors = require("colors")
+
+    require("lualine").setup({
+        options = {
+            theme = colors.lualine,
+        },
+    })
+
+    vim.cmd("redrawstatus")
 end
 
 

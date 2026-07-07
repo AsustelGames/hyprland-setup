@@ -52,7 +52,7 @@ textbox-current-entry, message {
    border-color: #EC8175;
    padding: 5px 15px;
    horizontal-align: 0.5;
-   border: 15px;
+   border: 3px;
 }
 
 message {

@@ -23,7 +23,6 @@ else
   for sock in $nvimSocketDir/*.sock; do
     [ -S "$sock" ] || continue
     
-    #nvim --server "$sock" --remote-send ':echo "hello"<CR>'
     nvim --server "$sock" --remote-expr 'execute("luafile ~/.config/nvim/lua/colors.lua")' &
     nvim --server "$sock" --remote-expr 'execute(":lua reloadTheme()")' &
   done
