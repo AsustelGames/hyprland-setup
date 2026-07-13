@@ -52,7 +52,7 @@ reboot
 
 # Set permissions for dotfiles & menu.sh so you could apply & use them
 sudo chown -R "$USER:$(id -gn $USER)" /etc/nixos/dotfiles
-chmod u+x /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh
+bash /etc/nixos/dotfiles/cores/core/.config/scripts/set-permissions.sh
 
 # Initialize dotfiles
 bash ~/.config/scripts/menu.sh -i

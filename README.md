@@ -1,1 +1,3 @@
-I will do the readme later
+Unless you know how to install it correctly, don't try to install this setup.
+
+I will do the readme later...

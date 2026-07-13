@@ -1,53 +1,42 @@
 * {
    font-family: "MartianMono Nerd Font Mono";
    font-size: 15px;
-   border-radius: 15px;
+   border-radius: 8px;
 
+   text-shadow: none;
    box-shadow: none;
    outline: none;
    border: none;
+   text-shadow: 1px 1px 0 #173626;
 }
 
 #waybar {
-   background: rgba(95, 72, 92, 0.7);
-   border-top: 3px solid rgba(236, 129, 117, 0.7);
-   border-bottom: 3px solid rgba(236, 129, 117, 0.7);
-   border-left: 3px solid rgba(236, 129, 117, 0.7);
-   border-right: 3px solid rgba(236, 129, 117, 0.7);
+   background: rgba(24, 39, 40, 0.7);
+   border-top: 3px solid rgba(162, 176, 87, 0.7);
+   border-bottom: 4px solid rgba(162, 176, 87, 0.7);
+   border-left: 3px solid rgba(162, 176, 87, 0.7);
+   border-right: 3px solid rgba(162, 176, 87, 0.7);
 }
-
-
-/* Right modules */
-#custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
-   color: #FFEFDF;
-   padding: 0px 9px;
-}
-
-#custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
-   color: #5F485C;
-   background: linear-gradient(125deg, #FDAE96, #EC8175);
-}
-
-#clock, #battery {
-   color: #FFEFDF;
-   padding: 0px 15px;
-}
-
-#custom-start, #clock {
-   font-weight: bold;
-   background: linear-gradient(125deg, #FDAE96, #EC8175);
+/* Waybar shadow */
+window#waybar > box {
+    border-bottom: 0.5px solid #173626;
+    border-right: 0.5px solid #173626;
 }
 
 
 /* Left modules */
 #custom-start, #workspaces button, #tray {
-   color: #FFEFDF;
+   color: #F9F5F4;
    padding: 0px 12px;
 }
 
+#custom-start {
+   padding: 0px 20px;
+}
+
 #custom-start:hover, #workspaces button:hover, #workspaces button.active, #workspaces button.active:hover, #tray:hover {
-   color: #5F485C;
-   background: linear-gradient(125deg, #FDAE96, #EC8175);
+   color: #182728;
+   background: linear-gradient(125deg, #CAD277, #A2B057);
   
    transition: none;
    animation: none;
@@ -55,9 +44,80 @@
 
 #workspaces button.active {
    font-weight: bold;
-   color: #FFEFDF;
+   color: #F9F5F4;
 }
 
-#custom-start {
-   padding: 0px 20px;
+#workspaces button label, #workspaces button:hover label, #workspaces button.active:hover label {
+   text-shadow: none;
+}
+
+
+/* Center modules */
+#custom-cava {
+   color: #F9F5F4;
+   padding: 0px 9px;
+}
+
+
+/* Right modules */
+#custom-power-profiles.performance {
+   color: #ac4a4a;
+}
+#custom-power-profiles.balanced {
+   color: #F9F5F4;
+}
+#custom-power-profiles.power-saver {
+   color: #5b903d;
+}
+
+#bluetooth.connected {
+   color: #F9F5F4;
+}
+#bluetooth.disabled {
+   color: #F9F5F4;
+}
+#bluetooth.discoverable {
+   color: #F9F5F4;
+}
+#bluetooth.pairable {
+   color: #F9F5F4;
+}
+
+#pulseaudio.muted {
+   color: #ac4a4a;
+}
+
+#network.wifi {
+   color: #ac4a4a;
+}
+#network.ethernet {
+   color: #5b903d;
+}
+#network.disconnected {
+   color: #908e3d;
+}
+#network.linked {
+   color: #3d7b90;
+}
+
+#custom-power-profiles, #bluetooth, #pulseaudio, #network {
+   color: #F9F5F4;
+   padding: 0px 9px;
+}
+
+#custom-power-profiles:hover, #bluetooth:hover, #pulseaudio:hover, #network:hover, #clock:hover, #battery:hover {
+   color: #182728;
+   text-shadow: none;
+   background: linear-gradient(125deg, #CAD277, #A2B057);
+}
+
+#clock, #battery {
+   color: #F9F5F4;
+   padding: 0px 15px;
+}
+
+#custom-start, #clock {
+   font-weight: bold;
+   background: linear-gradient(125deg, #CAD277, #A2B057);
+   text-shadow: none;
 }

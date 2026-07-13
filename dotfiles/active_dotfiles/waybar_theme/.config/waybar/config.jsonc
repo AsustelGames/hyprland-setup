@@ -29,7 +29,8 @@
    "custom/start": {
       "format": "",
       "tooltip-format": "menu",
-      "on-click": "bash ~/.config/scripts/menu.sh"
+      "on-click": "bash $HOME/.config/scripts/menu.sh",
+      "return-type": "json"
    },
    "hyprland/workspaces": {
       "disable-scroll": true,
@@ -39,15 +40,17 @@
    },
    "custom/cava": {
       "format": "{}",
-      "exec": "~/.config/scripts/waybar/cava.sh"
+      "exec": "$HOME/.config/scripts/waybar/cava.sh",
+      "return-type": "json"
    },
    "custom/power-profiles": {
-      "exec": "bash ~/.config/scripts/waybar/power-profiles.sh",
+      "exec": "bash $HOME/.config/scripts/waybar/power-profiles.sh",
       "interval": 1,
       "format": {},
       "tooltip-format": "",
+      "return-type": "json",
 
-      "on-click": "bash ~/.config/scripts/menu.sh -P"
+      "on-click": "bash $HOME/.config/scripts/menu.sh -P"
 
    },
    "bluetooth": {
@@ -55,7 +58,7 @@
       "format-no-controller": "",
       "format-connected": "󰂲 connected",
       "format-connected-battery": " connected {battery}%",
-      "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh bluetui"
+      "on-click": "hyprctl dispatch exec '[float]' bash $HOME/.config/scripts/kitty.sh bluetui"
    },
    "pulseaudio": {
       "format": "{icon} {volume}%",
@@ -65,14 +68,14 @@
       "format-icons": {
          "default": ["", "", ""]
       },
-      "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh wiremix"
+      "on-click": "hyprctl dispatch exec '[float]' bash $HOME/.config/scripts/kitty.sh wiremix"
    },
    "network": {
       "format-wifi": "󰖩 on",
       "format-ethernet": "󰈀 on",
       "format-disconnected": "󰖪 off",
 
-      "on-click": "hyprctl dispatch exec '[float]' bash ~/.config/scripts/kitty.sh sudo nmtui &"
+      "on-click": "hyprctl dispatch exec '[float]' bash $HOME/.config/scripts/kitty.sh sudo nmtui &"
    },
    "tray": {
    },

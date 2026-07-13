@@ -124,3 +124,13 @@ decoration:
     terminal:
       active: 0.9
       inactive: 0.8
+
+misc:
+  scripts:
+    main:
+      menu: "$HOME/.config/scripts/menu.sh"
+      kitty: "$HOME/.config/scripts/kitty.sh"
+
+    waybar:
+      cava: "$HOME/.config/scripts/waybar/cava.sh"
+      power_profiles: "$HOME/.config/scripts/waybar/power-profiles.sh"

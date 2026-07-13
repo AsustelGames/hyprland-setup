@@ -1,1 +1,1 @@
-modern-gomplate
+modern-gomplate-v2

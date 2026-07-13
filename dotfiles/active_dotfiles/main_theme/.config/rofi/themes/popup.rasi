@@ -1,13 +1,13 @@
 * {
    background-color: transparent;
-   text-color: #FFEFDF;
+   text-color: #F9F5F4;
    padding: 0px;
-   border-radius: 15px;
+   border-radius: 8px;
 }
 
 window {
-   background-color: #5F485C7d;
-   border-color: #FDAE96;
+   background-color: #1827287d;
+   border-color: #CAD277;
    padding: 10px;
    location: center;
    width: 25%;

@@ -19,34 +19,34 @@ local hlc = vim.api.nvim_set_hl
 -- Colors
 local colors = {}
 
-colors.background = "#5F485C"
-colors.foreground = "#FFEFDF"
-colors.primary = "#FDAE96"
-colors.secondary = "#EC8175"
+colors.background = "#182728"
+colors.foreground = "#F9F5F4"
+colors.primary = "#CAD277"
+colors.secondary = "#A2B057"
 
-colors.black = "#2E3436"
-colors.black2 = "#555753"
+colors.black = "#173626"
+colors.black2 = "#214c36"
 
-colors.red = "#CC0000"
-colors.red2 = "#EF2929"
+colors.red = "#903d3d"
+colors.red2 = "#ac4a4a"
 
-colors.green = "#4E9A06"
-colors.green2 = "#8AE234"
+colors.green = "#5b903d"
+colors.green2 = "#6ead49"
 
-colors.yellow = "#C4A000"
-colors.yellow2 = "#FCE94F"
+colors.yellow = "#908e3d"
+colors.yellow2 = "#acab4a"
 
-colors.blue = "#3465A4"
-colors.blue2 = "#729FCF"
+colors.blue = "#3d7b90"
+colors.blue2 = "#4a94ac"
 
-colors.pink = "#75507B"
-colors.pink2 = "#AD7FA8"
+colors.pink = "#813d90"
+colors.pink2 = "#9a4aac"
 
-colors.cyan = "#06989A"
-colors.cyan2 = "#34E2E2"
+colors.cyan = "#3d9089"
+colors.cyan2 = "#4aaca4"
 
-colors.white = "#D3D7CF"
-colors.white2 = "#EEEEEC"
+colors.white = "#bfcbc5"
+colors.white2 = "#d6deda"
 
 colors.none = colors.background
 

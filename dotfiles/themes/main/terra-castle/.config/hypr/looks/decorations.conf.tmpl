@@ -1,0 +1,45 @@
+general {
+   gaps_in = {{ .root.decoration.gaps_in }}
+   gaps_out = {{ .root.decoration.gaps_out }}
+
+   border_size = {{ .root.decoration.border_size }}
+
+   col.active_border = rgba({{ strings.TrimPrefix "#" .root.colors.gui.main.primary }}FF)
+   col.inactive_border = rgba({{ strings.TrimPrefix "#" .root.colors.gui.main.secondary }}FF)
+}
+
+decoration {
+   rounding = {{ .root.decoration.border_radius }}
+   rounding_power = {{ .root.decoration.rounding_power }}
+
+   active_opacity = {{ .root.decoration.active_opacity }}
+   inactive_opacity = {{ .root.decoration.inactive_opacity }}
+
+   dim_inactive = {{ .root.decoration.dim_inactive }}
+   dim_strength = {{ .root.decoration.dim_strength }}
+
+   shadow {
+      enabled = {{ .root.decoration.shadow.enabled }}
+      range = {{ .root.decoration.shadow.range }}
+      render_power = {{ .root.decoration.shadow.render_power }}
+      color = rgba({{ strings.TrimPrefix "#" .root.colors.gui.extra.color0 }}ee)
+   }
+
+   blur {
+      enabled = {{ .root.decoration.blur.enabled }}
+      size = {{ .root.decoration.blur.size }}
+      passes = {{ .root.decoration.blur.passes }}
+      noise = {{ .root.decoration.blur.noise }}
+      vibrancy = {{ .root.decoration.blur.vibrancy }}
+      vibrancy_darkness = {{ .root.decoration.blur.vibrancy_darkness }}
+      brightness = {{ .root.decoration.blur.brightness }}
+      popups = true
+      special = true
+   }
+}
+
+
+windowrule = opacity {{ .root.decoration.blur.terminal.active }} {{ .root.decoration.blur.terminal.inactive }}, match:class kitty
+
+layerrule = blur on, ignore_alpha 0.1, match:namespace rofi
+layerrule = blur on, ignore_alpha 0.7, match:namespace waybar

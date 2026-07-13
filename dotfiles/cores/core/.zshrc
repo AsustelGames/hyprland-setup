@@ -82,6 +82,7 @@ alias vs='code'
 alias na='nano'
 
 alias y='yazi'
+alias lg='lazygit'
 
 
 # Creating & Removing
@@ -121,3 +122,4 @@ alias hlla='hyprctl layers'
 
 # Custom
 alias menu='bash $HOME/.config/scripts/menu.sh'
+alias menuCore='bash /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh'

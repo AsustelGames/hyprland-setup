@@ -13,6 +13,9 @@ dotfilesPath="/etc/nixos/dotfiles"
 activeDotfilesPath="${dotfilesPath}/active_dotfiles"
 wallpaperPath="$HOME/.config/active_theme/bg.jpg"
 
+rofiLogFilePath="$HOME/.rofi.log"
+rofiThemeDisablerPath="${activeDotfilesPath}/main_theme/.config/active_theme/disable_rofi_theme"
+
 kittyScriptPath="$HOME/.config/scripts/kitty.sh"
 gomplateScriptPath="${dotfilesPath}/cores/core/.config/scripts/gomplate/gomplate.sh"
 
@@ -24,14 +27,34 @@ flag=$1
 
 requestedTheme() {
   requestedTheme="$1"
-  if [ -e "${requestedTheme}" ]; then
+  if [[ -e "${requestedTheme}" && ! -e "${rofiThemeDisablerPath}" ]]; then
     currentTheme="-theme ${requestedTheme}"
+  #elif [ -e "${rofiThemeDisablerPath}" ]; then
+  #  echo "requestedTheme(): All themes are disabled due to errors"
+  #  errorString="All themes are disabled due to errors"
   else
     echo "requestedTheme(): Theme $1 does not exist"
-    errorString="Theme "$1" does not exist"
+    errorString="Theme: "$1" does not exist"
   fi
 }
 
+openMenuFix() {
+  i=0
+
+  while pgrep -x rofi > /dev/null && [ $i -lt 100 ]; do
+    sleep 0.1
+    ((i++))
+  done
+
+  if [ ! -f "${rofiLogFilePath}" ]; then return; fi
+
+  if grep -qi "#error-message" "${rofiLogFilePath}"; then
+    notify-send "menu.sh" "Rofi theme has been disabled due to errors. You can try launching it again"
+    touch "${rofiThemeDisablerPath}"
+  else
+    rm -f "${rofiThemeDisablerPath}"
+  fi
+}
 
 openMenu() {
   #openMenu "i/-" "dmenu/drun/icons/e" "title" "message" "2/-" "no-mkr/-" "whatever else"
@@ -64,7 +87,12 @@ openMenu() {
     markupRows=""
   fi
 
-  rofi -i $returnType $menuType "$3" -display-drun "$3" $message "$4" $displayType $currentTheme $markupRows -scroll-method 1 "$7" "$8"
+  rm "${rofiLogFilePath}"
+  touch "${rofiLogFilePath}"
+
+  openMenuFix &
+
+  rofi -i $returnType $menuType "$3" -display-drun "$3" $message "$4" $displayType $currentTheme $markupRows -scroll-method 1 "$7" "$8" -log "${rofiLogFilePath}" &
   echo "rofi -i ${returnType} ${menuType} $3 -display-drun $3 ${message} $4 ${displayType} ${currentTheme}" ${markupRows} -scroll-method 1 "$7" "$8" >&2
 }
 
@@ -196,6 +224,7 @@ dotfiles-reload() {
     hyprctl reload
     swaync-client -R
   elif [ "$1" = "waybar" ]; then
+    pkill -x cava
     pkill waybar
     waybar &
   else
@@ -413,6 +442,8 @@ themeMenu() {
   #  echo "More than one directory in cores"
   #fi
 
+  themeYamlPath="${activeDotfilesPath}/main_theme/.config/active_theme/theme.yaml"
+  themeYamlPathClean="${selectedTheme}/.config/active_theme/theme.yaml"
 
   mkdir -p "${activeDotfilesPath}" 
   
@@ -428,9 +459,8 @@ themeMenu() {
     dotfiles "cp" "${activeDotfilesPath}" "core" "${selectedCore}"
 
     # Gomplate stuff
-    ThemeYamlPath="${selectedTheme}/.config/active_theme/theme.yaml"
-    if [ -e "${ThemeYamlPath}" ]; then
-      bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${ThemeYamlPath}"
+    if [ -e "${themeYamlPath}" ]; then
+      bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${themeYamlPath}"
     fi
 
     existing-dotfile-folders-fix
@@ -439,13 +469,13 @@ themeMenu() {
     dotfiles "stow" "${activeDotfilesPath}" "core" ""
 
     # Gomplate stuff
-    if [ -e "${ThemeYamlPath}" ]; then
+    if [ -e "${themeYamlPath}" ]; then
       dotfiles "unstow" "${activeDotfilesPath}" "waybar_theme" ""
       dotfiles "rm" "${activeDotfilesPath}" "waybar_theme" ""
       dotfiles "cp" "${activeDotfilesPath}" "waybar_theme" "${dotfilesPath}/themes/waybar/${WaybarThemeInfo}"
       dotfiles "stow" "${activeDotfilesPath}" "waybar_theme" ""
 
-      bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${ThemeYamlPath}"
+      bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${themeYamlPath}"
     fi
 
     # Restart Everything
@@ -454,7 +484,7 @@ themeMenu() {
     echo "${selectedCoreName}" > "${activeDotfilesPath}/.core_info.txt"
     echo "${selectedThemeName}" > "${activeDotfilesPath}/.main_theme_info.txt"
 
-    mkdir -p "${activeDotfilesPath}/main_theme/.config/active_theme"]
+    mkdir -p "${activeDotfilesPath}/main_theme/.config/active_theme"
     cp "${activeDotfilesPath}/.core_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
     cp "${activeDotfilesPath}/.main_theme_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
     cp "${activeDotfilesPath}/.waybar_theme_info.txt" "${activeDotfilesPath}/main_theme/.config/active_theme"
@@ -466,15 +496,16 @@ themeMenu() {
 
     # Copy and stow the new theme
     dotfiles "cp" "${activeDotfilesPath}" "waybar_theme" "${selectedTheme}"
-
-    if [ -e "${activeDotfilesPath}/main_theme/.config/active-theme/theme.yaml" ]; then
-      bash "${gomplateScriptPath}" "${activeDotfilesPath}/waybar_theme" "${activeDotfilesPath}/main_theme/.config/active-theme/theme.yaml"
-    fi
-
     dotfiles "stow" "${activeDotfilesPath}" "waybar_theme" ""
+
+    if [ -e "${themeYamlPath}" ]; then
+      bash "${gomplateScriptPath}" "${activeDotfilesPath}/waybar_theme" "${themeYamlPath}"
+    fi
 
     # Restart Everything
     dotfiles-reload "waybar"
+
+    echo "bash "${gomplateScriptPath}" "${activeDotfilesPath}/waybar_theme" "${themeYamlPath}""
 
     echo "${selectedThemeName}" > "${activeDotfilesPath}/.waybar_theme_info.txt"
 
@@ -568,7 +599,7 @@ case "$flag" in
   --initialize-dotfiles) echo "no code" ;;
 
   # Return error if flag not valid
-  * ) menu "${flag}" ;;
+  * ) menu "${flag}" ;; # what if user is in cli
 esac
 
 themeMenuBackup() {

@@ -17,7 +17,7 @@ do
 done
 
 # write cava config
-config_file="/tmp/polybar_cava_config"
+config_file="/tmp/waybar_cava_config"
 echo "
 [general]
 bars = 8
@@ -31,5 +31,6 @@ ascii_max_range = 7
 
 # read stdout from cava
 cava -p $config_file | while read -r line; do
-    echo $line | sed $dict
+    printf '{"text":"%s","class":""}\n' "$(printf '%s' "$line" | sed "$dict")"
+    #echo $line | sed $dict
 done
