@@ -50,7 +50,7 @@ nixos-enter --root /mnt -c 'passwd asustel'
 reboot
 
 
-# Set permissions for dotfiles & menu.sh so you could apply & use them
+# Set permissions for dotfiles & run set-permissions.sh so the script permissions are correct
 sudo chown -R "$USER:$(id -gn $USER)" /etc/nixos/dotfiles
 bash /etc/nixos/dotfiles/cores/core/.config/scripts/set-permissions.sh
 

@@ -2,24 +2,31 @@ find /etc/nixos/dotfiles/themes/main -mindepth 1 -maxdepth 1 -type d | head -n 1
 notification after theme switch
 hide laptop stuff like brightness and powerprofiles
 
+restore & init + fix the reload issues that can occur
+check nixos install cheatsheet
+move some stuff from .config to core
+
+
 
 -- nixos
 make the power button not turn the system off immediatly
+readme how to add custom host + flake.nix stuff
 add support for hibernation
 use cpupower command
 custom nix modules
 set users in configuration.nix
 add a nxre-auto command
 dotfiles config through nixos
+overhaul nixos config
 
 -- hyprland
 fix permissions for hyprpicker, obs and hyprlock
 migrate all hyprland configs to lua
 improve animations
-configure hyprlock and hypridle
+configure & activate hyprlock and hypridle
 hyprland monitors through nixos
 make super+shift+w open alternative web browser
-activate hyprlock and hypridle
+when switched to lua make hyprland check for monitors.lua if the file doesnt exist copy from nixos or something
 
 -- themes
 main add the 16 colors for galaxy and terra-castle
@@ -29,9 +36,10 @@ waybar modern-v2 check bluetooth colors on the tablet + other bluetooth stuff
 eww hide battery if no battery exists
 show vpn, gpu, cpu usage, etc
 fix waybar bluetooth icons
+gnome like waybar
+time and date in one module without clicking on it
 
 -- menu/theme system
-gomplate support
 gtk theme
 auto set waybar theme and layout when setting a theme
 fix terminal colors
@@ -43,16 +51,28 @@ custom wifi menu
 when activating init ask if you want to restore existing dotfiles
 add a file that explains how the theme system works
 add an option to use a seperate colors for nvim
-add more folder to existing-dotfile-folders-fix when ready
+add more folders to existing-dotfile-folders-fix when ready
 chmod u+x /etc/nixos/dotfiles/active_dotfiles/core/.config/scripts/waybar/cava.sh
 make the theme system apply the wallpaper regardless of bg format
 fix comments in theme function
 if a theme is switching and returns errors make it more clear (popup menu with error)
 move delete and reapply to apply/change theme
 waybar make steam popup text not have a shadow
+add a cli interface to menu.sh e.g. add flags -help, --cli "path" -> --cli "themes/apply/ls" will list the stuff in that specific path also menu.sh -r to restore
+what if the files with core, theme or waybar theme names don't exist + if waybar theme missing and the theme support gomplate fix it idk
+add a update option to the main menu that updates dotfiles and more from github + backs up the old files
+when installing nixos restoring dotfiles through the menu will cause an error because hyprland and etc are no running fix that
+play sound when menus apear maybe?
+add submenu for waybar stuff e.g. bluetooth, etc
+overhaul fastfetch
+prevent hyprland from creating home folders every time you restart
+menu.sh make func vars local if only used in a function
+replace exit ifs with one liners
+help popup will eventually disable the rofi theme because the help popup uses #error-message
 
 -- terminal
 add explanation to sockets in zsh
+replace paths with path vars
 
 -- nvim
 use terminal colors
@@ -72,6 +92,11 @@ don't auto add cpp headers when using autocomplete
 custom menu to show all keybinds toggled by a keybind
 replace [*] with something else in luabar inactive split window
 make inactive #ifdefs easier to read
+spell checker
+mg979/vim-visual-multi
+smoka7/multicursors.nvim
+different color brackets {[({{}}{{{}}{{()}}})]}
+nvim hover split windows to focus
 
 -- filemanager
 yazi color scheme
@@ -86,7 +111,8 @@ fix installation + improve cheatsheet
 configure cava, mangohud, obs-studio, vscode and add them to core
 make a text file with all keybindings
 add vscode plugins to packages.nix
-add dotfile trash to bookmarks script
+split nixos cheatsheet into 2 different files + rename it correct
+try rg, shellcheck and perf tools
 
 
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+rofiLogFilePath="$HOME/.rofi.log"
+rofiThemeDisablerPath="${activeDotfilesPath}/main_theme/.config/active_theme/disable_rofi_theme"
+
 themesPath="$HOME/.config/rofi/themes"
 appsTheme="${themesPath}/apps.rasi"
 powerTheme="${themesPath}/power.rasi"
@@ -11,18 +14,27 @@ currentTheme=""
 screenshotPath="$HOME/Pictures/Screenshots"
 dotfilesPath="/etc/nixos/dotfiles"
 activeDotfilesPath="${dotfilesPath}/active_dotfiles"
-wallpaperPath="$HOME/.config/active_theme/bg.jpg"
-
-rofiLogFilePath="$HOME/.rofi.log"
-rofiThemeDisablerPath="${activeDotfilesPath}/main_theme/.config/active_theme/disable_rofi_theme"
+activeThemeHomePath="$HOME/.config/active_theme"
+wallpaperPath="${activeThemeHomePath}/bg.jpg"
 
 kittyScriptPath="$HOME/.config/scripts/kitty.sh"
 gomplateScriptPath="${dotfilesPath}/cores/core/.config/scripts/gomplate/gomplate.sh"
 
+confirmationOptionClasses=("no" "yes")
 confirmationOptions=(" No" "󰗠 Yes")
+
+cliMode=0
+cliAction=""
+cliPath=""
+currentCliInstructionListID=0
+cliNoMoreInstructions=1
+cliInstructionList=()
+cliInstructionListSize=0
 
 errorString=""
 flag=$1
+flag2=$2
+flag3=$3
 
 
 requestedTheme() {
@@ -34,9 +46,11 @@ requestedTheme() {
   #  errorString="All themes are disabled due to errors"
   else
     echo "requestedTheme(): Theme $1 does not exist"
-    errorString="Theme: "$1" does not exist"
+    errorString="Theme: '$1' does not exist"
+    currentTheme=""
   fi
 }
+
 
 openMenuFix() {
   i=0
@@ -55,6 +69,7 @@ openMenuFix() {
     rm -f "${rofiThemeDisablerPath}"
   fi
 }
+
 
 openMenu() {
   #openMenu "i/-" "dmenu/drun/icons/e" "title" "message" "2/-" "no-mkr/-" "whatever else"
@@ -97,12 +112,105 @@ openMenu() {
 }
 
 
+cli() {
+  if [ -z "$1" ]; then
+    echo "empty path"
+    exit
+  fi
+
+  if [ -z "$2" ]; then
+    echo "no instruction provided"
+    exit
+  fi
+
+  cliMode=1
+  cliNoMoreInstructions=0
+
+  cliPath="$1"
+  local path="${1#/}" # Remove the first '/' from $1
+  cliAction="$2"
+  
+
+  IFS='/' read -ra cliInstructionList <<< "${path}"
+  cliInstructionListSize="${#cliInstructionList[@]}"
+
+  currentCliInstructionListID=0
+  case "${cliInstructionList[${currentCliInstructionListID}]}" in
+    "") echo "wtf" ;;
+    "menu") menu ;;
+    "brightness") brightnessMenu ;;
+    "power-profiles") powerProfilesMenu ;;
+    "screenshot") screenshotMenu ;;
+    "apps") appMenu ;;
+    "clipboard") clipboardMenu ;;
+    "wipe-clipboard") clipboardMenu --alt ;;
+    "themes") themeMenu ;;
+    "power") powerMenu ;;
+    "help") helpMenu ;;
+    *) echo "not valid" ;;
+  esac
+}
+
+
+cliRun() {
+  if (( cliNoMoreInstructions )); then
+    case "${cliAction}" in
+      "run") echo 0 ;;
+      "cli-run") echo 1 ;;
+      "cli-run-safe") echo 2 ;;
+      *)
+        errorString="cliRun(): ${cliAction} is not valid"
+        echo 2
+        ;;
+    esac
+  else
+    echo 3
+  fi
+}
+
+
+cliNextInstruction() {
+  if [ ${cliMode} ]; then
+    ((currentCliInstructionListID++))
+    if (( currentCliInstructionListID >= cliInstructionListSize )); then
+      cliNoMoreInstructions=1
+    fi
+  fi
+}
+
+
+getIdFromClassName() {
+  local name="$1"
+
+  for i in "${!optionClasses[@]}"; do
+      [[ "${optionClasses[$i]}" == "$name" ]] && echo "$i" && return
+  done
+
+  echo "getIdFromClassName(): couldn't find '${name}' in optionClasses array"
+}
+
+
 menu() {
   requestedTheme "${appsTheme}"
 
   if [ -n "$1" ]; then
     errorMessage="Error: $0 '$1' is not an option"
+    echo "${errorString}"
   fi
+
+  cliNextInstruction
+
+  optionClasses=(
+    "brightness"
+    "power-profiles"
+    "screenshot"
+    "apps"
+    "clipboard"
+    "wipe-clipboard"
+    "themes"
+    "power"
+    "help"
+  )
 
   options=(
     "󰃠 Brightness"
@@ -115,9 +223,17 @@ menu() {
     "⏻ Power Options"
     " Help"
   )
-  choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "" "${errorMessage}" "" "")
+
+  cliRun > /dev/null
+  case $(cliRun) in
+    0) choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "" "${errorMessage}" "" "") ;;
+    1|2) printf "%b\n" "Menu: ${cliPath}" "> options:" "${options[@]}" "" "> optionClasses:" "${optionClasses[@]}" ;;
+    3) choice=$(getIdFromClassName "${cliInstructionList[${currentCliInstructionListID}]}") ;;
+  esac
+  echo "${errorString}"
 
   case "$choice" in
+    "") ;;
     0) brightnessMenu ;;
     1) powerProfilesMenu ;;
     2) screenshotMenu ;;
@@ -126,22 +242,23 @@ menu() {
     5) clipboardMenu --alt ;;
     6) themeMenu ;;
     7) powerMenu ;;
+    *) echo "menu(): '${choice}' is not a valid choice for case." ;;
   esac
 }
 
 
 brightnessMenu() {
-  requestedTheme "${clipboardTheme}"
+  requestedTheme "${appsTheme}"
   
   if [ "$1" = "" ]; then
-    device=$(brightnessctl -l | awk -F"'" '/Device/ {print $2}' | openMenu "" "" "" "Devices with changable brightness" "" "")
+    device=$(brightnessctl -l | awk -F"'" '/Device/ {print $2}' | openMenu "" "" "" "Devices with changable brightness" "" "" "-theme-str" "window { width: 40%; }")
   fi
 
   if [ "${device}" == "" ]; then
     exit
   fi
 
-  brightnessPercent=$(brightnessctl -d $device -m | cut -d, -f4)
+  brightnessPercent=$(brightnessctl -d "${device}" -m | cut -d, -f4)
   
   options=(
     " +10% Brightness (current ${brightnessPercent})"
@@ -154,11 +271,11 @@ brightnessMenu() {
   fi
 
   case "${choice}" in
-    0) brightnessctl -d $device s +10% ;;
-    1) if [ "${brightnessPercent%\%}" -gt 10 ]; then brightnessctl -d $device s 10%-; fi ;;
+    0) brightnessctl -d "${device}" s +10% ;;
+    1) if [ "${brightnessPercent%\%}" -gt 10 ]; then brightnessctl -d "${device}" s 10%-; fi ;;
   esac
 
-  brightnessMenu $device
+  brightnessMenu "${device}"
 }
 
 
@@ -174,9 +291,9 @@ screenshotMenu() {
   choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "Screenshot: " "" "" "" "")
 
   case "${choice}" in
-    0) exec hyprshot -m region -o $screenshotPath & ;;
-    1) exec hyprshot -m window -o $screenshotPath & ;;
-    2) exec hyprshot -m output -o $screenshotPath & ;;
+    0) exec hyprshot -m region -o "${screenshotPath}" & ;;
+    1) exec hyprshot -m window -o "${screenshotPath}" & ;;
+    2) exec hyprshot -m output -o "${screenshotPath}" & ;;
     3) exec hyprpicker -a | wl-copy & ;;
   esac
 }
@@ -256,6 +373,9 @@ existing-dotfile-folders-fix() {
     #"btop"
     #"lazygit"
     #"obs-studio"
+    #"nvim"
+    #"audacity"
+    #"i3"
   )
 
   for dir in "${dirsToCheck[@]}"; do
@@ -279,15 +399,15 @@ dotfiles() {
   func_activeDotfilesSubdirPath="$3"
   func_dotfilesDirToCopyPath="$4"
 
-  case "$1" in
+  case "${func_instruction}" in
     "") echo "dotfiles(): Error ran a function without an instruction" ;;
     stow)
       echo "stow"
-      stow -t $HOME -d "${func_activeDotfilesPath}" "${func_activeDotfilesSubdirPath}"
+      stow -t "$HOME" -d "${func_activeDotfilesPath}" "${func_activeDotfilesSubdirPath}"
       ;;
     unstow)
       echo "unstow"
-      stow -t $HOME -d "${func_activeDotfilesPath}" -D "${func_activeDotfilesSubdirPath}"
+      stow -t "$HOME" -d "${func_activeDotfilesPath}" -D "${func_activeDotfilesSubdirPath}"
       ;;
     rm)
       echo "rm"
@@ -335,7 +455,7 @@ themeMenu() {
 
   CoreInfo=$(<${activeDotfilesPath}/.core_info.txt)
   MainThemeInfo=$(<${activeDotfilesPath}/.main_theme_info.txt)
-  WaybarThemeInfo=$(<${activeDotfilesPath}/.waybar_theme_info.txt)
+  waybarThemeInfo=$(<${activeDotfilesPath}/.waybar_theme_info.txt)
 
   options=(
     "󰈈 Apply/Change Theme"
@@ -361,7 +481,7 @@ themeMenu() {
       case "${choice}" in
         "") exit ;;
         0) choice="main"; ActiveThemeName="${MainThemeInfo}" ;;
-        1) choice="waybar"; ActiveThemeName="${WaybarThemeInfo}" ;;
+        1) choice="waybar"; ActiveThemeName="${waybarThemeInfo}" ;;
       esac
 
       themeType="${choice}"
@@ -385,7 +505,28 @@ themeMenu() {
       ;;
 
     1) # Initialize Dotfiles
-      choice="applyTheme"
+      #requestedTheme "${confirmationTheme}"
+
+      #confirmationOptions=(" No" " Info" "󰗠 Yes")
+
+      #confirmation=$(printf "%b\n" "${confirmationOptions[@]}" | openMenu "i" "" "" "${options[$choice]}?" "" "")
+
+      #if [[ "${confirmation}" = "0" || "${confirmation}" = "" ]]; then
+      #  exit
+      #fi
+
+      #echo bruh
+      choice=$(basename "$(find "${dotfilesPath}/themes/main" -mindepth 1 -maxdepth 1 -type d | head -n1)")
+      choice2=$(basename "$(find "${dotfilesPath}/themes/waybar" -mindepth 1 -maxdepth 1 -type d | head -n1)")
+      echo "${choice}" > "${activeDotfilesPath}/.waybar_theme_info.txt"
+      waybarThemeInfo=$(<${activeDotfilesPath}/.waybar_theme_info.txt)
+      selectedTheme="${dotfilesPath}/themes/main/${choice}"
+      selectedThemeName="${choice}"
+
+      # hardcoded
+      selectedCore="${dotfilesPath}/cores/core"
+      selectedCoreName="core"
+      themeType="main"
       ;;
 
     2) # Reload Active dotfiles
@@ -393,6 +534,11 @@ themeMenu() {
       ;;
 
     3) # Restore Active dotfiles
+      if [ -d "${activeThemeHomePath}" ]; then
+        echo "todo"
+        exit
+      fi
+
       existing-dotfile-folders-fix
       dotfiles "stow" "${activeDotfilesPath}" "main_theme" ""
       dotfiles "stow" "${activeDotfilesPath}" "core" ""
@@ -443,7 +589,7 @@ themeMenu() {
   #fi
 
   themeYamlPath="${activeDotfilesPath}/main_theme/.config/active_theme/theme.yaml"
-  themeYamlPathClean="${selectedTheme}/.config/active_theme/theme.yaml"
+  #themeYamlPathClean="${selectedTheme}/.config/active_theme/theme.yaml"
 
   mkdir -p "${activeDotfilesPath}" 
   
@@ -472,7 +618,7 @@ themeMenu() {
     if [ -e "${themeYamlPath}" ]; then
       dotfiles "unstow" "${activeDotfilesPath}" "waybar_theme" ""
       dotfiles "rm" "${activeDotfilesPath}" "waybar_theme" ""
-      dotfiles "cp" "${activeDotfilesPath}" "waybar_theme" "${dotfilesPath}/themes/waybar/${WaybarThemeInfo}"
+      dotfiles "cp" "${activeDotfilesPath}" "waybar_theme" "${dotfilesPath}/themes/waybar/${waybarThemeInfo}"
       dotfiles "stow" "${activeDotfilesPath}" "waybar_theme" ""
 
       bash "${gomplateScriptPath}" "${activeDotfilesPath}" "${themeYamlPath}"
@@ -505,7 +651,7 @@ themeMenu() {
     # Restart Everything
     dotfiles-reload "waybar"
 
-    echo "bash "${gomplateScriptPath}" "${activeDotfilesPath}/waybar_theme" "${themeYamlPath}""
+    echo "bash '${gomplateScriptPath}' '${activeDotfilesPath}/waybar_theme' '${themeYamlPath}'"
 
     echo "${selectedThemeName}" > "${activeDotfilesPath}/.waybar_theme_info.txt"
 
@@ -519,7 +665,7 @@ powerMenu() {
   requestedTheme "${powerTheme}"
 
   options=(
-    "󰌾 Lock"
+    "󰌾 Lock (disabled)"
     "󰤄 Hibernate (todo)"
     "󰐥 Shutdown"
     " Reboot"
@@ -550,8 +696,8 @@ powerMenu() {
   fi
 
   case "$choice" in
-    0) hyprlock ;;
-    1) echo "magic" ;;
+    0) echo hyprlock ;;
+    1) echo hibernate ;;
     2) poweroff ;;
     3) reboot ;;
     4) hyprctl dispatch exit ;;
@@ -581,26 +727,36 @@ powerProfilesMenu() {
 }
 
 
+helpMenu() {
+  # store all help info here
+  echo "help"
+}
+
+
 
 case "$flag" in
   # Menus
   "") menu ;;
-  -b) brightnessMenu ;;
-  -s) screenshotMenu ;;
-  -a) appMenu ;;
-  -c) clipboardMenu ;;
-  -w) clipboardMenu --alt ;;
-  -t) themeMenu ;;
-  -p) powerMenu ;;
-  -P) powerProfilesMenu ;;
+#  -h) ;;
+  "-b") brightnessMenu ;;
+  "-s") screenshotMenu ;;
+  "-a") appMenu ;;
+  "-c") clipboardMenu ;;
+  "-w") clipboardMenu --alt ;;
+  "-t") themeMenu ;;
+  "-p") powerMenu ;;
+  "-P") powerProfilesMenu ;;
 
   # Special script functions
-  --reload-all-dotfiles) dotfiles-reload "all" ;;
-  --initialize-dotfiles) echo "no code" ;;
+#  --help) ;;
+  "--cli") cli "${flag2}" "${flag3}" ;;
+  "--reload-all-dotfiles") dotfiles-reload "all" ;;
+  "--initialize-dotfiles") echo "no code" ;;
 
   # Return error if flag not valid
-  * ) menu "${flag}" ;; # what if user is in cli
+  *) menu "${flag}" ;; # what if user is in cli
 esac
+
 
 themeMenuBackup() {
   echo "Running themeMenu"
@@ -651,16 +807,16 @@ themeMenuBackup() {
   
   if [ "${themeType}" = "main" ]; then
     # Remove and unstow the previous theme
-    stow -t $HOME -d "${activeDotfilesPath}" -D "main_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" -D "core"
+    stow -t "$HOME" -d "${activeDotfilesPath}" -D "main_theme"
+    stow -t "$HOME" -d "${activeDotfilesPath}" -D "core"
     rm -r "${activeDotfilesPath}/main_theme"
     rm -r "${activeDotfilesPath}/core"
 
     # Copy and stow the new theme
     cp -r "${themeChoicePath}" ${activeDotfilesPath}/main_theme
     cp -r "${dotfilesPath}/core" "${activeDotfilesPath}/core"
-    stow -t  $HOME -d "${activeDotfilesPath}" "main_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" "core"
+    stow -t "$HOME" -d "${activeDotfilesPath}" "main_theme"
+    stow -t "$HOME" -d "${activeDotfilesPath}" "core"
  
     # Restart Everything
     pkill waybar
@@ -673,11 +829,11 @@ themeMenuBackup() {
 
     #echo "${choice}" > ${dotfilesPath}/current_theme/current_theme.info
   elif [ "${themeType}" = "waybar" ]; then
-    stow -t $HOME -d "${activeDotfilesPath}" -D "waybar_theme"
+    stow -t "$HOME" -d "${activeDotfilesPath}" -D "waybar_theme"
     rm -r "${activeDotfilesPath}/waybar_theme"
 
     cp -r "${themeChoicePath}" "${activeDotfilesPath}/waybar_theme"
-    stow -t $HOME -d "${activeDotfilesPath}" "waybar_theme"
+    stow -t "$HOME" -d "${activeDotfilesPath}" "waybar_theme"
 
     pkill waybar
     waybar &

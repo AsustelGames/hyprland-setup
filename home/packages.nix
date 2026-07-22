@@ -3,18 +3,17 @@
 {  
   home.packages = with pkgs; [
     # == Core ==
-    rofi
-    waybar
+    rofi #
+    waybar #
     ags
     eww
-    hyprshot
-    awww
-    hyprpaper
-    hyprpicker
-    hyprlock
-    hypridle
-    swaynotificationcenter
-    libnotify
+    hyprshot ##
+    awww ##
+    hyprpicker ##
+    hyprlock ##
+    hypridle ##
+    swaynotificationcenter ##
+    libnotify #
     ydotool
 
     # == Virtual Machine
@@ -24,43 +23,48 @@
     #virtiofsd
     
     # == Looks ==
-    nerd-fonts.martian-mono
-    bibata-cursors
-    graphite-gtk-theme
+    nerd-fonts.martian-mono #
+    bibata-cursors ##
+    graphite-gtk-theme ##
     
     # == Programs ==
     vscodium
-    brave
-    obs-studio
-    audacity
-    discord
+    brave #
+    obs-studio ##
+    audacity ##
+    discord ##
     # steam # in configuration.nix or else won't work
     #bottles
-    wine
-    prismlauncher
-    kitty
+    wine ##
+    prismlauncher ##
+    kitty #
     #aseprite
     #kicad-unstable-small
-    nwg-look
-    mangohud
-    goverlay
-    glmark2
+    nwg-look ##
+    mangohud ##
+    goverlay ##
+    glmark2 ##
     
     # == Cli Programs ==
-    neovim
-    bluetui
-    wiremix
-    btop
-    yazi
-    mpv
-    lazygit
-    zsh
+    neovim #
+    bluetui ##
+    wiremix #
+    btop ##
+    yazi #
+    mpv #
+    lazygit ##
+    zsh #
     fzf # Zsh plugin "fzf tab" requires it
-    cava
-    clang-tools
+    cava ##
+    clang-tools ##
     
     # == Cli Utilities ==
-    jq
+    yt-dlp
+    ffmpeg
+    perf
+    ripgrep
+    jq #
+    shellcheck
     psmisc
     fastfetch
     cmatrix
@@ -71,8 +75,8 @@
     dysk
     cloc
     git
-    cliphist
-    wl-clipboard
+    cliphist #
+    wl-clipboard #
     brightnessctl
     stow
     udiskie

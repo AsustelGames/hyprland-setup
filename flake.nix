@@ -1,5 +1,5 @@
 {
-  description = "I use NixOS btw, and have no idea what i'm doing";
+  description = "I use NixOS btw";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
@@ -49,9 +49,21 @@
           ./hosts/desktop/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           commonHomeManagerConfig
-         ];    
+         ];
        };
-          
+
+       # Tablet Config
+       desktop = nixpkgs-unstable.lib.nixosSystem {
+         specialArgs = { inherit inputs; };
+         system = system;
+         
+         modules = [
+          ./hosts/tablet/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          commonHomeManagerConfig
+         ];
+       };
+
     };
   };
 }

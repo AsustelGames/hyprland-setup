@@ -83,6 +83,7 @@ alias na='nano'
 
 alias y='yazi'
 alias lg='lazygit'
+alias sc='shellcheck'
 
 
 # Creating & Removing

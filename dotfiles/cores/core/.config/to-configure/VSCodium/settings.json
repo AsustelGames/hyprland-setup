@@ -1,0 +1,54 @@
+{
+    "editor.fontSize": 13,
+
+    "editor.fontFamily": "MartianMono Nerd Font Mono",
+
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.color": "#cdcdcd",
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDragAndDrop": true,
+    //"workbench.statusBar.visible": false,
+    //"editor.scrollbar.horizontal": "hidden", // ?
+    "editor.minimap.enabled": false,
+    "editor.matchBrackets": "never",
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false, // ?
+    "editor.hideCursorInOverviewRuler": true, // ?
+    "editor.stickyScroll.enabled": false,
+    "breadcrumbs.enabled": false, // ?
+    "excalidraw.theme": "dark",
+    "excalidraw.workspaceLibraryPath": ".",
+    
+    "terminal.integrated.focusFollowMouse": true,
+
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "/usr/bin/env",
+      "args": ["zsh"]
+    }
+  },
+  "files.autoSave": "afterDelay",
+  "hediet.vscode-drawio.resizeImages": null,
+  "editor.tabSize": 3,
+  "editor.cursorBlinking": "solid",
+  "workbench.settings.showAISearchToggle": false,
+  "workbench.layoutControl.enabled": false,
+  "window.titleBarStyle": "native",
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 0.7,
+  //"explorer.decorations.badges": 
+  "git.decorations.enabled": false,
+  "scm.diffDecorations": "none",
+  "workbench.editor.showTabs": "multiple",
+  "editor.detectIndentation": true,
+  "workbench.activityBar.location": "default",
+  "window.commandCenter": false,
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "files.insertFinalNewline": true,
+  "autoHideUltimate.autoHideIdleTimeout": 1,
+  "workbench.activityBar.compact": true,
+
+  
+}
