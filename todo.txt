@@ -1,10 +1,6 @@
-find /etc/nixos/dotfiles/themes/main -mindepth 1 -maxdepth 1 -type d | head -n 1
 notification after theme switch
 hide laptop stuff like brightness and powerprofiles
 
-restore & init + fix the reload issues that can occur
-check nixos install cheatsheet
-move some stuff from .config to core
 
 
 
@@ -18,6 +14,9 @@ set users in configuration.nix
 add a nxre-auto command
 dotfiles config through nixos
 overhaul nixos config
+create custom iso
+hashed user password
+maybe add disko
 
 -- hyprland
 fix permissions for hyprpicker, obs and hyprlock
@@ -42,8 +41,7 @@ time and date in one module without clicking on it
 -- menu/theme system
 gtk theme
 auto set waybar theme and layout when setting a theme
-fix terminal colors
-add the possiblity to chnage waybar layout and separate menu for position
+add the possiblity to change waybar layout and separate menu for position
 new theme idea frameless
 fix legacy waybar
 btop theme
@@ -52,23 +50,38 @@ when activating init ask if you want to restore existing dotfiles
 add a file that explains how the theme system works
 add an option to use a seperate colors for nvim
 add more folders to existing-dotfile-folders-fix when ready
-chmod u+x /etc/nixos/dotfiles/active_dotfiles/core/.config/scripts/waybar/cava.sh
 make the theme system apply the wallpaper regardless of bg format
 fix comments in theme function
 if a theme is switching and returns errors make it more clear (popup menu with error)
 move delete and reapply to apply/change theme
 waybar make steam popup text not have a shadow
-add a cli interface to menu.sh e.g. add flags -help, --cli "path" -> --cli "themes/apply/ls" will list the stuff in that specific path also menu.sh -r to restore
 what if the files with core, theme or waybar theme names don't exist + if waybar theme missing and the theme support gomplate fix it idk
 add a update option to the main menu that updates dotfiles and more from github + backs up the old files
 when installing nixos restoring dotfiles through the menu will cause an error because hyprland and etc are no running fix that
 play sound when menus apear maybe?
 add submenu for waybar stuff e.g. bluetooth, etc
 overhaul fastfetch
-prevent hyprland from creating home folders every time you restart
+prevent hyprland from running create custom home folders script every time you restart
 menu.sh make func vars local if only used in a function
 replace exit ifs with one liners
 help popup will eventually disable the rofi theme because the help popup uses #error-message
+need to check more edge cases e.g. dotfile folder or active_dotfiles folder not existing, etc
+update power menu for x11
+add var for some programs so they coulb be easily replaced e.g. wl-copy, etc
+update legacy theme because they don't have active_theme dir
+rofi make selected text black to match waybar
+add a extra confirmation theme that is vertical for rofi
+use different fonts
+what will happen if there are no nvim or kitty sockets and you run kitty script
+check if waybar launches cava after restart
+add icons or images to when selecting a theme
+add the ability to disable kitty & nvim sockets
+put openMenu() arguments into variables to make it easier to understand + make all cars there "${}"
+power profiles menu make the current power profiles show above
+maybe add a menu for volume
+rofi shadow
+gomplate add the posiblity to disable shadows for waybar and rofi if rofi has shadows add by then
+add the cli-run-safe feature
 
 -- terminal
 add explanation to sockets in zsh
@@ -112,8 +125,7 @@ configure cava, mangohud, obs-studio, vscode and add them to core
 make a text file with all keybindings
 add vscode plugins to packages.nix
 split nixos cheatsheet into 2 different files + rename it correct
-try rg, shellcheck and perf tools
-
+install termusic
 
 
 

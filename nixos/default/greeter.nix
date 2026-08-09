@@ -5,4 +5,7 @@
       default_user = "asustel";
     };
   };
+
+  # Don't show errors in the ly password field
+  boot.consoleLogLevel = 3;
 }

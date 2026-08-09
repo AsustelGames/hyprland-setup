@@ -53,7 +53,7 @@
        };
 
        # Tablet Config
-       desktop = nixpkgs-unstable.lib.nixosSystem {
+       tablet = nixpkgs-unstable.lib.nixosSystem {
          specialArgs = { inherit inputs; };
          system = system;
          

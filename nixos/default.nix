@@ -1,11 +1,13 @@
-{
+let
+  subDir = ./default;
+in {
   imports = [
-  ./audio.nix
-  ./misc.nix
-  ./greeter.nix
-  ./users.nix
-  ./wm.nix
-  ./wireless.nix
-  ./virtual-machine.nix
+    (subDir + "/audio.nix")
+    (subDir + "/misc.nix")
+    (subDir + "/greeter.nix")
+    (subDir + "/users.nix")
+    (subDir + "/wm.nix")
+    (subDir + "/wireless.nix")
+    (subDir + "/virtual-machine.nix")
   ];
 }

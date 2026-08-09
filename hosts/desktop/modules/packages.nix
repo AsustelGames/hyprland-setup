@@ -9,6 +9,7 @@
     i3
     xinit
     steam
+    rpi-imager
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 

@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./packages.nix
-  ];
+  #imports = [
+  #  ./packages.nix
+  #];
   
   home.username = "asustel";
   home.homeDirectory = "/home/asustel";

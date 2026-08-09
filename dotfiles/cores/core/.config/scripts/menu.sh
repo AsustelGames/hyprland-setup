@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 
+# Rofi stuff
 rofiLogFilePath="$HOME/.rofi.log"
 rofiThemeDisablerPath="${activeDotfilesPath}/main_theme/.config/active_theme/disable_rofi_theme"
 
+# Rofi themes
 themesPath="$HOME/.config/rofi/themes"
 appsTheme="${themesPath}/apps.rasi"
 powerTheme="${themesPath}/power.rasi"
@@ -11,48 +13,58 @@ confirmationTheme="${themesPath}/confirmation.rasi"
 popupTheme="${themesPath}/popup.rasi"
 currentTheme=""
 
+# Directory & file paths
 screenshotPath="$HOME/Pictures/Screenshots"
 dotfilesPath="/etc/nixos/dotfiles"
 activeDotfilesPath="${dotfilesPath}/active_dotfiles"
 activeThemeHomePath="$HOME/.config/active_theme"
 wallpaperPath="${activeThemeHomePath}/bg.jpg"
 
+# Script paths
 kittyScriptPath="$HOME/.config/scripts/kitty.sh"
 gomplateScriptPath="${dotfilesPath}/cores/core/.config/scripts/gomplate/gomplate.sh"
 
+# Default options for a menu
 confirmationOptionClasses=("no" "yes")
 confirmationOptions=(" No" "󰗠 Yes")
 
-cliMode=0
+# Cli stuff
+cliModeEnabled=0
 cliAction=""
 cliPath=""
 currentCliInstructionListID=0
-cliNoMoreInstructions=1
 cliInstructionList=()
-cliInstructionListSize=0
 
-errorString=""
+# Misc
+menuString=""
 flag=$1
 flag2=$2
 flag3=$3
 
 
 requestedTheme() {
+  # If a theme path is valid it loads the theme,
+  # if not it won't load the theme
+  #
+  # requestedTheme "theme path"
   requestedTheme="$1"
+
   if [[ -e "${requestedTheme}" && ! -e "${rofiThemeDisablerPath}" ]]; then
     currentTheme="-theme ${requestedTheme}"
   #elif [ -e "${rofiThemeDisablerPath}" ]; then
   #  echo "requestedTheme(): All themes are disabled due to errors"
-  #  errorString="All themes are disabled due to errors"
+  #  menuString="All themes are disabled due to errors"
   else
     echo "requestedTheme(): Theme $1 does not exist"
-    errorString="Theme: '$1' does not exist"
+    menuString="Theme: '$1' does not exist"
     currentTheme=""
   fi
 }
 
 
 openMenuFix() {
+  # Disables rofi themes if they return errors
+  # so you could still use the menu system
   i=0
 
   while pgrep -x rofi > /dev/null && [ $i -lt 100 ]; do
@@ -72,7 +84,9 @@ openMenuFix() {
 
 
 openMenu() {
-  #openMenu "i/-" "dmenu/drun/icons/e" "title" "message" "2/-" "no-mkr/-" "whatever else"
+  # Opens a rofi menu + it does some extra stuff 
+  #
+  # openMenu "i/-" "dmenu/drun/icons/e" "title" "message/auto" "2/-" "no-mkr/-" "whatever else"
   if [ "$1" = "i" ]; then # Return int
     returnType="-format i"
   fi
@@ -88,9 +102,17 @@ openMenu() {
   fi
 
   if [ "$4" != "" ]; then
-    message="-mesg"
+    message=""
+    if [ "$4" = "auto" ]; then
+      if [ ${menuString} != "" ]; then
+        message="-mesg"
+        messageText="${menuString}"
+      fi
+    else
+      message="-mesg"
+      messageText="$4"
+    fi
   fi
-
 
   if [ "$5" = "2" ]; then
     displayType="-display-columns 2"
@@ -107,24 +129,32 @@ openMenu() {
 
   openMenuFix &
 
-  rofi -i $returnType $menuType "$3" -display-drun "$3" $message "$4" $displayType $currentTheme $markupRows -scroll-method 1 "$7" "$8" -log "${rofiLogFilePath}" &
+  rofi -i $returnType $menuType "$3" -display-drun "$3" $message "$messageText" $displayType $currentTheme $markupRows -scroll-method 1 "$7" "$8" -log "${rofiLogFilePath}" &
   echo "rofi -i ${returnType} ${menuType} $3 -display-drun $3 ${message} $4 ${displayType} ${currentTheme}" ${markupRows} -scroll-method 1 "$7" "$8" >&2
 }
 
 
 cli() {
   if [ -z "$1" ]; then
-    echo "empty path"
+    echo "cli(): No path specified."
+    echo ""
+    echo "Example path: 'menu/themes/help'"
+    echo ""
+    echo "Available starting paths:" 
+    echo "   'menu', 'brightness', 'power-profiles', 'screenshot', 'apps', 'clipboard', 'wipe-clipboard', 'themes', 'power' and 'help'."
     exit
   fi
 
   if [ -z "$2" ]; then
-    echo "no instruction provided"
+    echo "cli(): No instruction provided."
+    echo ""
+    echo "Available options:" 
+    echo "   'run', 'cli-run' and 'cli-run-safe'."
+
     exit
   fi
 
-  cliMode=1
-  cliNoMoreInstructions=0
+  cliModeEnabled=1
 
   cliPath="$1"
   local path="${1#/}" # Remove the first '/' from $1
@@ -132,7 +162,6 @@ cli() {
   
 
   IFS='/' read -ra cliInstructionList <<< "${path}"
-  cliInstructionListSize="${#cliInstructionList[@]}"
 
   currentCliInstructionListID=0
   case "${cliInstructionList[${currentCliInstructionListID}]}" in
@@ -147,46 +176,67 @@ cli() {
     "themes") themeMenu ;;
     "power") powerMenu ;;
     "help") helpMenu ;;
-    *) echo "not valid" ;;
+    *)
+      echo "cli(): '${cliInstructionList[${currentCliInstructionListID}]}' is not a valid starting path for case."
+      echo ""
+      echo "Example path: 'menu/themes/help'"
+      echo ""
+      echo "Available starting paths:" 
+      echo "   'menu', 'brightness', 'power-profiles', 'screenshot', 'apps', 'clipboard', 'wipe-clipboard', 'themes', 'power' and 'help'."
+      ;;
   esac
 }
 
 
-cliRun() {
-  if (( cliNoMoreInstructions )); then
-    case "${cliAction}" in
-      "run") echo 0 ;;
-      "cli-run") echo 1 ;;
-      "cli-run-safe") echo 2 ;;
-      *)
-        errorString="cliRun(): ${cliAction} is not valid"
-        echo 2
-        ;;
-    esac
+runMenu() {
+  local listSize="${#cliInstructionList[@]}"
+
+  if (( ! cliModeEnabled )); then
+    cliAction="run"
   else
-    echo 3
-  fi
-}
-
-
-cliNextInstruction() {
-  if [ ${cliMode} ]; then
     ((currentCliInstructionListID++))
-    if (( currentCliInstructionListID >= cliInstructionListSize )); then
-      cliNoMoreInstructions=1
-    fi
   fi
-}
+
+  declare -n refVar="$1"
+  local printfCommand="$2"
+  declare -n optionsList="$3"
+  declare -n optionClassesList="$4"
+  local menuCommand="$5"
+  local returnInt=0
+  if [ "$6" = "int" ]; then
+    local returnInt=1
+  fi
 
 
-getIdFromClassName() {
-  local name="$1"
+  if (( currentCliInstructionListID < listSize )); then
+    local name="${cliInstructionList[${currentCliInstructionListID}]}"
 
-  for i in "${!optionClasses[@]}"; do
-      [[ "${optionClasses[$i]}" == "$name" ]] && echo "$i" && return
-  done
+    if (( returnInt )); then
+      for i in "${!optionClassesList[@]}"; do
+        [[ "${optionClassesList[$i]}" == "$name" ]] && refVar="$i" && return
+      done
+    else
+      refVar="$name"
+    fi
 
-  echo "getIdFromClassName(): couldn't find '${name}' in optionClasses array"
+    return
+  fi
+
+  choice="" # Reset choice
+
+  case "${cliAction}" in
+    "run") refVar=$("${printfCommand}" "${optionsList[@]}" | ${menuCommand}) ;;
+    "cli-run") 
+      "${printfCommand}" "Menu: ${cliPath}" "" "> options:" "" "${optionsList[@]}" "" "" "> optionClasses (Path names):" "" "${optionClassesList[@]}"
+      ;;
+    "cli-run-safe") echo 2765 ;;
+    *)
+      echo "runMenu(): '${cliAction}' is not a valid action."
+      echo ""
+      echo "Available options:" 
+      echo "   'run', 'cli-run' and 'cli-run-safe'."
+      ;;
+  esac
 }
 
 
@@ -194,23 +244,9 @@ menu() {
   requestedTheme "${appsTheme}"
 
   if [ -n "$1" ]; then
-    errorMessage="Error: $0 '$1' is not an option"
-    echo "${errorString}"
+    menuString="Error: $0 '$1' is not an option"
+    echo "${menuString}"
   fi
-
-  cliNextInstruction
-
-  optionClasses=(
-    "brightness"
-    "power-profiles"
-    "screenshot"
-    "apps"
-    "clipboard"
-    "wipe-clipboard"
-    "themes"
-    "power"
-    "help"
-  )
 
   options=(
     "󰃠 Brightness"
@@ -223,17 +259,24 @@ menu() {
     "⏻ Power Options"
     " Help"
   )
+  optionClasses=(
+    "brightness"
+    "power-profiles"
+    "screenshot"
+    "apps"
+    "clipboard"
+    "wipe-clipboard"
+    "themes"
+    "power"
+    "help"
+  )
+  menuPrintfFunc() { printf "%b\n" "$@"; }
+  menuRunFunc() { openMenu "i" "" "" "auto" "" "" ""; }
 
-  cliRun > /dev/null
-  case $(cliRun) in
-    0) choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "" "${errorMessage}" "" "") ;;
-    1|2) printf "%b\n" "Menu: ${cliPath}" "> options:" "${options[@]}" "" "> optionClasses:" "${optionClasses[@]}" ;;
-    3) choice=$(getIdFromClassName "${cliInstructionList[${currentCliInstructionListID}]}") ;;
-  esac
-  echo "${errorString}"
+  runMenu choice menuPrintfFunc options optionClasses menuRunFunc "int"
+
 
   case "$choice" in
-    "") ;;
     0) brightnessMenu ;;
     1) powerProfilesMenu ;;
     2) screenshotMenu ;;
@@ -250,11 +293,18 @@ menu() {
 brightnessMenu() {
   requestedTheme "${appsTheme}"
   
+  options=($(brightnessctl -l | awk -F"'" '/Device/ {print $2}'))
+  optionClasses=($(brightnessctl -l | awk -F"'" '/Device/ {print $2}'))
+  
+  menuString="Devices with changable brightness"
+  menuPrintfFunc() { printf "%b\n" "$@"; }
+  menuRunFunc() { openMenu "" "" "" "auto" "" "" "-theme-str" "window { width: 40%; }"; }
+
   if [ "$1" = "" ]; then
-    device=$(brightnessctl -l | awk -F"'" '/Device/ {print $2}' | openMenu "" "" "" "Devices with changable brightness" "" "" "-theme-str" "window { width: 40%; }")
+    runMenu device menuPrintfFunc options optionClasses menuRunFunc ""
   fi
 
-  if [ "${device}" == "" ]; then
+  if [ "${device}" = "" ]; then
     exit
   fi
 
@@ -264,7 +314,14 @@ brightnessMenu() {
     " +10% Brightness (current ${brightnessPercent})"
     " -10% Brightness (minimum 10%)"
   )
-  choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "" "${device}" "" "" "")
+  optionClasses=(
+    "plus-ten-percent"
+    "minus-ten-percent"
+  )
+  menuPrintfFunc() { printf "%b\n" "$@"; }
+  menuRunFunc() { openMenu "i" "" "" "${device}" "" "" ""; }
+
+  runMenu choice menuPrintfFunc options optionClasses menuRunFunc "int"
 
   if [ "${choice}" == "" ]; then
     exit
@@ -273,8 +330,12 @@ brightnessMenu() {
   case "${choice}" in
     0) brightnessctl -d "${device}" s +10% ;;
     1) if [ "${brightnessPercent%\%}" -gt 10 ]; then brightnessctl -d "${device}" s 10%-; fi ;;
+    *) echo "brightnessMenu(): '${choice}' is not a valid choice for case." ;;
   esac
 
+  if (( cliModeEnabled )); then
+    exit
+  fi
   brightnessMenu "${device}"
 }
 
@@ -286,15 +347,26 @@ screenshotMenu() {
     " Screenshot Area"
     " Screenshot Window"
     "󰍹 Screenshot Monitor"
-    "󰌁 Colorpicker"
+    "󰌁 Colorpicker & Copy"
   )
-  choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "Screenshot: " "" "" "" "")
+  optionClasses=(
+    "area"
+    "window"
+    "monitor"
+    "color-picker"
+  )
+  menuPrintfFunc() { printf "%b\n" "$@"; }
+  menuRunFunc() { openMenu "i" "" "" "" "" "" ""; }
+
+  runMenu choice menuPrintfFunc options optionClasses menuRunFunc "int"
+
 
   case "${choice}" in
     0) exec hyprshot -m region -o "${screenshotPath}" & ;;
     1) exec hyprshot -m window -o "${screenshotPath}" & ;;
     2) exec hyprshot -m output -o "${screenshotPath}" & ;;
     3) exec hyprpicker -a | wl-copy & ;;
+    *) echo "screenshotMenu(): '${choice}' is not a valid choice for case." ;;
   esac
 }
 
@@ -302,7 +374,8 @@ screenshotMenu() {
 appMenu() {
   requestedTheme "${appsTheme}"
 
-  openMenu "" "icons" "Apps: " "" "" ""
+  # find /nix/store -path "*-user-environment/share/applications/*.desktop" 2>/dev/null
+  openMenu "" "icons" "" "" "" ""
 }
 
 
@@ -713,7 +786,7 @@ powerProfilesMenu() {
     " Balanced"
     " Power Saver"
   )
-  choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "Set Power Profile: " "${errorString}" "" "")
+  choice=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "Set Power Profile: " "${menuString}" "" "")
 
   if [ "${choice}" == "" ]; then
     exit
@@ -756,95 +829,4 @@ case "$flag" in
   # Return error if flag not valid
   *) menu "${flag}" ;; # what if user is in cli
 esac
-
-
-themeMenuBackup() {
-  echo "Running themeMenu"
-  requestedTheme="${appsTheme}"
-  if [ -e "${requestedTheme}" ]; then
-    currentTheme="-theme ${requestedTheme}"
-  fi
-  options=(
-    "󰈈 Apply Theme"
-    " Initialize Dotfiles"
-    "󰜉 Reload Active dotfiles"
-    "󰑓 Restore Active dotfiles"
-    " Disable Active Dotfiles"
-    " Advanced Options"
-    " Help"
-  )
-  themeType=$(printf "%b\n" "${options[@]}" | openMenu "i" "" "Themes & Dotfiles: " "" "" "")
-
-  case "${themeType}" in
-    0) themeType="main" ;;
-    1) themeType="waybar" ;;
-    2) themeType="core" ;;
-    3) themeType="init" ;;
-    4) themeType="remove" ;;
-    5) themeType="help" ;;
-  esac
-  
-  if [ "${themeType}" != "" ]; then
-    choice=$(ls "${dotfilesPath}/themes/${themeType}" | openMenu "" "" "Themes: " "" "" "")
-  fi
-    
-  if [ -z "${choice}" ]; then
-    exit
-  fi
-
-
-  count=$(find ${dotfilesPath}/cores -mindepth 1 -maxdepth 1 -type d | wc -l)
-
-  if [ "${count}" -gt 1 ]; then
-    echo "More than one directory in cores"
-  fi
-
-  echo "${themeType}"
-
-  themeChoicePath="${dotfilesPath}/themes/${themeType}/${choice}"
-  activeDotfilesPath="${dotfilesPath}/active_dotfiles"
-  mkdir -p "${dotfilesPath}/active_dotfiles" 
-  
-  if [ "${themeType}" = "main" ]; then
-    # Remove and unstow the previous theme
-    stow -t "$HOME" -d "${activeDotfilesPath}" -D "main_theme"
-    stow -t "$HOME" -d "${activeDotfilesPath}" -D "core"
-    rm -r "${activeDotfilesPath}/main_theme"
-    rm -r "${activeDotfilesPath}/core"
-
-    # Copy and stow the new theme
-    cp -r "${themeChoicePath}" ${activeDotfilesPath}/main_theme
-    cp -r "${dotfilesPath}/core" "${activeDotfilesPath}/core"
-    stow -t "$HOME" -d "${activeDotfilesPath}" "main_theme"
-    stow -t "$HOME" -d "${activeDotfilesPath}" "core"
- 
-    # Restart Everything
-    pkill waybar
-    awww-daemon --no-cache &
-    awww img --resize crop -t grow --transition-fps 120 "${wallpaperPath}" &
-    waybar &
-    bash "${kittyScriptPath}" -r &
-    hyprctl reload
-    swaync-client -R
-
-    #echo "${choice}" > ${dotfilesPath}/current_theme/current_theme.info
-  elif [ "${themeType}" = "waybar" ]; then
-    stow -t "$HOME" -d "${activeDotfilesPath}" -D "waybar_theme"
-    rm -r "${activeDotfilesPath}/waybar_theme"
-
-    cp -r "${themeChoicePath}" "${activeDotfilesPath}/waybar_theme"
-    stow -t "$HOME" -d "${activeDotfilesPath}" "waybar_theme"
-
-    pkill waybar
-    waybar &
-  elif [ "${themeType}" = "core" ]; then
-    echo "1"
-  elif [ "${themeType}" = "init" ]; then
-    echo "2"
-  elif [ "${themeType}" = "remove" ]; then
-    echo "3"
-  elif [ "${themeType}" = "help" ]; then
-    echo "4"
-  fi
-}
 

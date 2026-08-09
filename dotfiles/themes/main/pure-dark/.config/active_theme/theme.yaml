@@ -1,0 +1,136 @@
+# Theme: Grassland
+# By: AsustelGames
+
+font:
+  terminal:
+    family: "MartianMono Nerd Font"
+    size: 9.5
+  rofi:
+    family: "MartianMono Nerd Font"
+    size: 12
+    icon_size: 30
+  waybar:
+    family: "MartianMono Nerd Font Mono"
+    size: 15
+
+colors:
+  gui:
+    main:
+      background: "#000000"
+      foreground: "#FFFFFF"
+      primary: "#BFBFBF"
+      secondary: "#808080"
+
+    extra:
+      # Black
+      color0: "#404040"
+      color8: "#808080"
+
+      # Red
+      color1: "#FF0000"
+      color9: "#FF5555"
+
+      # Green
+      color2: "#00FF00"
+      color10: "#55FF55"
+
+      # Yello
+      color3: "#FFFF00"
+      color11: "#FFFF55"
+
+      # Blue
+      color4: "#0080FF"
+      color12: "#55AAFF"
+
+      # Pink
+      color5: "#FF00FF"
+      color13: "#FF55FF"
+
+      # Cyan
+      color6: "#00FFFF"
+      color14: "#55FFFF"
+
+      # White
+      color7: "#E0E0E0"
+      color15: "#F0F0F0"
+
+  terminal:
+    main:
+      background: "#000000"
+      foreground: "#FFFFFF"
+      primary: "#BFBFBF"
+      secondary: "#808080"
+
+    extra:
+      # Black
+      color0: "#404040"
+      color8: "#808080"
+
+      # Red
+      color1: "#FF0000"
+      color9: "#FF5555"
+
+      # Green
+      color2: "#00FF00"
+      color10: "#55FF55"
+
+      # Yello
+      color3: "#FFFF00"
+      color11: "#FFFF55"
+
+      # Blue
+      color4: "#0080FF"
+      color12: "#55AAFF"
+
+      # Pink
+      color5: "#FF00FF"
+      color13: "#FF55FF"
+
+      # Cyan
+      color6: "#00FFFF"
+      color14: "#55FFFF"
+
+      # White
+      color7: "#E0E0E0"
+      color15: "#F0F0F0"
+
+decoration:
+  border_radius: 0
+  rounding_power: 0
+  border_size: 2
+  gaps_in: 4
+  gaps_out: 10
+
+  active_opacity: 1.0
+  inactive_opacity: 1.0
+
+  dim_inactive: "true"
+  dim_strength: 0.2
+
+  shadow:
+    enabled: "false"
+    range: 5
+    render_power: 3
+
+  blur:
+    enabled: "false"
+    size: 3
+    passes: 5
+    noise: 0.07
+    vibrancy: 0.23
+    vibrancy_darkness: 1
+    brightness: 1.2
+
+    terminal:
+      active: 0.9
+      inactive: 0.8
+
+misc:
+  scripts:
+    main:
+      menu: "$HOME/.config/scripts/menu.sh"
+      kitty: "$HOME/.config/scripts/kitty.sh"
+
+    waybar:
+      cava: "$HOME/.config/scripts/waybar/cava.sh"
+      power_profiles: "$HOME/.config/scripts/waybar/power-profiles.sh" 

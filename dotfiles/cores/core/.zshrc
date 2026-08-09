@@ -123,4 +123,4 @@ alias hlla='hyprctl layers'
 
 # Custom
 alias menu='bash $HOME/.config/scripts/menu.sh'
-alias menuCore='bash /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh'
+alias menu-core='bash /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh'

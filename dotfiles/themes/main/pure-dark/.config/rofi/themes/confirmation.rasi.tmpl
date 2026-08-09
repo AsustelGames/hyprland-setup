@@ -1,0 +1,56 @@
+* {
+   background-color: transparent;
+   text-color: {{ .root.colors.gui.main.foreground }};
+   padding: 0px;
+   border-radius: {{ .root.decoration.border_radius }}px;
+}
+
+window {
+   background-color: none;
+   location: center;
+   width: 30%;
+}
+
+mainbox {
+   spacing: 15px;
+
+   children: [ message, listview ];
+}
+
+listview {
+   background-color: {{ .root.colors.gui.main.background }}7d;
+   border-color: {{ .root.colors.gui.main.primary }};
+   padding: 3px;
+   lines: 1;
+   columns: 3;
+   border: {{ .root.decoration.border_size }}px;
+   horizontal-align: 0.5;
+}
+
+element {
+   padding: 7px;
+}
+
+element selected {
+   background-image: linear-gradient(45deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+   border-radius: {{ sub .root.decoration.border_radius 3 }}px;
+}
+
+element-icon {
+   padding: 5px;
+   size: {{ .root.font.rofi.icon_size }}px;
+}
+
+element-text {
+   padding: 5px;
+   vertical-align: 0.5;
+   font: "{{ .root.font.rofi.family }} {{ .root.font.rofi.size }}";
+}
+
+textbox-current-entry, message {
+   background-color: {{ .root.colors.gui.main.background }}7d;
+   border-color: {{ .root.colors.gui.main.secondary }};
+   padding: 20px 15px;
+   horizontal-align: 0.5;
+   border: {{ .root.decoration.border_size }}px;
+}
