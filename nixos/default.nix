@@ -8,6 +8,7 @@ in {
     (subDir + "/users.nix")
     (subDir + "/wm.nix")
     (subDir + "/wireless.nix")
-    (subDir + "/virtual-machine.nix")
+    (subDir + "/packages/packages.nix")
+    #(subDir + "/virtual-machine.nix")
   ];
 }

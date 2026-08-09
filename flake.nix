@@ -26,43 +26,34 @@
       home-manager.backupFileExtension = "bak";
       home-manager.users.asustel = import ./home/home.nix;
     };
+
+    mkHost = {
+      name,
+      enableAllPkgs ? true,
+    }:
+      nixpkgs-unstable.lib.nixosSystem {
+      inherit system;
+
+      specialArgs = {
+        inherit inputs;
+      };
+
+      modules = [
+        ./hosts/${name}/configuration.nix
+        home-manager.nixosModules.home-manager
+        commonHomeManagerConfig
+      ];
+
+      {
+        inherit enableAllPkgs;
+      }
+    };
   in {
     nixosConfigurations = {
-       # Laptop Config
-       laptop = nixpkgs-unstable.lib.nixosSystem {
-         specialArgs = { inherit inputs; };
-         system = system;
-         
-         modules = [
-          ./hosts/laptop/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          commonHomeManagerConfig
-         ];
-       };
+      desktop = mkHost {
+        name = "desktop";
+      };
 
-       # Desktop Config
-       desktop = nixpkgs-unstable.lib.nixosSystem {
-         specialArgs = { inherit inputs; };
-         system = system;
-         
-         modules = [
-          ./hosts/desktop/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          commonHomeManagerConfig
-         ];
-       };
-
-       # Tablet Config
-       tablet = nixpkgs-unstable.lib.nixosSystem {
-         specialArgs = { inherit inputs; };
-         system = system;
-         
-         modules = [
-          ./hosts/tablet/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          commonHomeManagerConfig
-         ];
-       };
 
     };
   };
