@@ -36,6 +36,7 @@
 
       specialArgs = {
         inherit inputs;
+        inherit enableAllPkgs;
       };
 
       modules = [
@@ -44,14 +45,20 @@
         commonHomeManagerConfig
       ];
 
-      {
-        inherit enableAllPkgs;
-      }
     };
   in {
     nixosConfigurations = {
       desktop = mkHost {
         name = "desktop";
+      };
+      # Fast install desktop host.
+      # Used for getting the system up and
+      # running as fast as possible, then you
+      # install the rest of the packages afterwards.
+      fi-desktop = mkHost {
+        name = "desktop";
+        # Enable only the required packages
+        enableAllPkgs = false;
       };
 
 

@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, config, ... }:
+{ pkgs, lib, inputs, config, enableAllPkgs, ... }:
 
 let
   requiredPkgs = with pkgs; [
@@ -19,8 +19,10 @@ let
   ];
   otherPkgs = with pkgs; [
     ### Main ###
+    hyprshutdown
     rofi
     waybar
+    quickshell
     #ags
     #eww
     hyprshot
@@ -32,7 +34,6 @@ let
     libnotify
 
     ### Looks ###
-    nerd-fonts.martian-mono
     bibata-cursors
     #graphite-gtk-theme
 
@@ -103,6 +104,10 @@ let
     gcc
     pkg-config
     sdl3
+  ];
+  fontPkgs = with pkgs; [
+    ### looks ###
+    nerd-fonts.martian-mono
 
     ### Compatibility fonts ###
     corefonts
@@ -119,15 +124,21 @@ in
 
   options.enableAllPkgs = lib.mkEnableOption "All packages";
 
+  config = {
+    enableAllPkgs = enableAllPkgs;
 
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
+
+    fonts.packages =
+      lib.optionals config.enableAllPkgs fontPkgs;
   
-  config.environment.systemPackages =
-    requiredPkgs
-    ++ lib.optionals config.enableAllPkgs otherPkgs;
+    environment.systemPackages =
+      requiredPkgs
+      ++ lib.optionals config.enableAllPkgs otherPkgs;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Config for requiredPkgs
-  services.udisks2.enable = true; 
+    # Config for requiredPkgs
+    services.udisks2.enable = true; 
+  }; 
 }

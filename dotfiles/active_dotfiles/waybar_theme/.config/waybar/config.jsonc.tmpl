@@ -58,7 +58,7 @@
       "format-no-controller": "",
       "format-connected": "󰂲 connected",
       "format-connected-battery": " connected {battery}%",
-      "on-click": "hyprctl dispatch exec '[float]' bash {{ .root.misc.scripts.main.kitty }} bluetui"
+      "on-click": "bash {{ .root.misc.scripts.main.kitty }} --class floating-program bluetui"
    },
    "pulseaudio": {
       "format": "{icon} {volume}%",
@@ -68,14 +68,14 @@
       "format-icons": {
          "default": ["", "", ""]
       },
-      "on-click": "hyprctl dispatch exec '[float]' bash {{ .root.misc.scripts.main.kitty }} wiremix"
+      "on-click": "bash {{ .root.misc.scripts.main.kitty }} --class floating-program wiremix"
    },
    "network": {
       "format-wifi": "󰖩 on",
       "format-ethernet": "󰈀 on",
       "format-disconnected": "󰖪 off",
 
-      "on-click": "hyprctl dispatch exec '[float]' bash {{ .root.misc.scripts.main.kitty }} sudo nmtui &"
+      "on-click": "bash {{ .root.misc.scripts.main.kitty }} --class floating-program sudo nmtui &"
    },
    "tray": {
    },

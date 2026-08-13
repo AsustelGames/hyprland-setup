@@ -6,7 +6,6 @@
    font-size: {{ .root.font.waybar.size }}px;
    border-radius: {{ .root.decoration.border_radius }}px;
 
-   text-shadow: none;
    box-shadow: none;
    outline: none;
    border: none;
@@ -91,13 +90,13 @@ window#waybar > box {
 }
 
 #network.wifi {
-   color: {{ .root.colors.gui.extra.color9 }};
+   color: {{ .root.colors.gui.extra.color12 }};
 }
 #network.ethernet {
-   color: {{ .root.colors.gui.extra.color2 }};
+   color: {{ .root.colors.gui.extra.color11 }};
 }
 #network.disconnected {
-   color: {{ .root.colors.gui.extra.color3 }};
+   color: {{ .root.colors.gui.extra.color9 }};
 }
 #network.linked {
    color: {{ .root.colors.gui.extra.color4 }};
@@ -112,6 +111,10 @@ window#waybar > box {
    color: {{ .root.colors.gui.main.background }};
    text-shadow: none;
    background: linear-gradient(125deg, {{ .root.colors.gui.main.primary }}, {{ .root.colors.gui.main.secondary }});
+}
+
+#tray menu menuitem label {
+   text-shadow: none;
 }
 
 #clock, #battery {

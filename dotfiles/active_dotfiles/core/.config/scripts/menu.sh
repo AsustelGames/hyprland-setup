@@ -739,10 +739,11 @@ powerMenu() {
 
   options=(
     "󰌾 Lock (disabled)"
-    "󰤄 Hibernate (todo)"
+    "󰤄 Hibernate (no feature)"
     "󰐥 Shutdown"
     " Reboot"
     "󰍃 Logout"
+    " Force Logout"
   )
 
   uptimeSeconds=$(cut -d' ' -f1 /proc/uptime)
@@ -773,7 +774,8 @@ powerMenu() {
     1) echo hibernate ;;
     2) poweroff ;;
     3) reboot ;;
-    4) hyprctl dispatch exit ;;
+    4) hyprshutdown ;;
+    5) hyprctl dispatch exit ;;
   esac
 }
 

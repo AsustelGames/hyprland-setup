@@ -3,7 +3,6 @@
    font-size: 15px;
    border-radius: 8px;
 
-   text-shadow: none;
    box-shadow: none;
    outline: none;
    border: none;
@@ -88,13 +87,13 @@ window#waybar > box {
 }
 
 #network.wifi {
-   color: #ac4a4a;
+   color: #4a94ac;
 }
 #network.ethernet {
-   color: #5b903d;
+   color: #acab4a;
 }
 #network.disconnected {
-   color: #908e3d;
+   color: #ac4a4a;
 }
 #network.linked {
    color: #3d7b90;
@@ -109,6 +108,10 @@ window#waybar > box {
    color: #182728;
    text-shadow: none;
    background: linear-gradient(125deg, #CAD277, #A2B057);
+}
+
+#tray menu menuitem label {
+   text-shadow: none;
 }
 
 #clock, #battery {

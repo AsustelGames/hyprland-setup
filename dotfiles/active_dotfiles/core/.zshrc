@@ -106,7 +106,7 @@ alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.confi
 
 # NixOS
 alias nxre-auto='bash $HOME/.config/scripts/nixos-rebuild.sh --auto'
-alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
+#alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
 alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure && hyprctl reload'
 
 alias nxsh='nix-shell /etc/nixos/shell.nix'
@@ -120,6 +120,7 @@ alias nxup='sudo nix flake update --flake /etc/nixos --impure'
 alias hlre='hyprctl reload'
 alias hlmo='hyprctl monitors'
 alias hlla='hyprctl layers'
+alias hlcl='hyprctl clients'
 
 # Custom
 alias menu='bash $HOME/.config/scripts/menu.sh'

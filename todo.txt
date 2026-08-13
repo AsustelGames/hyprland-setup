@@ -20,9 +20,8 @@ maybe add disko
 
 -- hyprland
 fix permissions for hyprpicker, obs and hyprlock
-migrate all hyprland configs to lua
 improve animations
-configure & activate hyprlock and hypridle
+configure & activate hyprlock and hypridle when lua support is added for them
 hyprland monitors through nixos
 make super+shift+w open alternative web browser
 when switched to lua make hyprland check for monitors.lua if the file doesnt exist copy from nixos or something
@@ -82,6 +81,8 @@ maybe add a menu for volume
 rofi shadow
 gomplate add the posiblity to disable shadows for waybar and rofi if rofi has shadows add by then
 add the cli-run-safe feature
+when pkgs e.g. brightnessctl don't exist hide or mark them with (disabled) on the menu
+make hyprland option where you can do bunch of stuff with workspaces e.g. change monitor work space + add numpad theme for rofi
 
 -- terminal
 add explanation to sockets in zsh
