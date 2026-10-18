@@ -69,12 +69,15 @@ for i = 1, 10 do
 end
 
 -- Workspace quick switch
--- Using space/shift+space or mouse5/4
+-- Using space/shift+space or mouse 5/4
 bind(v.mainKey .. " + SPACE", hd.focus({ workspace = "m+1" }))
 bind(v.mainKey .. " + SHIFT + SPACE", hd.focus({ workspace = "m-1" }))
 
 bind(v.mainKey .. " + mouse:275", hd.focus({ workspace = "m+1" }))
 bind(v.mainKey .. " + mouse:276", hd.focus({ workspace = "m-1" }))
+
+bind(v.mainKey .. " + mouse_down", hd.focus({ workspace = "+1" }))
+bind(v.mainKey .. " + mouse_up", hd.focus({ workspace = "-1" }))
 
 -- Drag and move windows
 -- Using left & right mouse buttons

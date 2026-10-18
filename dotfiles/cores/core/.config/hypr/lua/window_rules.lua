@@ -24,7 +24,7 @@ window_rule({
 window_rule({
   name = "auto-floating-programs",
   match = {
-    initial_class = "floating-program",
+    initial_class = "^floating-program-.*$",
   },
   float = true,
   size = {"monitor_w * 0.9", "monitor_h * 0.8"},

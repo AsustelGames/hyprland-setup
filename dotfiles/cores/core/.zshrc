@@ -125,3 +125,9 @@ alias hlcl='hyprctl clients'
 # Custom
 alias menu='bash $HOME/.config/scripts/menu.sh'
 alias menu-core='bash /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh'
+
+alias pkgs='sudoedit /etc/nixos/nixos/default/packages/packages.nix'
+alias pkgconf='sudoedit /etc/nixos/nixos/default/packages/package-config.nix'
+alias todo='sudoedit /etc/nixos/todo.txt'
+alias flake='sudoedit /etc/nixos/flake.nix'
+alias nixosPath='echo "/etc/nixos/."'

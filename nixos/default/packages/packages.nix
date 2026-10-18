@@ -4,9 +4,7 @@ let
   requiredPkgs = with pkgs; [
     ### Main ###
     ly
-    hyprland
-    xinit
-    i3
+    inputs.hyprland.packages.${pkgs.system}.default
     udiskie
 
     ### Cli ###
@@ -44,12 +42,14 @@ let
     obs-studio
     audacity
     discord
+    drawy
     #bottles
     #wine
     prismlauncher
     kitty
     lact
     mission-center
+    shotcut
     #aseprite
     #kicad-unstable-small
     #nwg-look
@@ -59,8 +59,9 @@ let
     ### Tui programs ###
     bluetui
     wiremix
-    btop
-    yazi
+    inputs.yazi.packages.${pkgs.system}.default
+    xdg-desktop-portal-termfilechooser
+    xdg-desktop-portal
     mpv
     lazygit
     zsh
@@ -70,6 +71,7 @@ let
     glmark2
     cava
     clang-tools
+    qt6.qtdeclarative
     yt-dlp
     ffmpeg
     perf
@@ -82,7 +84,7 @@ let
     pipes-rs
     tldr
     man
-    p7zip
+    p7zip # Used in Yazi
     dysk
     cloc
     cliphist
@@ -94,7 +96,9 @@ let
     stress-ng
     lm_sensors
     gomplate
-    python3
+    python313
+    manim
+    tree-sitter # Used in Nvim
 
     ### C++ coding tools (Also included in shell.nix) ###
     cmake
@@ -108,6 +112,9 @@ let
   fontPkgs = with pkgs; [
     ### looks ###
     nerd-fonts.martian-mono
+    nerd-fonts.departure-mono
+    nerd-fonts.hurmit
+    nerd-fonts.profont
 
     ### Compatibility fonts ###
     corefonts
@@ -140,5 +147,29 @@ in
 
     # Config for requiredPkgs
     services.udisks2.enable = true; 
-  }; 
+    
+    # environment.etc."xdg/scripts/yazi-open" = {
+    #   mode = "0755";
+    #   text = ''
+    #     #!/bin/sh
+    #
+    #     if [ -d "$1" ]; then
+    #       exec yazi "$1"
+    #     else
+    #       exec yazi --select "$1"
+    #         fi
+    #         '';
+    # };
+    #
+    # xdg.desktopEntries.yazi = {
+    #   name = "Yazi";
+    #   genericName = "File Manager";
+    #   exec = "/etc/xdg/scripts/yazi-open %f";
+    #   terminal = true;
+    #   type = "Application";
+    #   mimeType = [
+    #     "inode/directory"
+    #   ];
+    # };
+  };
 }

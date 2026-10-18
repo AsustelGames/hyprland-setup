@@ -17,6 +17,7 @@ overhaul nixos config
 create custom iso
 hashed user password
 maybe add disko
+add zram
 
 -- hyprland
 fix permissions for hyprpicker, obs and hyprlock
@@ -25,13 +26,16 @@ configure & activate hyprlock and hypridle when lua support is added for them
 hyprland monitors through nixos
 make super+shift+w open alternative web browser
 when switched to lua make hyprland check for monitors.lua if the file doesnt exist copy from nixos or something
+try out hyprland plugins
+make the arrow keys change window pos
+make pressing super 1-10 in special actually exit out of special
+super + ?l / ?r -> switch to last or next workspace
 
 -- themes
 main add the 16 colors for galaxy and terra-castle
 waybar modern-v2 check bluetooth colors on the tablet + other bluetooth stuff
 
 -- statusbar
-eww hide battery if no battery exists
 show vpn, gpu, cpu usage, etc
 fix waybar bluetooth icons
 gnome like waybar
@@ -89,31 +93,50 @@ add explanation to sockets in zsh
 replace paths with path vars
 
 -- nvim
-use terminal colors
-make yazi open correct editor
 customize colors: barbar, nvim itself, lualine
 show errors on lualine
 on/off autocomplete
 disable autocomplete in .conf
-better Lazy.nvim menu (rounded borders)
 keybinds to show or hide full file path
 change color of auto suggestion from green to something else
 add a help menu
-reorganize startpage and config.lua
-test theme switching
+reorganize startpage.lua and config.lua
 toggle for wrap
-don't auto add cpp headers when using autocomplete
 custom menu to show all keybinds toggled by a keybind
 replace [*] with something else in luabar inactive split window
 make inactive #ifdefs easier to read
-spell checker
 mg979/vim-visual-multi
 smoka7/multicursors.nvim
-different color brackets {[({{}}{{{}}{{()}}})]}
-nvim hover split windows to focus
+change docs pos + scroll + access
+find the start of the funny bracket
+check some other blink.cmp stuff
+snippets
+markdown
+add keybind for the removal of white space at the end of the lines
+make ctrl+c copy
+custom menu where i can like copy whole file or just have actions in general
+
+ciw
+D
+W
+diw
+vi{ / (
+ci{
+cib
+vib
+
+flash.nvim
+surround plugin
+telescope > nvim tree
+m-s -> 's to jump
+m-^s -> '^s to jump to file marks
+custom snippets -> luasnip
+custom windows e.g. build menu or todo list
+local plugin
 
 -- filemanager
 yazi color scheme
+make yazi open correct editor
 make alt+h,l switch between tabs + alt+j,k to open and close tabs
 
 -- misc
@@ -124,29 +147,40 @@ configure zen
 fix installation + improve cheatsheet
 configure cava, mangohud, obs-studio, vscode and add them to core
 make a text file with all keybindings
-add vscode plugins to packages.nix
 split nixos cheatsheet into 2 different files + rename it correct
 install termusic
 
+quickshell stuff
+quick theme switching
+
+waybar like bar
+rofi like menus
 
 
-waybar sound cava thing idea 
-when music is playing: 8x bars ->  ▁▂▃▄▅▆▇█  ▁▂▃▄/35%/▅▆▇█
-when no music is playing:  35%, 󰝛 off
+-- Current
+separate inputs for hyprland, yazi
+yazi compatability pkgs -> resvg ImageMagick
+nixos clean up hosts
+nixos remove i3 if davinci works
+nixos remove home-manager folder
 
-    "modules-center": [
-        "custom/cava"
-    ],
+yazi zip
+yazi shift+a to make dir
 
-    "custom/cava": {
-        "format": "{}",
-        "exec": "~/.config/scripts/waybar/cava.sh"
-    },
+hyprland auto switch to brave when click view in discord or file
+hyprland davinci
+hyprland special ws thing I wanted
+nvim locally stored plugins (in config folder)
+hyprland bind for reloading core
+? add disko
 
-  /* Right modules */
-#custom-power-profiles, #bluetooth, #pulseaudio, #network, #custom-cava {
-  color: @foreground;
-  padding: 0px 9px;
-}
+nixos commit
+home dir clean up
+hyprgrass for touchscreen
+hyprmoncfg
+hyprtasking
+hyprglass
 
-
+yazi
+MediaInfo
+Glow Piper

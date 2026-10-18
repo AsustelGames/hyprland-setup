@@ -9,7 +9,7 @@ hl.config({
   },
 
   ecosystem = {
-    enforce_permissions = true,
+    --enforce_permissions = true,
     no_donation_nag = true,
   },
 })
@@ -20,11 +20,11 @@ hl.permission({
   type = "screencopy",
   mode = "allow",
 })
-hl.permission({
-  binary = "/nix/store/[a-z0-9]{32}-discord-[^/]+/bin/discord",
-  type = "screencopy",
-  mode = "allow",
-})
+--hl.permission({
+--  binary = "/nix/store/[a-z0-9]{32}-discord-[^/]+/bin/discord",
+--  type = "screencopy",
+--  mode = "allow",
+--})
 hl.permission({
   binary = "/nix/store/[a-z0-9]{32}-hyprpicker-[^/]+/bin/hyprpicker",
   type = "screencopy",

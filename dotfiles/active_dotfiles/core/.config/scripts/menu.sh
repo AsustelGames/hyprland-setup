@@ -396,7 +396,14 @@ clipboardMenu() {
   
   requestedTheme "${appsTheme}"
 
+  #choice=$(cliphist list | openMenu "" "" "Clipboard: " "" "2" "" "-theme-str" "window { width: 40%; }")
+
+  #if [ "${choice}" ]; then
+  #   cliphist decode ${choice} | wl-copy
+  #fi
+
   cliphist list | openMenu "" "" "Clipboard: " "" "2" "" "-theme-str" "window { width: 40%; }" | cliphist decode | wl-copy
+
 }
 
 
@@ -411,8 +418,9 @@ dotfiles-reload() {
     awww img --resize crop -t grow --transition-fps 120 "${wallpaperPath}" &
     waybar &
     bash "${kittyScriptPath}" -r &
-    hyprctl reload
-    swaync-client -R
+    hyprctl reload &
+    swaync-client -R &
+    systemctl --user restart xdg-desktop-portal-termfilechooser.service
   elif [ "$1" = "waybar" ]; then
     pkill -x cava
     pkill waybar

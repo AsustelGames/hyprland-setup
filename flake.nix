@@ -5,9 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     zen-browser = {
@@ -16,16 +21,16 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, zen-browser, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, hyprland, yazi, zen-browser, ... } @ inputs:
   let
     system = "x86_64-linux";
     
-    commonHomeManagerConfig = {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "bak";
-      home-manager.users.asustel = import ./home/home.nix;
-    };
+    # commonHomeManagerConfig = {
+    #   home-manager.useGlobalPkgs = true;
+    #   home-manager.useUserPackages = true;
+    #   home-manager.backupFileExtension = "bak";
+    #   home-manager.users.asustel = import ./home/home.nix;
+    # };
 
     mkHost = {
       name,
@@ -41,8 +46,8 @@
 
       modules = [
         ./hosts/${name}/configuration.nix
-        home-manager.nixosModules.home-manager
-        commonHomeManagerConfig
+        # home-manager.nixosModules.home-manager
+        # commonHomeManagerConfig
       ];
 
     };

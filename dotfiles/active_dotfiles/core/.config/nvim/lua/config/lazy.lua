@@ -17,28 +17,37 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("config.keybinds")
+require("config.lsp")
+
 vim.opt.termguicolors = true
 
 
 require("lazy").setup({
+  -- Plugins
   spec = {
-    -- import your plugins
-    { import = "plugins.lualine" },
-    { import = "plugins.barbar" },
-    { import = "plugins.colorizer" },
-    { import = "plugins.autocomplete"},
-    { import = "plugins.scrollofffraction" },
-    { import = "plugins.endscroll" },
-    { import = "plugins.autopairs" },
-    { import = "plugins.alpha" },
-    { import = "plugins.indentblankline" },
-    { import = "plugins.tree" }, 
-    { import = "plugins.comment"}, 
+    -- Info
+    { import = "plugins.info.tree" }, 
+    { import = "plugins.info.lualine" },
+    { import = "plugins.info.autocomplete" },
+
+    -- Looks
+    { import = "plugins.looks.coloring" },
+    { import = "plugins.looks.alpha" },
+
+    -- Quality of life
+    { import = "plugins.qol.qol" },
+
+    -- Scrolling
+    { import = "plugins.scrolling" },
   },
   change_detection = {
     enabled = true,
     notify = false,
   },
 
-  checker = { enabled = true },
+  ui = {
+    border = "rounded",
+  },
+
+  checker = { enabled = false },
 })

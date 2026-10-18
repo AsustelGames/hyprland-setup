@@ -1,59 +1,60 @@
 vim.opt.updatetime = 300
 
-vim.keymap.set("i", "<C-k>", function()
-  vim.lsp.buf.signature_help({
-    border = "rounded",
-    focusable = false,
-  })
-end, { silent = true })
+vim.diagnostic.config({
+  signs = false,
+  underline = false,
+  virtual_text = {
+    spacing = 1,
+    prefix = "",
+    format = function(diagnostic)
+      if diagnostic.severity == vim.diagnostic.severity.ERROR then
+        return "ERR "
+      elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+        return "WARN"
+      elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+        return "INFO"
+      elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+        return "HINT"
+      end
 
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float(nil, {
-      focusable = false,
-      border = "rounded",
-      source = "always",
-      prefix = " ",
-    })
-  end,
+      return ""
+    end, 
+  },
+  float = {
+    border = "rounded",
+    source = "always",
+  },
 })
 
-local M = {}
-
-function M.setup()
-  vim.diagnostic.config({
-    signs = false,
-    underline = true,
-    virtual_text = false,
-    float = {
-      border = "rounded",
-      source = "always",
-    },
-  })
-
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-  vim.lsp.config["clangd"] = {
-    cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--function-arg-placeholders=1", "--header-insertion=iwyu" },
-  
-    filetypes = { "c", "cpp", "cxx" },
-  
-    root_markers = { "compile_commands.json", ".git", "CMakeLists.txt" },
-  
-    settings = {
-      clangd = {
-        completion = {
-          detailedLabel = true
-        },
-        diagnostics = {
-          clangTidy = true
-        }
+-- Clangd (C++)
+vim.lsp.config["clangd"] = {
+  filetypes = { "c", "cpp", },
+  cmd = { "clangd", "--background-index", 
+    "--clang-tidy", "--completion-style=detailed", 
+    "--function-arg-placeholders=1", "--header-insertion=iwyu",
+    "--header-insertion=never",
+  },
+  root_markers = { "compile_commands.json", ".git", "CMakeLists.txt" },
+  settings = {
+    clangd = {
+      completion = {
+        detailedLabel = true
+      },
+      diagnostics = {
+        clangTidy = true
       }
     }
   }
+}
 
-  vim.lsp.enable("clangd")
-end
+vim.lsp.enable("clangd")
 
 
-return M
+-- Quickshell (qml)
+vim.lsp.config("qmlls", {
+  filetypes = { "qml" },
+  cmd = { "qmlls" },
+  root_markers = { ".qmlls.ini", "shell.qml", ".git" },
+})
+
+vim.lsp.enable("qmlls")
