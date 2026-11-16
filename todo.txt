@@ -3,10 +3,59 @@ hide laptop stuff like brightness and powerprofiles
 
 
 
+system ez setup
+menu don't reload stuff that requires wayland when hyprland not running
+when opening in an app automaticly switch to it
+nxre-auto or new name nxre + nxup make it use it
+disko.nix
+make pressing super 1-10 in special actually exit out of special
+prevent hyprland from running create custom home folders script every time you restart
+speed up theme switching
+nvim local plugin storing
+faster installation of my setup
+rofi hide cli apps
+kitty close warning
+hyprland permissions
+focus on actual issues e.g. install it on the tablet + make a yt video + issues like git
+rename "main" theme type to "desktop" + Apply/change -> Apply and for waybar select waybar style
+build gomplate themes beforehand to reduce calculations
+find the slowest thing while reloading all dotfiles
+zram
+printing func
+hide pp status on waybar if desktop
+touchscreen support
+lock
+waybar, kitty, rofi ws clicking -> update waybar + create an input dedicated to it + montly reminder
+maybe add tailscale
+fix udiskie
+swayosd for on screen volume changes visible
+satty for screenshoting
+menu.sh improvment pkgs gum (for cli), rsync (already have it but not in menu.sh it could improve performance), entr, inotify-tools, util-linux (flock), shfmt + check screenshot I made
+review my menu.sh
+replace swaync with Histui or Mako, or just keep swaync
+waybar show date and time in one module without clicking
+waybar cpu, gpu and ram usage
+improve theme system e.g. when config update it should be on every theme automaticly
+review whole config architecture -> folders in nixos
+readme
+
+!!! check everything below what to check off it I did it already
+!!! better github commits
+!!! evaluate everything before doing anything above
+
+# check if backlight exists + update the brightness menu to only show backlight and not other garbage
+ls -l /sys/class/backlight/
+
+# how to get device type e.g. laptop/desktop
+cat /sys/class/dmi/id/chassis_type
+hostnamectl chassis
+
+# check if hyprland is running
+pgrep -a Hyprland
 
 -- nixos
 make the power button not turn the system off immediatly
-readme how to add custom host + flake.nix stuff
+readme how to add a custom host + flake.nix stuff
 add support for hibernation
 use cpupower command
 custom nix modules
@@ -57,7 +106,6 @@ make the theme system apply the wallpaper regardless of bg format
 fix comments in theme function
 if a theme is switching and returns errors make it more clear (popup menu with error)
 move delete and reapply to apply/change theme
-waybar make steam popup text not have a shadow
 what if the files with core, theme or waybar theme names don't exist + if waybar theme missing and the theme support gomplate fix it idk
 add a update option to the main menu that updates dotfiles and more from github + backs up the old files
 when installing nixos restoring dotfiles through the menu will cause an error because hyprland and etc are no running fix that
@@ -176,6 +224,15 @@ hyprland bind for reloading core
 
 nixos commit
 home dir clean up
+hyprgrass for touchscreen
+hyprmoncfg
+hyprtasking
+hyprglass
+
+yazi
+MediaInfo
+Glow Piper
+n up
 hyprgrass for touchscreen
 hyprmoncfg
 hyprtasking

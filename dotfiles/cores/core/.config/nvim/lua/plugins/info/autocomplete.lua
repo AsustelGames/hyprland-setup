@@ -12,7 +12,7 @@ return {
       keymap = {
         preset = 'none',
 
-        ["<Enter>"] = { "accept", "fallback" },
+        ["<S-Enter>"] = { "accept", "fallback" },
         ["<S-Tab>"] = { "accept", "fallback" },
         ["<M-k>"] = { "select_prev", "fallback" },
         ["<M-j>"] = { "select_next", "fallback" },

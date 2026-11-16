@@ -37,6 +37,7 @@ let
 
     ### Programs ###
     #vscodium
+    libreoffice
     brave
     steam
     obs-studio
@@ -62,6 +63,7 @@ let
     inputs.yazi.packages.${pkgs.system}.default
     xdg-desktop-portal-termfilechooser
     xdg-desktop-portal
+    btop
     mpv
     lazygit
     zsh

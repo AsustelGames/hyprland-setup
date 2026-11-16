@@ -62,7 +62,6 @@ alias a='alias'
 
 alias s='sudo'
 
-
 # Editing
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
@@ -70,21 +69,14 @@ export SUDO_EDITOR="nvim"
 alias e='$EDITOR'
 alias se='sudoedit'
 
-
-# Cd
-alias ..='cd ..'
-alias ...='cd ../..'
-
-
 # Programs
 alias nv='nvim'
-alias vs='code'
 alias na='nano'
 
 alias y='yazi'
 alias lg='lazygit'
+alias slg='sudo lazygit'
 alias sc='shellcheck'
-
 
 # Creating & Removing
 alias srm='sudo rm'
@@ -97,7 +89,6 @@ alias skmd='sudo mkdir'
 alias t='touch'
 alias st='sudo touch'
 
-
 # Fun Stuff
 alias cm='cmatrix'
 alias pi='pipes-rs'
@@ -105,16 +96,11 @@ alias ca='cava'
 alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.config/fastfetch/logo.txt'
 
 # NixOS
-alias nxre-auto='bash $HOME/.config/scripts/nixos-rebuild.sh --auto'
-#alias nxre-laptop='sudo nixos-rebuild switch --flake /etc/nixos#laptop --impure && hyprctl reload'
-alias nxre-desktop='sudo nixos-rebuild switch --flake /etc/nixos#desktop --impure && hyprctl reload'
-
-alias nxsh='nix-shell /etc/nixos/shell.nix'
+alias nxre='/etc/nixos/dotfiles/cores/core/.config/scripts/nixos/nixos-system-rebuild.sh'
+alias nxup='/etc/nixos/dotfiles/cores/core/.config/scripts/nixos/nixos-system-update.sh'
 
 alias nxls-gens='sudo nixos-rebuild list-generations'
 alias nxrm-gens='sudo nix-collect-garbage -d'
-
-alias nxup='sudo nix flake update --flake /etc/nixos --impure'
 
 # Hyprland
 alias hlre='hyprctl reload'
@@ -130,4 +116,4 @@ alias pkgs='sudoedit /etc/nixos/nixos/default/packages/packages.nix'
 alias pkgconf='sudoedit /etc/nixos/nixos/default/packages/package-config.nix'
 alias todo='sudoedit /etc/nixos/todo.txt'
 alias flake='sudoedit /etc/nixos/flake.nix'
-alias nixosPath='echo "/etc/nixos/."'
+alias nixos='cd "/etc/nixos/."'
