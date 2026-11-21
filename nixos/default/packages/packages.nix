@@ -23,6 +23,11 @@ let
     quickshell
     #ags
     #eww
+
+    walker
+    elephant
+    kando
+
     hyprshot
     awww
     hyprpicker
