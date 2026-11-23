@@ -48,6 +48,15 @@ PROMPT='(%B%F{magenta}%D{%I:%M %p}%f%b)->%F{green}(%U%B%~%u%b)
  %f> '
 
 
+# Variables
+nixosDir="/etc/nixos"
+scriptDir="${nixosDir}/dotfiles/cores/core/.config/scripts"
+homeConfigDir="$HOME/.config"
+homeScriptDir="${homeConfigDir}/scripts"
+
+export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
+
 # Aliases
 alias lsn='\ls'
 alias ls='eza --icons=always --color=always'
@@ -63,11 +72,9 @@ alias a='alias'
 alias s='sudo'
 
 # Editing
-export EDITOR="nvim"
-export SUDO_EDITOR="nvim"
-
 alias e='$EDITOR'
 alias se='sudoedit'
+alias ae='bash ${scriptDir}/cli-utils/autoedit.sh'
 
 # Programs
 alias nv='nvim'
@@ -93,11 +100,11 @@ alias st='sudo touch'
 alias cm='cmatrix'
 alias pi='pipes-rs'
 alias ca='cava'
-alias ff='fastfetch --config ~/.config/fastfetch/fastfetch.jsonc --logo ~/.config/fastfetch/logo.txt'
+alias ff='fastfetch --config ${homeConfigDir}/fastfetch/fastfetch.jsonc --logo ${homeConfigDir}/fastfetch/logo.txt'
 
 # NixOS
-alias nxre='/etc/nixos/dotfiles/cores/core/.config/scripts/nixos/nixos-system-rebuild.sh'
-alias nxup='/etc/nixos/dotfiles/cores/core/.config/scripts/nixos/nixos-system-update.sh'
+alias nxre='bash ${scriptDir}/cli-utils/nixos-system-rebuild.sh'
+alias nxup='bash ${scriptDir}/cli-utils/nixos-system-update.sh'
 
 alias nxls-gens='sudo nixos-rebuild list-generations'
 alias nxrm-gens='sudo nix-collect-garbage -d'
@@ -107,13 +114,17 @@ alias hlre='hyprctl reload'
 alias hlmo='hyprctl monitors'
 alias hlla='hyprctl layers'
 alias hlcl='hyprctl clients'
+alias hlde='hyprctl devices'
 
 # Custom
-alias menu='bash $HOME/.config/scripts/menu.sh'
-alias menu-core='bash /etc/nixos/dotfiles/cores/core/.config/scripts/menu.sh'
+alias menu='bash ${homeScriptDir}/menu.sh'
+alias menu-core='bash ${scriptDir}/menu.sh'
 
-alias pkgs='sudoedit /etc/nixos/nixos/default/packages/packages.nix'
-alias pkgconf='sudoedit /etc/nixos/nixos/default/packages/package-config.nix'
-alias todo='sudoedit /etc/nixos/todo.txt'
-alias flake='sudoedit /etc/nixos/flake.nix'
-alias nixos='cd "/etc/nixos/."'
+alias pkgs='sudoedit ${nixosDir}/nixos/default/packages/packages.nix'
+alias pkgconf='sudoedit ${nixosDir}/nixos/default/packages/package-config.nix'
+alias todo='sudoedit ${nixosDir}/todo.txt'
+alias flake='sudoedit ${nixosDir}/flake.nix'
+
+alias nixos='cd "${nixosDir}"'
+alias scripts='cd "${homeScriptDir}"'
+alias scripts-core='"${scriptDir}"'

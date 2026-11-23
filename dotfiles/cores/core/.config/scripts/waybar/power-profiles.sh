@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-profile=$(powerprofilesctl get 2>/dev/null)
+profile=$(busctl --system get-property net.hadess.PowerProfiles /net/hadess/PowerProfiles net.hadess.PowerProfiles ActiveProfile | cut -d '"' -f 2)
 
 
 case $profile in
