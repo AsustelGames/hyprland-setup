@@ -13,6 +13,6 @@ else
   isValidInput=$(printf "${allInputs}" | grep -w "${input}")
   [ -z "${isValidInput}" ] && echo "'${input}' is not an valid input" && exit
   echo "Updating input '${input}'"
-  sudo nix flake lock --update-input "$1" ${nixosPath}
+  sudo nix flake update "$1" --flake ${nixosPath}
   echo "Now rebuild the system to see changes"
 fi
