@@ -1,0 +1,1 @@
+/home/asustel/.local/share/nvim/lazy/rainbow-delimiters.nvim/queries/javascript/rainbow-delimiters.scm

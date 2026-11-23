@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: 0BSD
+# SPDX-FileCopyrightText: © 2023 HiPhish
+
+blank_issues_enabled: true
+contact_links:
+  - name: Main repoo
+    url: 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
+    about: 'Upstream repository; you can also report bugs here on GitHub.'
