@@ -5,7 +5,6 @@ hl.config({
     disable_hyprland_logo = true,
     disable_splash_rendering = false,
     background_color = "rgba(00000000)",
-    vrr = 2,
   },
 
   ecosystem = {

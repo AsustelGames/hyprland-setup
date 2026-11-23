@@ -22,7 +22,4 @@ hl.on("hyprland.start", function ()
 
   -- Cursor theme 
   exec("hyprctl setcursor " .. v.cursorTheme .. " " .. v.cursorSize .. " &")
-
-  -- Create home folder e.g. Downloads, Videos, etc 
-  exec("bash " .. v.homeFoldersScriptPath)
 end)

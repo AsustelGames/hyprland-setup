@@ -21,7 +21,6 @@ return {
   wallpaperDir = homeDir .. "/.config/bg.jpg",
   
   -- Scripts/Programs
-  homeFoldersScriptPath = scriptsDir .. "/system-setup-tools/home-folders.sh",
   menuScriptPath = menuScriptPath,
   kittyScriptPath = kittyScriptPath,
 
