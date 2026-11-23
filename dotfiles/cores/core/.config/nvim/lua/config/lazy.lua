@@ -28,7 +28,7 @@ local plugin_dir = vim.fn.expand("~/.nvim")
 local local_plugins = {}
 
 for _, plugin in ipairs(vim.fn.glob(plugin_dir .. "/*", true, true)) do
-    if vim.fn.isfile(plugin .. "/.gitignore") == 1 vim.fn.isdirectory(plugin .. "/.github") == 1then
+    if vim.fn.filereadable(plugin .. "/.gitignore") == 1 or vim.fn.isdirectory(plugin .. "/.github") == 1 then
         table.insert(local_plugins, {
             dir = plugin,
         })

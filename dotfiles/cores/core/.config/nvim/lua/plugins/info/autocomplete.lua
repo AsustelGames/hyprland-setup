@@ -116,7 +116,8 @@ return {
       ghost_text = { enabled = true, },
 
       sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      -- fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = { implementation = "" },
       },
       cmdline = {
         keymap = { 
@@ -128,6 +129,10 @@ return {
     },
 
     config = function(_, opts)
+      opts.fuzzy = opts.fuzzy or {}
+      opts.fuzzy.implementation = "lua"
+
+      print("BLINK FUZZY:", opts.fuzzy.implementation)
       require("blink.cmp").setup(opts)
 
       local count = 0
