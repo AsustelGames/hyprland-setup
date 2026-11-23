@@ -22,6 +22,20 @@ require("config.lsp")
 vim.opt.termguicolors = true
 
 
+-- Set a custom plugin dir
+local plugin_dir = vim.fn.expand("~/.nvim")
+
+local local_plugins = {}
+
+for _, plugin in ipairs(vim.fn.glob(plugin_dir .. "/*", true, true)) do
+    if vim.fn.isdirectory(plugin .. "/.git") == 1 then
+        table.insert(local_plugins, {
+            dir = plugin,
+        })
+    end
+end
+
+
 require("lazy").setup({
   -- Plugins
   spec = {
@@ -39,6 +53,8 @@ require("lazy").setup({
 
     -- Scrolling
     { import = "plugins.scrolling" },
+
+    unpack(local_plugins),
   },
   change_detection = {
     enabled = true,
