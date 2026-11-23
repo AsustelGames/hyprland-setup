@@ -1,0 +1,22 @@
+bar/modules
+clock
+workspaces
+internet
+bluetooth
+special ws highlight or smth
+
+basicly add global copies of these vars
+        property int id: index + 1
+        property bool idIsMax: id === root.maxDisplayedWorkspaces
+
+        property var workspaces: Hyprland.workspaces.values.find(
+          w => w.id === id
+        )
+        property bool hasWindows: workspaces
+          ? workspaces.toplevels.values.length > 0
+          : false
+        property bool focused: workspaces && workspaces.focused ? true : false
+
+        property bool maxIdExceeded: idIsMax && focusedId > root.maxDisplayedWorkspaces
+        property bool maxMax: idIsMax && maxIdExceeded
+        property bool hovering: false
