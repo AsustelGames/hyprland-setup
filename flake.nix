@@ -4,16 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
 
-    yazi = {
-      url = "github:sxyazi/yazi";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    npu-hyprland.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    npu-kitty.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    npu-yazi.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    npu-rofi.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    npu-waybar.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -21,7 +17,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, hyprland, yazi, zen-browser, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, zen-browser, ... } @ inputs:
   let
     system = "x86_64-linux";
     
@@ -53,20 +49,28 @@
     };
   in {
     nixosConfigurations = {
+      ### desktop
       desktop = mkHost {
         name = "desktop";
       };
-      # Fast install desktop host.
-      # Used for getting the system up and
-      # running as fast as possible, then you
-      # install the rest of the packages afterwards.
       fi-desktop = mkHost {
         name = "desktop";
         # Enable only the required packages
+        # For faster installation
         enableAllPkgs = false;
       };
 
+      ### tablet
+      tablet = mkHost {
+        name = "tablet";
+      };
+      fi-tablet = mkHost {
+        name = "tablet";
+        # Enable only the required packages
+        # For faster installation
+        enableAllPkgs = false;
+      };
 
-    };
+    }; #
   };
 }

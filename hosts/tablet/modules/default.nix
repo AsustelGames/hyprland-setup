@@ -1,7 +1,8 @@
 {
   imports = [
-      ./boot.nix
-      ./packages.nix
-      ./graphics.nix
+    ./../../../nixos/extra/default/graphics.nix
+    ./../../../nixos/extra/default/boot.nix
+    ./../../../nixos/extra/default/zram.nix
+    ./../../../nixos/extra/default/users.nix
     ];
 }

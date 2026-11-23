@@ -4,25 +4,24 @@ let
   requiredPkgs = with pkgs; [
     ### Main ###
     ly
-    inputs.hyprland.packages.${pkgs.system}.default
+    (import inputs.npu-hyprland { system = pkgs.system; config.allowUnfree = true; }).hyprland
     udiskie
 
     ### Cli ###
+    (import inputs.npu-yazi { system = pkgs.system; config.allowUnfree = true; }).yazi
     neovim
     git
 
     ### Programs ###
-    kitty
+    (import inputs.npu-kitty { system = pkgs.system; config.allowUnfree = true; }).kitty
     brave
   ];
   otherPkgs = with pkgs; [
     ### Main ###
     hyprshutdown
-    rofi
-    waybar
+    (import inputs.npu-rofi { system = pkgs.system; config.allowUnfree = true; }).rofi
+    (import inputs.npu-waybar { system = pkgs.system; config.allowUnfree = true; }).waybar
     quickshell
-    #ags
-    #eww
 
     walker
     elephant
@@ -41,9 +40,8 @@ let
     #graphite-gtk-theme
 
     ### Programs ###
-    #vscodium
     libreoffice
-    brave
+    ###brave
     steam
     obs-studio
     audacity
@@ -52,7 +50,7 @@ let
     #bottles
     #wine
     prismlauncher
-    kitty
+    ###kitty
     lact
     mission-center
     shotcut
@@ -65,7 +63,6 @@ let
     ### Tui programs ###
     bluetui
     wiremix
-    inputs.yazi.packages.${pkgs.system}.default
     xdg-desktop-portal-termfilechooser
     xdg-desktop-portal
     btop
@@ -98,7 +95,6 @@ let
     wl-clipboard
     brightnessctl
     stow
-    udiskie
     eza
     stress-ng
     lm_sensors
